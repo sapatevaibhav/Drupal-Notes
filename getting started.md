@@ -73,3 +73,61 @@ Go to https://first.ddev.site/node/add/student to add new student and so on.....
 ---
 
 That was it for project related info next part covers what else I learned during the process.
+
+
+
+
+---
+<center>
+
+### 6 feb
+</center>
+<br>
+
+In waterfall project added **taxonomy** for *location* and then changed field from `autocomplete` to `select list` to do so we have to go to **Manage form display**.
+
+Added new difficulty taxonomy which will hold one media image for displaying the difficulty of waterfall for trekking.
+
+
+In the list of that same taxonomy created 3 terms indicating <b> Easy, Medium </b> and **High** difficulty. <br>
+In waterfall **conteny type** created new field to taxonomy reference to that Vocabulary.
+
+Learned abot the extensions named
+
+for the role **Content manager** changed some permissions giving it access to control the media and all the node permissions.
+
+Who can register accounts --- Visitors. Email verificatio uncheck.
+
+
+---
+
+### What about a bot
+
+- Extend - JSON:API installation.
+- Create custom module
+- install it.
+- add that block on block layout
+<center>
+
+**abondaned**
+
+</center>
+
+---
+
+
+
+
+### Exploring permissions
+
+created custom roles for the same. <br>
+gave permissions for student n teacher roles.<br>
+added create account option for visitors.<br>
+added role field in the create account form.<br>
+
+**problem faced 1**
+but they cannot access permissions. *solved* -> gave permission to access the content overview option...<br>
+![content creation fix](image.png)
+
+**problem faced 2**
+Now the role is not properly being assigned to the user while registering from the website itself.
