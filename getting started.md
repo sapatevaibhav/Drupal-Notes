@@ -131,3 +131,85 @@ but they cannot access permissions. *solved* -> gave permission to access the co
 
 **problem faced 2**
 Now the role is not properly being assigned to the user while registering from the website itself.
+
+solved -> instead of using user taxonomy used role.
+
+**problem faced 3**
+
+Now everyone can assign admin role themselves we must expose only the Student and Teacher roles to select.
+![alt text](image-1.png)
+
+
+<!--
+To fix above
+Step 1: Install and Enable the Profile Module
+
+Install the profile module
+```sh
+ddev composer require drupal/profile
+```
+
+Enable the module:
+```sh
+drush en profile -y
+```
+
+Install **Rules** module using
+```sh
+ddev composer require drupal/rules
+```
+
+and enable the same
+
+Navigate to Configuration > Workflow > Rules (`/admin/config/workflow/rules`).
+
+Add new reaction role and set React on event: After saving a new user entity.
+
+Add condition:
+'Entity: has field'
+-->
+
+
+#### Creating new custom block
+
+Since the menu has slightly changes now we have to go to
+**Structure > Block Types > Add Block Type** to create new template for the blocks.
+And now you can add custom blocks in the website.
+
+
+#### Creating custom URL paths for better SEO
+Currenlty we can see the url's as /node/1 and so on to make them custom like title or name of the content
+1. Install module named **pathauto**
+2. Enable it.
+3. Goto `Configuration > Search and Metadata  > URL aliases > Patterns` and create new pattern.
+4. Go to bulk crearte on the same page and check **content** and generate.
+5. flush all caches.
+
+
+#### Changing the home page for the admin
+Like discussed in the DSM.
+Shriaas asked if we can change the Admin content block.
+
+to do so I duplicated the content block from the Views .
+And then manipulated it now we have a new option to sort by no of comments.
+
+![alt text](image-2.png)
+
+---
+
+### Week meet 1 (7 feb)
+
+
+- Exposed filters.. &check;
+- different fields...
+- basic custom blocks....
+- View mode.....
+- Relationships.
+- Footer
+- workflow
+
+-- next week - IMPORTANT MODULES
+ Layout builder
+ config mgt
+
+-- Long term - Metadata (with headless)
