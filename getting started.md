@@ -195,6 +195,16 @@ And then manipulated it now we have a new option to sort by no of comments.
 
 ![alt text](image-2.png)
 
+#### Creating block with Views
+Here I've created a <em><b>Recently Added Students list</b></em> to display on the sidebar in the same view as the `Student List`.
+And changed some of the fields for the custom block.
+
+![alt text](image-3.png)
+
+Created new custom block type for college brochures. This custom block is only visible on the **About Us** page.
+![alt text](image-4.png)
+![alt text](image-5.png)
+
 ---
 
 ### Week meet 1 (7 feb)
