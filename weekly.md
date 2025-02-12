@@ -15,3 +15,18 @@
  config mgt
 
 -- Long term - Metadata (with headless)
+
+
+### Modules
+
+ Config Split. <br>
+ Config Ignore. <br>
+ Search API <br>
+&check; Pathauto <br>
+ Webform <br>
+&check; Devel <br>
+ Paragraphs <br>
+&check; Media Library <br>
+&check; Admin Toolbar <br>
+ Responsive Image <br>
+ Better Exposed Filters <br>
