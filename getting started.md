@@ -205,21 +205,58 @@ Created new custom block type for college brochures. This custom block is only v
 ![alt text](image-4.png)
 ![alt text](image-5.png)
 
+
 ---
 
-### Week meet 1 (7 feb)
+#### Media library
+
+1. **Enable and Configure the Media Library Module** <br>
+    Go to Extend (/admin/modules).
+    Search for Media Library and Media modules.
+    Enable both modules and click Install.
 
 
-- Exposed filters.. &check;
-- different fields...
-- basic custom blocks....
-- View mode.....
-- Relationships.
-- Footer
-- workflow
+2. **To Create new media type**<br>
+    Go to Structure → Media types (/admin/structure/media).
+    Click Add media type.
+    Choose a media type
+    Configure settings
+    Click Save.
 
--- next week - IMPORTANT MODULES
- Layout builder
- config mgt
+Image of custom media type with **Text label and remote video**
+![alt text](image-6.png)
 
--- Long term - Metadata (with headless)
+Image of PDF media type displayed on **About us** page `College brochure`
+![alt text](image-7.png)
+
+Enabling the media library in WYSIWYG Editor -> CKEditor
+![alt text](image-9.png)
+
+![alt text](image-8.png)
+
+
+#### Creating new Display mode
+
+Go to view modes `/admin/structure/display-modes/view`
+In the content section click on **Add view mode for Content**
+Now in Student Content type
+    - Go to **Manage display** tab
+    - Scroll down to bottom and check the newly created view mode.
+
+#### Layout Builder
+    Enable the Layout Builder Module
+go to the **manage display** section `admin/structure/types/manage/student/display` and check on **Use layout Builder**
+<br>Now we can see the manage layout option
+Edit your view from various options there.
+
+#### Custom Image Style
+GO to **Configuration > Media > Image Styles** create new image Style
+Add height and width and add filter **Scale and Crop**.
+
+
+
+
+dummy content module
+config mgt
+
+from tomorrow - contributed MODULES
