@@ -253,10 +253,25 @@ Edit your view from various options there.
 GO to **Configuration > Media > Image Styles** create new image Style
 Add height and width and add filter **Scale and Crop**.
 
+### Config Management
+First I changed the export path from `web/sites/default/settings.php` to `../config` so when I export config files it will be exported to config folder at root directory.
+
+Then I pushed my project with configs to github.
 
 
+In remote PC
+1. Cloned git repo - `git clone https://github.com/sapatevaibhav/drupal-college-site`
+2. `cd drupal-college-site/`
+3. started ddev container - `ddev start`
+4. Installed all dependencies - `ddev composer install`
+5. Created root admin - `ddev drush site-install standard --account-name=admin --account-pass=admin --yes`
+6. Fetched uuid from the remote config files - `cat config/system.site.yml | grep uuid`
+7. Set up current projects UUID from above output - `ddev drush config-set system.site uuid 6e3e1c54-b25e-47d3-b4bb-c2223ad556f6 -y`
+8. Delete the **Conflicting entities** - `ddev drush entity:delete shortcut && ddev drush entity:delete shortcut_set`
+9. Rebuild the cache - `ddev drush cr`
+10. Import the config - `ddev drush cim -y`
+11. Rebuild cache again - `ddev drush cr`
+12. Lauch the project - `ddev drush uli`
 
-dummy content module
-config mgt
-
+#
 from tomorrow - contributed MODULES
