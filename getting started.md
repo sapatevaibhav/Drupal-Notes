@@ -266,7 +266,7 @@ In remote PC
 4. Installed all dependencies - `ddev composer install`
 5. Created root admin - `ddev drush site-install standard --account-name=admin --account-pass=admin --yes`
 6. Fetched uuid from the remote config files - `cat config/system.site.yml | grep uuid`
-7. Set up current projects UUID from above output - `ddev drush config-set system.site uuid 6e3e1c54-b25e-47d3-b4bb-c2223ad556f6 -y`
+7. Set up current projects UUID from above output - `ddev drush config-set system.site uuid <UUID_HERE> -y`
 8. Delete the **Conflicting entities** - `ddev drush entity:delete shortcut && ddev drush entity:delete shortcut_set`
 9. Rebuild the cache - `ddev drush cr`
 10. Import the config - `ddev drush cim -y`
