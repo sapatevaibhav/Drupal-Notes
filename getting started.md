@@ -273,5 +273,18 @@ In remote PC
 11. Rebuild cache again - `ddev drush cr`
 12. Lauch the project - `ddev drush uli`
 
-#
-from tomorrow - contributed MODULES
+---
+
+## Exporting / Importing Database
+
+### Exporting
+1. Start the ddev container `ddev start`
+2. Export the database `ddev export-db --file=/home/path/to/your/project/folder`
+
+   e.g. **ddev export-db --file=/home/qed42/practice-movie-site/db.sql.gz**
+
+### Importing
+1. Start the ddev container
+2. Import the database `ddev import ddev import-db --file=path/to/exported/db.sql`
+
+    e.g. **ddev import-db --file=db.sql.gz**
