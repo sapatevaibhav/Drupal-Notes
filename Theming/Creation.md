@@ -246,3 +246,12 @@ function simplecollege_preprocess_page(array &$variables) {
   $variables['custom_bg_color'] = theme_get_setting('custom_bg_color');
 }
 ```
+
+
+### Preprecess functions
+
+The naming convention for the preprecessing functions is
+function THEMENAME_preprocess_HOOK()
+
+The purpose of preprocess PHP functions is that to modify variables before they are passed to Twig templates.
+![alt text](image-9.png)
