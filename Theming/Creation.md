@@ -255,3 +255,24 @@ function THEMENAME_preprocess_HOOK()
 
 The purpose of preprocess PHP functions is that to modify variables before they are passed to Twig templates.
 ![alt text](image-9.png)
+
+
+### Add CSS to the theme
+
+To add the css to our theme we need to follow the below steps
+
+- In the twig file of the view to which we want to add the css add classnames.
+- create new folder named **css** and create new file under it as **custom.css** add the css styling code under it.
+- In the **THEMENAME.libraries.yml** add below block so it loads the css.
+```yml
+global-styling:
+  css:
+    theme:
+      css/custom.css: {}
+```
+- In the **.theme** file create the preprocess function like below one so it loads the css.
+```php
+function simplecollege_preprocess_html(&$variables) {
+    $variables['#attached']['library'][] = 'simplecollege/global-styling';
+  }
+```
