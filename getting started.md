@@ -137,7 +137,7 @@ solved -> instead of using user taxonomy used role.
 **problem faced 3**
 
 Now everyone can assign admin role themselves we must expose only the Student and Teacher roles to select.
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 
 <!--
@@ -193,17 +193,17 @@ Shriaas asked if we can change the Admin content block.
 to do so I duplicated the content block from the Views .
 And then manipulated it now we have a new option to sort by no of comments.
 
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
 #### Creating block with Views
 Here I've created a <em><b>Recently Added Students list</b></em> to display on the sidebar in the same view as the `Student List`.
 And changed some of the fields for the custom block.
 
-![alt text](image-3.png)
+![alt text](images/image-3.png)
 
 Created new custom block type for college brochures. This custom block is only visible on the **About Us** page.
-![alt text](image-4.png)
-![alt text](image-5.png)
+![alt text](images/image-4.png)
+![alt text](images/image-5.png)
 
 
 ---
@@ -224,15 +224,15 @@ Created new custom block type for college brochures. This custom block is only v
     Click Save.
 
 Image of custom media type with **Text label and remote video**
-![alt text](image-6.png)
+![alt text](images/image-6.png)
 
 Image of PDF media type displayed on **About us** page `College brochure`
-![alt text](image-7.png)
+![alt text](images/image-7.png)
 
 Enabling the media library in WYSIWYG Editor -> CKEditor
-![alt text](image-9.png)
+![alt text](images/image-9.png)
 
-![alt text](image-8.png)
+![alt text](images/image-8.png)
 
 
 #### Creating new Display mode

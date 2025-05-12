@@ -32,12 +32,12 @@ and so on.
 Flush the cache and enable all the disabled blocks from the block layout menu.
 
 Changes the regions accordingly to our website needs
-![alt text](image-3.png)
+![alt text](images/image-3.png)
 
 ---
 
 Now our new regions are visible in the Block Layout menu.
-![alt text](image-4.png)
+![alt text](images/image-4.png)
 
 Then I cloned a **./templates/page.html.twig** file from the inbuilt theme and made some changes to display our all regions defined in our **.info.yml** file.
 
@@ -55,7 +55,7 @@ Then I cloned a **./templates/page.html.twig** file from the inbuilt theme and m
 
  ### Pipeline
 
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
 ---
 ### Overriding the settings
@@ -112,11 +112,11 @@ Saves the settings when the form is submitted.
 
 before it was like below having default fields for our custom theme.
 
-![alt text](image-5.png)
+![alt text](images/image-5.png)
 
 and now we can see two new options are there which we have added to the php file.
 
-![alt text](image-6.png)
+![alt text](images/image-6.png)
 
 We need hooks for the implementation of the same.
 
@@ -134,7 +134,7 @@ kint() from devel or dump() from php is used to display the variables in the nod
 2. {{ dump(title_suffix) }}# Prints info about specific section.
 3. {{ kint(_context|keys) }} # prints only the keys.
 
-![alt text](image-7.png)
+![alt text](images/image-7.png)
 
 
 Views theming
@@ -211,7 +211,7 @@ function simplecollege_form_system_theme_settings_alter(&$form, FormStateInterfa
 ```
 
 Now the above php code will render the block which will look like below one.
-![alt text](image-8.png)
+![alt text](images/image-8.png)
 
 3. Now add the respective components or classnames in the twig.html files such a way it will take effect on the website.
 
@@ -254,7 +254,7 @@ The naming convention for the preprecessing functions is
 function THEMENAME_preprocess_HOOK()
 
 The purpose of preprocess PHP functions is that to modify variables before they are passed to Twig templates.
-![alt text](image-9.png)
+![alt text](images/image-9.png)
 
 
 ### Add CSS to the theme
