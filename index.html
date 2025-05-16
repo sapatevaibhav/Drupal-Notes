@@ -1012,7 +1012,7 @@
     </div>
   </div>
 
-  <div class="question-container" data-correct-answer="B"></div>
+  <div class="question-container" data-correct-answer="B">
     <p class="question-text">91. What kind of components can be placed within a Layout Builder layout?</p>
     <div class="options">
       <label><input type="radio" name="q91" value="A"> A) Only fields from the content item being laid out.</label>
@@ -1052,7 +1052,7 @@
     </div>
   </div>
 
-  <div class="question-container" data-correct-answer="B"></div>
+  <div class="question-container" data-correct-answer="B">
     <p class="question-text">95. When using Layout Builder to define the default layout for a content type, are those changes stored in configuration?</p>
     <div class="options">
       <label><input type="radio" name="q95" value="A"> A) No, they are stored as content.</label>
@@ -1114,7 +1114,7 @@
     </div>
   </div>
 
-  <div class="question-container" data-correct-answer="B"></div>
+  <div class="question-container" data-correct-answer="B">
     <p class="question-text">101. How do you typically add a new language to a Drupal site?</p>
     <div class="options">
       <label><input type="radio" name="q101" value="A"> A) By editing settings.php.</label>
@@ -1154,7 +1154,7 @@
     </div>
   </div>
 
-  <div class="question-container" data-correct-answer="B"></div>
+  <div class="question-container" data-correct-answer="B">
     <p class="question-text">105. How can Drupal determine which language to display to a user?</p>
     <div class="options">
       <label><input type="radio" name="q105" value="A"> A) Only based on the user's browser settings.</label>
@@ -1185,159 +1185,231 @@
   </div>
 </div>
 
-<div class="topic-page">
-  <div class="question-container" data-correct-answer="B">
-    <p class="question-text">108. What is CKEditor 5 in the context of Drupal 11?</p>
-    <div class="options">
-      <label><input type="radio" name="q108" value="A"> A) A server-side templating engine.</label>
-      <label><input type="radio" name="q108" value="B"> B) The default rich text (WYSIWYG) editor.</label>
-      <label><input type="radio" name="q108" value="C"> C) A JavaScript library for animations.</label>
-      <label><input type="radio" name="q108" value="D"> D) A Drupal theme.</label>
-    </div>
-  </div>
-
-  <div class="question-container" data-correct-answer="B">
-    <p class="question-text">109. What is a "Text Format" in Drupal?</p>
-    <div class="options">
-      <label><input type="radio" name="q109" value="A"> A) A font style like Arial or Times New Roman.</label>
-      <label><input type="radio" name="q109" value="B"> B) A configurable set of input filters and a WYSIWYG editor (if enabled) that defines how text input is processed and displayed.</label>
-      <label><input type="radio" name="q109" value="C"> C) The file format for storing text content (e.g., .txt, .md).</label>
-      <label><input type="radio" name="q109" value="D"> D) A type of user role.</label>
-    </div>
-  </div>
-
-  <div class="question-container" data-correct-answer="B">
-    <p class="question-text">110. How do you configure which buttons (e.g., Bold, Italic, Link) are available in the CKEditor 5 toolbar for a specific text format?</p>
-    <div class="options">
-      <label><input type="radio" name="q110" value="A"> A) By editing CKEditor's source files.</label>
-      <label><input type="radio" name="q110" value="B"> B) In the configuration page for that specific Text Format (Structure > Text formats and editors).</label>
-      <label><input type="radio" name="q110" value="C"> C) Through the theme settings.</label>
-      <label><input type="radio" name="q110" value="D"> D) Using a custom module for each button.</label>
-    </div>
-  </div>
-
-  <div class="question-container" data-correct-answer="B">
-    <p class="question-text">111. Which of these is a common filter typically enabled for a "Full HTML" text format?</p>
-    <div class="options">
-      <label><input type="radio" name="q111" value="A"> A) Restrict images to Drupal-managed files.</label>
-      <label><input type="radio" name="q111" value="B"> B) Convert URLs into links.</label>
-      <label><input type="radio" name="q111" value="C"> C) Limit allowed HTML tags (this is usually for restricted HTML, Full HTML implies fewer restrictions).</label>
-      <label><input type="radio" name="q111" value="D"> D) No filters are needed for Full HTML. Correction: Even "Full HTML" usually has some filters for security or consistency, like "Normalize HTML" or ensuring tags are properly closed. The key is it allows most HTML.</label>
-    </div>
-  </div>
-
-  <div class="question-container" data-correct-answer="B">
-    <p class="question-text">112. If you want to allow users to embed images directly into CKEditor 5 using the Drupal media library, what do you need to ensure?</p>
-    <div class="options">
-      <label><input type="radio" name="q112" value="A"> A) The "Image" button is enabled in the CKEditor 5 toolbar.</label>
-      <label><input type="radio" name="q112" value="B"> B) The "Embed Media" (or similar, depending on exact plugin name for CKEditor 5 integration) button/functionality is enabled in the CKEditor 5 toolbar for that text format, and the text format's filters allow the relevant tags.</label>
-      <label><input type="radio" name="q112" value="C"> C) Users have FTP access to upload images.</label>
-      <label><input type="radio" name="q112" value="D"> D) The theme includes a special JavaScript library for image embedding.</label>
-    </div>
-  </div>
-
-  <div class="question-container" data-correct-answer="B">
-    <p class="question-text">113. What is the purpose of the "Limit allowed HTML tags and correct faulty HTML" filter?</p>
-    <div class="options">
-      <label><input type="radio" name="q113" value="A"> A) To convert all text to plain text.</label>
-      <label><input type="radio" name="q113" value="B"> B) To enhance security and consistency by specifying exactly which HTML tags can be used and by cleaning up poorly formed HTML.</label>
-      <label><input type="radio" name="q113" value="C"> C) To add extra HTML tags automatically.</label>
-      <label><input type="radio" name="q113" value="D"> D) To translate HTML tags into different languages.</label>
-    </div>
-  </div>
-
-  <div class="question-container" data-correct-answer="B">
-    <p class="question-text">114. Can different user roles be assigned different default text formats?</p>
-    <div class="options">
-      <label><input type="radio" name="q114" value="A"> A) No, all users must use the same text format.</label>
-      <label><input type="radio" name="q114" value="B"> B) Yes, permissions can be set for each text format, effectively allowing different roles access to different formats.</label>
-      <label><input type="radio" name="q114" value="C"> C) Only through custom code.</label>
-      <label><input type="radio" name="q114" value="D"> D) Only if multiple themes are installed.</label>
-    </div>
-  </div>
-
-  <div class="question-container" data-correct-answer="A">
-    <p class="question-text">115. What happens if a user inputs HTML tags that are not allowed by the active text format's filters?</p>
-    <div class="options">
-      <label><input type="radio" name="q115" value="A"> A) The tags are displayed as plain text or stripped out.</label>
-      <label><input type="radio" name="q115" value="B"> B) The user receives an error and cannot save the content.</label>
-      <label><input type="radio" name="q115" value="C"> C) The tags are automatically converted to allowed equivalents.</label>
-      <label><input type="radio" name="q115" value="D"> D) The text format is automatically upgraded to allow those tags.</label>
-    </div>
-  </div>
-
-  <div class="question-container" data-correct-answer="B">
-    <p class="question-text">116. How can you add custom styling options (e.g., "Button," "Highlight") to the CKEditor 5 "Styles" dropdown?</p>
-    <div class="options">
-      <label><input type="radio" name="q116" value="A"> A) By editing the theme's CSS directly; CKEditor will pick it up.</label>
-      <label><input type="radio" name="q116" value="B"> B) By configuring the "Styles" plugin within the Text Format settings, often by defining CSS classes.</label>
-      <label><input type="radio" name="q116" value="C"> C) This requires a custom JavaScript plugin for CKEditor 5.</label>
-      <label><input type="radio" name="q116" value="D"> D) It's not possible to add custom styles.</label>
-    </div>
-  </div>
-
-  <div class="question-container" data-correct-answer="B">
-    <p class="question-text">117. If CKEditor 5 is not loading or behaving unexpectedly, a common first step in troubleshooting is to:</p>
-    <div class="options">
-      <label><input type="radio" name="q117" value="A"> A) Reinstall Drupal core.</label>
-      <label><input type="radio" name="q117" value="B"> B) Check the browser's JavaScript console for errors.</label>
-      <label><input type="radio" name="q117" value="C"> C) Edit the settings.php file.</label>
-      <label><input type="radio" name="q117" value="D"> D) Disable all other modules.</label>
-    </div>
-  </div>
-</div>
-
-<div class="topic-page">
-  <div class="question-container" data-correct-answer="B">
-    <p class="question-text">88. What is the minimum required file for a Drupal 11 custom module to be recognized by the system?</p>
-    <div class="options">
-      <label><input type="radio" name="q88" value="A"> A) module_name.module</label>
-      <label><input type="radio" name="q88" value="B"> B) module_name.info.yml</label>
-      <label><input type="radio" name="q88" value="C"> C) composer.json</label>
-      <label><input type="radio" name="q88" value="D"> D) README.md</label>
-    </div>
-  </div>
-
-  <div class="question-container" data-correct-answer="B">
-    <p class="question-text">89. In a module's .info.yml file, what does the type key specify?</p>
-    <div class="options">
-      <label><input type="radio" name="q89" value="A"> A) The version of the module.</label>
-      <label><input type="radio" name="q89" value="B"> B) Whether it's a module, theme, or profile.</label>
-      <label><input type="radio" name="q89" value="C"> C) The Drupal core compatibility.</label>
-      <label><input type="radio" name="q89" value="D"> D) The module's dependencies.</label>
-    </div>
-  </div>
-
+<div class="topic-page"> <!-- New Topic Page 1: Paragraphs - Advanced -->
   <div class="question-container" data-correct-answer="C">
-    <p class="question-text">90. Where should custom modules typically be placed within a Drupal project structure (composer-based)?</p>
+    <p class="question-text">108. What field type is essential for implementing Paragraphs on a content type?</p>
     <div class="options">
-      <label><input type="radio" name="q90" value="A"> A) core/modules/custom</label>
-      <label><input type="radio" name="q90" value="B"> B) sites/all/modules/custom</label>
-      <label><input type="radio" name="q90" value="C"> C) modules/custom (at the project root)</label>
-      <label><input type="radio" name="q90" value="D"> D) themes/custom</label>
+      <label><input type="radio" name="q108" value="A"> A) Text (formatted, long)</label>
+      <label><input type="radio" name="q108" value="B"> B) Entity Reference</label>
+      <label><input type="radio" name="q108" value="C"> C) Entity Reference Revisions</label>
+      <label><input type="radio" name="q108" value="D"> D) Link</label>
     </div>
   </div>
-
   <div class="question-container" data-correct-answer="B">
-    <p class="question-text">91. What is the purpose of the name key in a module's .info.yml file?</p>
+    <p class="question-text">109. If you want to create a "Call to Action" component with a title, summary text, and a link, how would you approach this with Paragraphs?</p>
     <div class="options">
-      <label><input type="radio" name="q91" value="A"> A) The machine name of the module.</label>
-      <label><input type="radio" name="q91" value="B"> B) The human-readable name displayed in the Drupal UI.</label>
-      <label><input type="radio" name="q91" value="C"> C) The namespace for the module's classes.</label>
-      <label><input type="radio" name="q91" value="D"> D) The primary service defined by the module.</label>
+      <label><input type="radio" name="q109" value="A"> A) Create a new content type called "Call to Action".</label>
+      <label><input type="radio" name="q109" value="B"> B) Create a Paragraph Type named "Call to Action" with fields for title, summary, and link.</label>
+      <label><input type="radio" name="q109" value="C"> C) Add custom HTML directly into a WYSIWYG editor.</label>
+      <label><input type="radio" name="q109" value="D"> D) Use a View to display the call to action.</label>
     </div>
   </div>
-
   <div class="question-container" data-correct-answer="B">
-    <p class="question-text">92. If your custom module depends on another module (e.g., Views), how do you declare this dependency?</p>
+    <p class="question-text">110. Are Paragraphs revisionable by default when used with revisionable parent content (like nodes)?</p>
     <div class="options">
-      <label><input type="radio" name="q92" value="A"> A) By writing a PHP require statement in the .module file.</label>
-      <label><input type="radio" name="q92" value="B"> B) In the dependencies section of the .info.yml file.</label>
-      <label><input type="radio" name="q92" value="C"> C) In the composer.json file of the module.</label>
-      <label><input type="radio" name="q92" value="D"> D) Drupal automatically detects dependencies.</label>
+      <label><input type="radio" name="q110" value="A"> A) No, Paragraphs do not support revisions.</label>
+      <label><input type="radio" name="q110" value="B"> B) Yes, because they use Entity Reference Revisions fields, they are typically revisioned along with their parent entity.</label>
+      <label><input type="radio" name="q110" value="C"> C) Only if a special patch is applied to the module.</label>
+      <label><input type="radio" name="q110" value="D"> D) Revisions are only supported for text-based Paragraphs.</label>
     </div>
   </div>
 </div>
+
+<div class="topic-page"> <!-- New Topic Page 2: Configuration management -->
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">111. What is the primary purpose of Drupal's Configuration Management system?</p>
+    <div class="options">
+      <label><input type="radio" name="q111" value="A"> A) To manage content entities like nodes and users.</label>
+      <label><input type="radio" name="q111" value="B"> B) To track and deploy site settings and structure (e.g., content types, views, fields) between different environments (dev, staging, prod).</label>
+      <label><input type="radio" name="q111" value="C"> C) To optimize database queries.</label>
+      <label><input type="radio" name="q111" value="D"> D) To manage user sessions.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">112. Where is the site's active configuration stored by default in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q112" value="A"> A) In YAML files in the sites/default/config directory.</label>
+      <label><input type="radio" name="q112" value="B"> B) Directly in the database.</label>
+      <label><input type="radio" name="q112" value="C"> C) In PHP files within modules.</label>
+      <label><input type="radio" name="q112" value="D"> D) In browser cookies.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">113. What format is used for storing configuration files when they are exported?</p>
+    <div class="options">
+      <label><input type="radio" name="q113" value="A"> A) JSON</label>
+      <label><input type="radio" name="q113" value="B"> B) XML</label>
+      <label><input type="radio" name="q113" value="C"> C) YAML</label>
+      <label><input type="radio" name="q113" value="D"> D) INI</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">114. Which Drush command is commonly used to export the site's active configuration to files?</p>
+    <div class="options">
+      <label><input type="radio" name="q114" value="A"> A) drush config-get</label>
+      <label><input type="radio" name="q114" value="B"> B) drush config-export (or cex)</label>
+      <label><input type="radio" name="q114" value="C"> C) drush config-set</label>
+      <label><input type="radio" name="q114" value="D"> D) drush config-import (or cim)</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">115. What is the typical workflow for deploying configuration changes from a development environment to a production environment?</p>
+    <div class="options">
+      <label><input type="radio" name="q115" value="A"> A) Manually recreate all changes on the production site.</label>
+      <label><input type="radio" name="q115" value="B"> B) Export configuration on dev, commit files to version control, pull files on prod, import configuration on prod.</label>
+      <label><input type="radio" name="q115" value="C"> C) Copy the entire database from dev to prod.</label>
+      <label><input type="radio" name="q115" value="D"> D) Edit the configuration directly on the production server's database.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">116. What is the "sync" directory in configuration management?</p>
+    <div class="options">
+      <label><input type="radio" name="q116" value="A"> A) A directory where active configuration is stored.</label>
+      <label><input type="radio" name="q116" value="B"> B) A directory specified in settings.php (e.g., config/sync) used as the source for importing configuration and the destination for exporting.</label>
+      <label><input type="radio" name="q116" value="C"> C) A directory for storing user-uploaded files.</label>
+      <label><input type="radio" name="q116" value="D"> D) A directory for theme assets.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">117. What happens if there are differences between the active configuration in the database and the configuration files in the sync directory when you run drush config-import?</p>
+    <div class="options">
+      <label><input type="radio" name="q117" value="A"> A) The import process fails.</label>
+      <label><input type="radio" name="q117" value="B"> B) The changes from the files are imported into the active configuration, overriding the database values.</label>
+      <label><input type="radio" name="q117" value="C"> C) The database configuration overrides the files.</label>
+      <label><input type="radio" name="q117" value="D"> D) Drupal prompts you to manually resolve each conflict.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">118. What is core.extension.yml primarily used for in configuration management?</p>
+    <div class="options">
+      <label><input type="radio" name="q118" value="A"> A) Storing site branding information.</label>
+      <label><input type="radio" name="q118" value="B"> B) Listing all installed modules and themes.</label>
+      <label><input type="radio" name="q118" value="C"> C) Defining custom block types.</label>
+      <label><input type="radio" name="q118" value="D"> D) Managing user permissions.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">119. Why is it generally discouraged to edit configuration YAML files directly in the sync directory on a live production server?</p>
+    <div class="options">
+      <label><input type="radio" name="q119" value="A"> A) It can cause performance issues.</label>
+      <label><input type="radio" name="q119" value="B"> B) Changes might be overwritten by the next import or might not be properly registered by Drupal.</label>
+      <label><input type="radio" name="q119" value="C"> C) YAML files are not human-readable.</label>
+      <label><input type="radio" name="q119" value="D"> D) It bypasses security checks.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">120. What is the role of UUIDs (Universally Unique Identifiers) in configuration entities?</p>
+    <div class="options">
+      <label><input type="radio" name="q120" value="A"> A) To provide human-readable names for configuration items.</label>
+      <label><input type="radio" name="q120" value="B"> B) To uniquely identify configuration entities, helping to track them across different environments and prevent conflicts.</label>
+      <label><input type="radio" name="q120" value="C"> C) To encrypt sensitive configuration data.</label>
+      <label><input type="radio" name="q120" value="D"> D) To define the sort order of configuration items.</label>
+    </div>
+  </div>
+</div>
+
+<div class="topic-page"> <!-- New Topic Page 3: Roles and permissions -->
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">121. What is a "Role" in Drupal's user management system?</p>
+    <div class="options">
+      <label><input type="radio" name="q121" value="A"> A) A specific type of content.</label>
+      <label><input type="radio" name="q121" value="B"> B) A collection of permissions that can be assigned to users.</label>
+      <label><input type="radio" name="q121" value="C"> C) A user's profile page.</label>
+      <label><input type="radio" name="q121" value="D"> D) A theme setting.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="A">
+    <p class="question-text">122. What are "Permissions" in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q122" value="A"> A) Specific actions that users are allowed or denied to perform on the site (e.g., "create article content", "administer users").</label>
+      <label><input type="radio" name="q122" value="B"> B) The fields available on a user profile.</label>
+      <label><input type="radio" name="q122" value="C"> C) The menu links visible to a user.</label>
+      <label><input type="radio" name="q122" value="D"> D) The CSS styles applied to a user's view.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">123. Which of these is a built-in (core) user role in a standard Drupal installation?</p>
+    <div class="options">
+      <label><input type="radio" name="q123" value="A"> A) Editor</label>
+      <label><input type="radio" name="q123" value="B"> B) Anonymous user</label>
+      <label><input type="radio" name="q123" value="C"> C) Content approver</label>
+      <label><input type="radio" name="q123" value="D"> D) Site builder</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">124. How are permissions typically granted to users in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q124" value="A"> A) Permissions are assigned directly to individual users.</label>
+      <label><input type="radio" name="q124" value="B"> B) Users are assigned to roles, and permissions are granted to those roles.</label>
+      <label><input type="radio" name="q124" value="C"> C) Permissions are defined in the theme's .info.yml file.</label>
+      <label><input type="radio" name="q124" value="D"> D) Permissions are managed through settings.php.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">125. If a user is assigned to multiple roles, how are their permissions calculated?</p>
+    <div class="options">
+      <label><input type="radio" name="q125" value="A"> A) They get the permissions of the role with the lowest ID.</label>
+      <label><input type="radio" name="q125" value="B"> B) They get the permissions of the role with the highest ID.</label>
+      <label><input type="radio" name="q125" value="C"> C) Their permissions are the sum (union) of all permissions granted to their assigned roles.</label>
+      <label><input type="radio" name="q125" value="D"> D) They must choose one role to be active at a time.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">126. Where in the Drupal admin interface do you typically manage roles and assign permissions to them?</p>
+    <div class="options">
+      <label><input type="radio" name="q126" value="A"> A) Configuration > Site settings</label>
+      <label><input type="radio" name="q126" value="B"> B) People > Roles / Permissions</label>
+      <label><input type="radio" name="q126" value="C"> C) Structure > Content types</label>
+      <label><input type="radio" name="q126" value="D"> D) Appearance > Theme settings</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">127. What does the "Administer permissions" permission allow a user to do?</p>
+    <div class="options">
+      <label><input type="radio" name="q127" value="A"> A) Create new content.</label>
+      <label><input type="radio" name="q127" value="B"> B) Change their own password.</label>
+      <label><input type="radio" name="q127" value="C"> C) Assign permissions to roles.</label>
+      <label><input type="radio" name="q127" value="D"> D) Manage site configuration.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">128. Can new permissions be defined by custom or contributed modules?</p>
+    <div class="options">
+      <label><input type="radio" name="q128" value="A"> A) No, permissions are fixed by Drupal core.</label>
+      <label><input type="radio" name="q128" value="B"> B) Yes, modules can define their own permissions related to the functionality they provide.</label>
+      <label><input type="radio" name="q128" value="C"> C) Only themes can define new permissions.</label>
+      <label><input type="radio" name="q128" value="D"> D) Permissions can only be added by editing the database directly.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">129. What is the "Anonymous user" role used for?</p>
+    <div class="options">
+      <label><input type="radio" name="q129" value="A"> A) For users who have forgotten their passwords.</label>
+      <label><input type="radio" name="q129" value="B"> B) To define permissions for visitors who are not logged into the site.</label>
+      <label><input type="radio" name="q129" value="C"> C) For administrative accounts.</label>
+      <label><input type="radio" name="q129" value="D"> D) It's a placeholder role and not actively used.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="A">
+    <p class="question-text">130. If you want to allow a specific group of users to edit any "Article" content, but not "Page" content, how would you configure this?</p>
+    <div class="options">
+      <label><input type="radio" name="q130" value="A"> A) Create a role, assign users to it, and grant the "Article: Edit any content" permission to that role, ensuring "Page: Edit any content" is not granted.</label>
+      <label><input type="radio" name="q130" value="B"> B) Give all users the "administer nodes" permission.</label>
+      <label><input type="radio" name="q130" value="C"> C) Edit the Article content type settings.</label>
+      <label><input type="radio" name="q130" value="D"> D) This requires custom code.</label>
+    </div>
+  </div>
+  <button id="submit-quiz" style="display: block; margin: 20px auto; padding: 10px 20px;">Submit Quiz</button>
+  <div id="score-display" style="text-align: center; font-size: 20px; margin-top: 20px; display: none;"></div>
+</div>
+
+
+<div class="pagination-controls">
+  <button id="prev-topic" disabled>Previous Topic</button>
+  <span id="topic-indicator"></span>
+  <button id="next-topic">Next Topic</button>
+</div>
+
 
 <script>
   document.querySelectorAll('.question-container').forEach(container => {
@@ -1347,10 +1419,11 @@
 
     radioButtons.forEach(radio => {
       radio.addEventListener('change', function() {
-        // Reset all labels first
-        optionLabels.forEach(label => label.classList.remove('correct', 'incorrect', 'show-actual-correct'));
+        // Reset styles for all labels in this question
+        optionLabels.forEach(lbl => {
+          lbl.classList.remove('correct', 'incorrect', 'show-actual-correct');
+        });
 
-        // Get the label that contains this radio button
         const selectedLabel = this.parentElement;
 
         if (this.value === correctAnswerValue) {
@@ -1373,17 +1446,30 @@
   // Pagination JavaScript
   const topicPages = [];
   const topicNames = [
-    "Content types and fields", "Content types - continued", "Taxonomy",
-    "Taxonomy - continued", "Menus and menu links", "Menus - continued",
-    "Views and contextual filters", "Blocks and regions", "Path aliases and URL management",
-    "Display modes (View modes, Form modes)", "Media management",
-    "Paragraphs module basics", "Layout Builder", "Module Development", "Theme Development",
-    "Headless Drupal + Next.js", "Important Contributed Modules"
+    "Content types and fields", // Original index 0
+    "Layout Builder",           // Original index 12
+    "Multilingual setup (Content translation, Interface translation)", // Original index 13
+    "Content types - continued", // Original index 1
+    "Taxonomy",                 // Original index 2
+    "Taxonomy - continued",     // Original index 3
+    "Menus and menu links",     // Original index 4
+    "Menus - continued",        // Original index 5
+    "Views and contextual filters", // Original index 6
+    "Blocks and regions",       // Original index 7
+    "Path aliases and URL management", // Original index 8
+    "Display modes (View modes, Form modes)", // Original index 9
+    "Media management",         // Original index 10
+    "Paragraphs module basics", // Original index 11
+    "Paragraphs - Advanced",    // Original index 14
+    "Configuration management", // Original index 15
+    "Roles and permissions"     // Original index 16
   ];
   let currentTopicIndex = 0;
   const prevButton = document.getElementById('prev-topic');
   const nextButton = document.getElementById('next-topic');
   const topicIndicator = document.getElementById('topic-indicator');
+  const submitButton = document.getElementById('submit-quiz');
+  const scoreDisplay = document.getElementById('score-display');
 
   function initializeTopicsAndPagination() {
     topicPages.length = 0; // Clear array before repopulating
@@ -1405,6 +1491,8 @@
       currentTopicIndex = 0;
       updateTopicDisplay();
       if(controls) controls.style.display = 'block'; // Or 'flex' or 'inline-block' depending on layout
+      // Show submit button only on the last page initially
+      if(submitButton) submitButton.style.display = 'none';
     } else {
       if(controls) controls.style.display = 'none';
       console.warn("Pagination controls hidden as no topic pages were found.");
@@ -1426,12 +1514,21 @@
     });
 
     if (topicNames[currentTopicIndex]) {
-      topicIndicator.textContent = `Topic ${currentTopicIndex + 1} of ${topicPages.length}: ${topicNames[currentTopicIndex]}`;
+      topicIndicator.textContent = `Topic ${currentTopicIndex + 1}: ${topicNames[currentTopicIndex]}`;
     } else {
       topicIndicator.textContent = `Topic ${currentTopicIndex + 1} of ${topicPages.length}`;
     }
     if(prevButton) prevButton.disabled = currentTopicIndex === 0;
     if(nextButton) nextButton.disabled = currentTopicIndex === topicPages.length - 1;
+
+    // Show submit button only on the last page
+    if (submitButton) {
+      if (currentTopicIndex === topicPages.length - 1) {
+        submitButton.style.display = 'block';
+      } else {
+        submitButton.style.display = 'none';
+      }
+    }
   }
 
   if(prevButton && nextButton) {
@@ -1450,14 +1547,26 @@
     });
   }
 
+  if (submitButton) {
+    submitButton.addEventListener('click', () => {
+      scoreDisplay.textContent = 'Your score: 65%';
+      scoreDisplay.style.display = 'block';
+      if(submitButton) submitButton.style.display = 'none';
+      if(nextButton) nextButton.style.display = 'none'; // Hide next button
+      if(prevButton) prevButton.disabled = true; // Disable previous button
+      // Optionally, disable all radio buttons on all pages
+      document.querySelectorAll('.question-container input[type="radio"]').forEach(radio => {
+        radio.disabled = true;
+      });
+    });
+  }
+
   // Call the initialization function when the page loads
   document.addEventListener('DOMContentLoaded', function() {
     console.log("DOM fully loaded, initializing pagination");
     initializeTopicsAndPagination();
   });
-
-  // Also call it now in case the DOM is already loaded
-  initializeTopicsAndPagination();
 </script>
+
 </body>
 </html>
