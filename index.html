@@ -1399,10 +1399,1510 @@
       <label><input type="radio" name="q130" value="D"> D) This requires custom code.</label>
     </div>
   </div>
-  <button id="submit-quiz" style="display: block; margin: 20px auto; padding: 10px 20px;">Submit Quiz</button>
-  <div id="score-display" style="text-align: center; font-size: 20px; margin-top: 20px; display: none;"></div>
+
 </div>
 
+<div class="topic-page"> <!-- New Topic Page: Module Development -->
+  <h2>Module Development</h2>
+
+  <h3>Creating custom modules</h3>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">131. What is the minimum required file for a Drupal 11 custom module to be recognized by the system?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_1" value="A"> A) module_name.module</label>
+      <label><input type="radio" name="q_md_1" value="B"> B) module_name.info.yml</label>
+      <label><input type="radio" name="q_md_1" value="C"> C) composer.json</label>
+      <label><input type="radio" name="q_md_1" value="D"> D) README.md</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">132. In a module's .info.yml file, what does the type key specify?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_2" value="A"> A) The version of the module.</label>
+      <label><input type="radio" name="q_md_2" value="B"> B) Whether it's a module, theme, or profile.</label>
+      <label><input type="radio" name="q_md_2" value="C"> C) The Drupal core compatibility.</label>
+      <label><input type="radio" name="q_md_2" value="D"> D) The module's dependencies.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">133. Where should custom modules typically be placed within a Drupal project structure (composer-based)?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_3" value="A"> A) core/modules/custom</label>
+      <label><input type="radio" name="q_md_3" value="B"> B) sites/all/modules/custom</label>
+      <label><input type="radio" name="q_md_3" value="C"> C) modules/custom (at the project root)</label>
+      <label><input type="radio" name="q_md_3" value="D"> D) themes/custom</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">134. What is the purpose of the name key in a module's .info.yml file?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_4" value="A"> A) The machine name of the module.</label>
+      <label><input type="radio" name="q_md_4" value="B"> B) The human-readable name displayed in the Drupal UI.</label>
+      <label><input type="radio" name="q_md_4" value="C"> C) The namespace for the module's classes.</label>
+      <label><input type="radio" name="q_md_4" value="D"> D) The primary service defined by the module.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">135. If your custom module depends on another module (e.g., Views), how do you declare this dependency?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_5" value="A"> A) By writing a PHP require statement in the .module file.</label>
+      <label><input type="radio" name="q_md_5" value="B"> B) In the dependencies section of the .info.yml file.</label>
+      <label><input type="radio" name="q_md_5" value="C"> C) In the composer.json file of the module.</label>
+      <label><input type="radio" name="q_md_5" value="D"> D) Drupal automatically detects dependencies.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">136. What is the naming convention for a module's primary PHP file (the .module file)?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_6" value="A"> A) MyModule.php</label>
+      <label><input type="radio" name="q_md_6" value="B"> B) my_module.module</label>
+      <label><input type="radio" name="q_md_6" value="C"> C) src/MyModule.php</label>
+      <label><input type="radio" name="q_md_6" value="D"> D) my_module.php</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">137. To make your module's classes discoverable by Drupal's autoloader (following PSR-4), where should they typically be placed?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_7" value="A"> A) In the root of the module directory.</label>
+      <label><input type="radio" name="q_md_7" value="B"> B) In a lib/ subdirectory.</label>
+      <label><input type="radio" name="q_md_7" value="C"> C) In a src/ subdirectory, often with a corresponding namespace.</label>
+      <label><input type="radio" name="q_md_7" value="D"> D) In an includes/ subdirectory.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">138. What is the significance of the core_version_requirement key in the .info.yml file?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_8" value="A"> A) It specifies the PHP version required by the module.</label>
+      <label><input type="radio" name="q_md_8" value="B"> B) It specifies the Drupal core versions with which the module is compatible (e.g., ^10 || ^11).</label>
+      <label><input type="radio" name="q_md_8" value="C"> C) It indicates the version of the module itself.</label>
+      <label><input type="radio" name="q_md_8" value="D"> D) It lists core modules that are dependencies.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">139. After creating the basic files for a new custom module, what is the next step to make it active on the site?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_9" value="A"> A) Clear all caches.</label>
+      <label><input type="radio" name="q_md_9" value="B"> B) Run composer update.</label>
+      <label><input type="radio" name="q_md_9" value="C"> C) Enable the module through the Drupal UI (Extend page) or using Drush (drush en module_name).</label>
+      <label><input type="radio" name="q_md_9" value="D"> D) Edit the settings.php file to include the module.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">140. What is the purpose of a module_name.install file in a custom module?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_10" value="A"> A) To define the module's configuration schema.</label>
+      <label><input type="radio" name="q_md_10" value="B"> B) To handle installation and uninstallation tasks, such as creating database tables or updating configuration.</label>
+      <label><input type="radio" name="q_md_10" value="C"> C) To provide Drush command integrations.</label>
+      <label><input type="radio" name="q_md_10" value="D"> D) To declare Composer dependencies.</label>
+    </div>
+  </div>
+
+  <h3>Hook system (hook_form_alter, hook_entity_view_alter, etc.)</h3>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">141. What is the primary purpose of the hook system in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_11" value="A"> A) To define custom routes and controllers.</label>
+      <label><input type="radio" name="q_md_11" value="B"> B) To allow modules to alter or extend the behavior of Drupal core or other modules at specific points.</label>
+      <label><input type="radio" name="q_md_11" value="C"> C) To manage CSS and JavaScript assets.</label>
+      <label><input type="radio" name="q_md_11" value="D"> D) To create custom database tables.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">142. If you want to modify an existing form in Drupal, such as the node edit form, which hook would you typically implement?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_12" value="A"> A) hook_entity_view_alter()</label>
+      <label><input type="radio" name="q_md_12" value="B"> B) hook_form_alter() or hook_form_FORM_ID_alter()</label>
+      <label><input type="radio" name="q_md_12" value="C"> C) hook_menu()</label>
+      <label><input type="radio" name="q_md_12" value="D"> D) hook_block_view_alter()</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">143. What is the naming convention for implementing a hook in your custom module (e.g., hook_form_alter)?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_13" value="A"> A) MyModule_form_alter(&amp;$form, \\Drupal\\Core\\Form\\FormStateInterface $form_state, $form_id)</label>
+      <label><input type="radio" name="q_md_13" value="B"> B) my_module_form_alter(&amp;$form, \\Drupal\\Core\\Form\\FormStateInterface $form_state, $form_id)</label>
+      <label><input type="radio" name="q_md_13" value="C"> C) FormAlter_my_module(&amp;$form, \\Drupal\\Core\\Form\\FormStateInterface $form_state, $form_id)</label>
+      <label><input type="radio" name="q_md_13" value="D"> D) alter_form_my_module(&amp;$form, \\Drupal\\Core\\Form\\FormStateInterface $form_state, $form_id)</label>
+    </div>
+  </div>
+
+  <h3>Creating custom routes and controllers</h3>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">144. How are custom pages (routes) and their corresponding logic (controllers) typically defined in a Drupal 11 module?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_14" value="A"> A) In the .module file using hook_menu().</label>
+      <label><input type="radio" name="q_md_14" value="B"> B) In a module_name.routing.yml file for routes, and PHP classes (controllers) in the src/Controller directory.</label>
+      <label><input type="radio" name="q_md_14" value="C"> C) By creating Twig templates directly in the module's templates folder.</label>
+      <label><input type="radio" name="q_md_14" value="D"> D) In the composer.json file.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">145. In a module_name.routing.yml file, what does the _controller key specify?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_15" value="A"> A) The path (URL) of the route.</label>
+      <label><input type="radio" name="q_md_15" value="B"> B) The HTTP method (GET, POST).</label>
+      <label><input type="radio" name="q_md_15" value="C"> C) The fully qualified name of the controller class and method that will handle the request (e.g., \\Drupal\\my_module\\Controller\\MyController::content).</label>
+      <label><input type="radio" name="q_md_15" value="D"> D) The permission required to access the route.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">146. What is a Controller in the context of Drupal module development?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_16" value="A"> A) A Twig template file.</label>
+      <label><input type="radio" name="q_md_16" value="B"> B) A PHP class responsible for receiving requests for a specific route, processing them, and returning a response (often a render array).</label>
+      <label><input type="radio" name="q_md_16" value="C"> C) A JavaScript file that handles client-side interactions.</label>
+      <label><input type="radio" name="q_md_16" value="D"> D) A configuration YAML file.</label>
+    </div>
+  </div>
+
+  <h3>Services and dependency injection</h3>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">147. What is a "service" in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_17" value="A"> A) A user-facing feature provided by a module.</label>
+      <label><input type="radio" name="q_md_17" value="B"> B) A reusable PHP object managed by Drupal's service container, providing specific functionality.</label>
+      <label><input type="radio" name="q_md_17" value="C"> C) A theme setting.</label>
+      <label><input type="radio" name="q_md_17" value="D"> D) A type of content entity.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">148. How are services typically defined for a custom module?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_18" value="A"> A) In the .module file using a special hook.</label>
+      <label><input type="radio" name="q_md_18" value="B"> B) In a module_name.services.yml file.</label>
+      <label><input type="radio" name="q_md_18" value="C"> C) By creating global functions.</label>
+      <label><input type="radio" name="q_md_18" value="D"> D) In the composer.json file.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">149. What is the primary benefit of using Dependency Injection to get services into your classes (e.g., controllers, plugins)?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_19" value="A"> A) It makes the code harder to understand.</label>
+      <label><input type="radio" name="q_md_19" value="B"> B) It makes classes more reusable, testable, and decoupled by explicitly declaring their dependencies rather than using global functions like \\Drupal::service().</label>
+      <label><input type="radio" name="q_md_19" value="C"> C) It improves website performance significantly.</label>
+      <label><input type="radio" name="q_md_19" value="D"> D) It automatically secures your code.</label>
+    </div>
+  </div>
+
+  <h3>Creating and using Event Subscribers</h3>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">150. What is the purpose of an Event Subscriber in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_20" value="A"> A) To alter forms.</label>
+      <label><input type="radio" name="q_md_20" value="B"> B) To listen for specific events dispatched by Drupal core or other modules and react to them.</label>
+      <label><input type="radio" name="q_md_20" value="C"> C) To define custom block plugins.</label>
+      <label><input type="radio" name="q_md_20" value="D"> D) To manage user sessions.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="A">
+    <p class="question-text">151. How do you tell Drupal which events your subscriber should listen to?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_21" value="A"> A) By implementing a static method getSubscribedEvents() in your event subscriber class.</label>
+      <label><input type="radio" name="q_md_21" value="B"> B) By naming your subscriber class after the event.</label>
+      <label><input type="radio" name="q_md_21" value="C"> C) By defining it in the module's .info.yml file.</label>
+      <label><input type="radio" name="q_md_21" value="D"> D) Drupal automatically detects all public methods as event listeners.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">152. Where are event subscribers typically registered so Drupal knows about them?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_22" value="A"> A) In the module_name.routing.yml file.</label>
+      <label><input type="radio" name="q_md_22" value="B"> B) In the module_name.services.yml file, by tagging the service with event_subscriber.</label>
+      <label><input type="radio" name="q_md_22" value="C"> C) In the .module file using hook_event_info().</label>
+      <label><input type="radio" name="q_md_22" value="D"> D) In composer.json.</label>
+    </div>
+  </div>
+
+  <h3>Creating content/config entities</h3>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">153. What is the main difference between a Content Entity and a Config Entity in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_23" value="A"> A) Content entities are always fieldable, config entities are not.</label>
+      <label><input type="radio" name="q_md_23" value="B"> B) Content entities store site content (e.g., nodes, users, taxonomy terms) and are typically translatable and revisionable, while Config entities store site configuration (e.g., views, image styles) and are part of the configuration management system.</label>
+      <label><input type="radio" name="q_md_23" value="C"> C) Config entities are stored in YAML files, content entities in the database. (Config entities are exported to YAML, but active config is in DB).</label>
+      <label><input type="radio" name="q_md_23" value="D"> D) There is no significant difference.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">154. To define a new custom Content Entity type, what is typically required?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_24" value="A"> A) Only a .info.yml file.</label>
+      <label><input type="radio" name="q_md_24" value="B"> B) An entity definition class (annotated PHP class in src/Entity/), and potentially handler classes, permissions, and routing definitions.</label>
+      <label><input type="radio" name="q_md_24" value="C"> C) A Twig template.</label>
+      <label><input type="radio" name="q_md_24" value="D"> D) A simple hook in the .module file.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">155. If your custom content entity needs to have fields like a title, body, and image, how would you typically add these?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_25" value="A"> A) By hardcoding them into the entity's render method.</label>
+      <label><input type="radio" name="q_md_25" value="B"> B) By defining them in the baseFieldDefinitions() method of your entity class or by allowing fields to be added via the Field UI if the entity supports it.</label>
+      <label><input type="radio" name="q_md_25" value="C"> C) Through a fields.yml file.</label>
+      <label><input type="radio" name="q_md_25" value="D"> D) Fields are automatically inherited from the Node entity.</label>
+    </div>
+  </div>
+
+  <h3>Form API (custom forms and validation)</h3>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">156. To create a custom configuration form or any other custom form in Drupal, which class would your form class typically extend?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_26" value="A"> A) \\Drupal\\Core\\Controller\\ControllerBase</label>
+      <label><input type="radio" name="q_md_26" value="B"> B) \\Drupal\\Core\\Form\\FormBase (or ConfigFormBase for config forms)</label>
+      <label><input type="radio" name="q_md_26" value="C"> C) \\Drupal\\Core\\Entity\\EntityForm</label>
+      <label><input type="radio" name="q_md_26" value="D"> D) \\Drupal\\Core\\Plugin\\Block\\BlockBase</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="D">
+    <p class="question-text">157. In a Form API class, which method is responsible for defining the form elements (fields, buttons)?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_27" value="A"> A) submitForm()</label>
+      <label><input type="radio" name="q_md_27" value="B"> B) validateForm()</label>
+      <label><input type="radio" name="q_md_27" value="C"> C) getFormId()</label>
+      <label><input type="radio" name="q_md_27" value="D"> D) buildForm()</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="A">
+    <p class="question-text">158. How do you add custom validation logic to a form built with Form API?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_28" value="A"> A) By implementing the validateForm() method in your form class and using $form_state->setErrorByName().</label>
+      <label><input type="radio" name="q_md_28" value="B"> B) By writing JavaScript for client-side validation only.</label>
+      <label><input type="radio" name="q_md_28" value="C"> C) By defining validation rules in a YAML file.</label>
+      <label><input type="radio" name="q_md_28" value="D"> D) Validation is handled automatically by Drupal based on field types.</label>
+    </div>
+  </div>
+
+  <h3>Config schema definition and default config</h3>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">159. What is the purpose of defining a configuration schema for your module's configuration?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_29" value="A"> A) To provide default values for the configuration.</label>
+      <label><input type="radio" name="q_md_29" value="B"> B) To define the data types, structure, and translatability of your module's configuration, which is essential for the Configuration system and translation.</label>
+      <label><input type="radio" name="q_md_29" value="C"> C) To create a user interface for editing the configuration.</label>
+      <label><input type="radio" name="q_md_29" value="D"> D) To store user-specific settings.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="A">
+    <p class="question-text">160. Where are configuration schema files typically located within a module?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_30" value="A"> A) config/schema/module_name.schema.yml</label>
+      <label><input type="radio" name="q_md_30" value="B"> B) src/Schema/</label>
+      <label><input type="radio" name="q_md_30" value="C"> C) schema.yml in the module root.</label>
+      <label><input type="radio" name="q_md_30" value="D"> D) config/default/</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">161. How can you provide default configuration values for your module that get imported when the module is installed?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_31" value="A"> A) By hardcoding them in the .module file.</label>
+      <label><input type="radio" name="q_md_31" value="B"> B) By placing YAML files with the default configuration in the config/install directory of your module.</label>
+      <label><input type="radio" name="q_md_31" value="C"> C) By using hook_update_N().</label>
+      <label><input type="radio" name="q_md_31" value="D"> D) Default configuration is not supported.</label>
+    </div>
+  </div>
+
+  <h3>Permissions API</h3>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">162. How does a custom module define new permissions that can be assigned to roles?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_32" value="A"> A) By creating a permissions.yml file in the module's root.</label>
+      <label><input type="radio" name="q_md_32" value="B"> B) By implementing hook_permission() in the .module file or by defining them in a module_name.permissions.yml file.</label>
+      <label><input type="radio" name="q_md_32" value="C"> C) Permissions are automatically created for every route.</label>
+      <label><input type="radio" name="q_md_32" value="D"> D) In the module_name.info.yml file.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">163. When defining a permission in a module_name.permissions.yml file, what key is used for the human-readable title of the permission?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_33" value="A"> A) id</label>
+      <label><input type="radio" name="q_md_33" value="B"> B) name</label>
+      <label><input type="radio" name="q_md_33" value="C"> C) title</label>
+      <label><input type="radio" name="q_md_33" value="D"> D) description</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">164. How do you check if the current user has a specific permission in your module's code?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_34" value="A"> A) \\Drupal::currentUser()->hasRole('administrator')</label>
+      <label><input type="radio" name="q_md_34" value="B"> B) \\Drupal::currentUser()->hasPermission('my_custom_permission')</label>
+      <label><input type="radio" name="q_md_34" value="C"> By querying the database directly.</label>
+      <label><input type="radio" name="q_md_34" value="D"> By checking a global variable.</label>
+    </div>
+  </div>
+
+  <h3>Cache API (tags, contexts, max-age)</h3>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">165. What is the purpose of cache tags in Drupal's Cache API?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_35" value="A"> A) To define how long an item should be cached (max-age).</label>
+      <label><input type="radio" name="q_md_35" value="B"> B) To allow for targeted invalidation of cached items when related data changes (e.g., invalidate all content related to node:5).</label>
+      <label><input type="radio" name="q_md_35" value="C"> C) To specify different cache backends.</label>
+      <label><input type="radio" name="q_md_35" value="D"> D) To group users for caching purposes.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">166. What are cache contexts used for?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_36" value="A"> A) To define the storage location of cache items.</label>
+      <label><input type="radio" name="q_md_36" value="B"> B) To vary cached output based on aspects of the request or environment (e.g., by user role, by language, by URL).</label>
+      <label><input type="radio" name="q_md_36" value="C"> C) To tag cache items for invalidation.</label>
+      <label><input type="radio" name="q_md_36" value="D"> D) To set the expiration time of a cache item.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">167. If a render array has #cache['max-age'] = 0, what does it signify?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_37" value="A"> A) The item should be cached permanently.</label>
+      <label><input type="radio" name="q_md_37" value="B"> B) The item should not be cached (it's uncacheable).</label>
+      <label><input type="radio" name="q_md_37" value="C"> C) The item should be cached for the default site duration.</label>
+      <label><input type="radio" name="q_md_37" value="D"> D) The item should be cached for 0 seconds (effectively uncacheable for that specific render element).</label>
+    </div>
+  </div>
+
+  <h3>Plugin API (Blocks, Field formatters, etc.)</h3>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">168. What is the Plugin API in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_38" value="A"> A) A system for managing JavaScript libraries.</label>
+      <label><input type="radio" name="q_md_38" value="B"> B) A system that allows modules or themes to provide swappable pieces of functionality (plugins) of a specific type (e.g., blocks, field formatters, image effects).</label>
+      <label><input type="radio" name="q_md_38" value="C"> C) An API for interacting with external services.</label>
+      <label><input type="radio" name="q_md_38" value="D"> D) A way to define custom hooks.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">169. How are plugins typically discovered by Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_39" value="A"> A) By listing them in the module's .info.yml file.</label>
+      <label><input type="radio" name="q_md_39" value="B"> B) Through annotations (e.g., @Block, @FieldFormatter) on the plugin class, which should be placed in a specific PSR-4 subdirectory (e.g., src/Plugin/Block).</label>
+      <label><input type="radio" name="q_md_39" value="C"> C) By implementing hook_plugin_info().</label>
+      <label><input type="radio" name="q_md_39" value="D"> D) They must be manually registered in settings.php.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">170. If you want to create a new custom block type programmatically, which plugin type would you implement?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_40" value="A"> A) Field Formatter</label>
+      <label><input type="radio" name="q_md_40" value="B"> B) Image Effect</label>
+      <label><input type="radio" name="q_md_40" value="C"> C) Block (\\Drupal\\Core\\Block\\BlockBase)</label>
+      <label><input type="radio" name="q_md_40" value="D"> D) Controller</label>
+    </div>
+  </div>
+
+  <h3>Menu links and local tasks</h3>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">171. How can a module define new menu links that appear in Drupal's navigation system?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_41" value="A"> A) By implementing hook_menu_link_alter().</label>
+      <label><input type="radio" name="q_md_41" value="B"> B) By creating a module_name.links.menu.yml file.</label>
+      <label><input type="radio" name="q_md_41" value="C"> C) By directly inserting into the menu database tables.</label>
+      <label><input type="radio" name="q_md_41" value="D"> D) In the module_name.routing.yml file.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">172. What are "Local Tasks" (often displayed as tabs like "View", "Edit", "Devel") in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_42" value="A"> A) Background processes run by the module.</label>
+      <label><input type="radio" name="q_md_42" value="B"> B) A type of menu link, typically defined in a module_name.links.task.yml file, that provides secondary navigation options related to a primary route.</label>
+      <label><input type="radio" name="q_md_42" value="C"> C) JavaScript functions for user interaction.</label>
+      <label><input type="radio" name="q_md_42" value="D"> D) Configuration settings for the module.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">173. In a *.links.menu.yml or *.links.task.yml file, what does the route_name key specify?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_43" value="A"> A) The human-readable title of the link.</label>
+      <label><input type="radio" name="q_md_43" value="B"> B) The Drupal internal route that the link points to.</label>
+      <label><input type="radio" name="q_md_43" value="C"> C) The parent menu item.</label>
+      <label><input type="radio" name="q_md_43" value="D"> D) The weight of the menu link.</label>
+    </div>
+  </div>
+
+  <h3>Batch API and Queue API basics</h3>
+  <div class="question-container" data-correct-answer="A">
+    <p class="question-text">174. What is the primary use case for the Batch API in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_44" value="A"> A) To process a large number of items in smaller, manageable chunks, providing feedback to the user and preventing PHP timeouts.</label>
+      <label><input type="radio" name="q_md_44" value="B"> B) To send emails in bulk.</label>
+      <label><input type="radio" name="q_md_44" value="C"> C) To manage JavaScript libraries.</label>
+      <label><input type="radio" name="q_md_44" value="D"> D) To create responsive images.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">175. What is the Drupal Queue API typically used for?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_45" value="A"> A) Real-time chat applications.</label>
+      <label><input type="radio" name="q_md_45" value="B"> B) To defer time-consuming tasks to be processed later, often by a cron run or a dedicated queue worker, improving initial page load performance.</label>
+      <label><input type="radio" name="q_md_45" value="C"> C) To manage user interface elements.</label>
+      <label><input type="radio" name="q_md_45" value="D"> D) To store temporary user data.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">176. When defining a batch operation, what are the key components you need to provide?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_46" value="A"> A) A single function that processes all items at once.</label>
+      <label><input type="radio" name="q_md_46" value="B"> B) An operations callback function (processes one chunk), a finished callback function, and an initial set of operations.</label>
+      <label><input type="radio" name="q_md_46" value="C"> C) A YAML file defining the batch steps.</label>
+      <label><input type="radio" name="q_md_46" value="D"> D) A JavaScript file to manage the progress bar.</label>
+    </div>
+  </div>
+
+  <h3>Logging and Watchdog</h3>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">177. What is the "Watchdog" in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_47" value="A"> A) A security module that prevents unauthorized access.</label>
+      <label><input type="radio" name="q_md_47" value="B"> B) Drupal's logging facility, used to record system events, errors, warnings, and other messages.</label>
+      <label><input type="radio" name="q_md_47" value="C"> C) A performance monitoring tool.</label>
+      <label><input type="radio" name="q_md_47" value="D"> D) A user session management system.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">178. How can a custom module log a message to the Drupal Watchdog?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_48" value="A"> A) By using echo or print_r.</label>
+      <label><input type="radio" name="q_md_48" value="B"> B) By calling the \\Drupal::logger('my_module')->notice('My message'); (or error, warning, etc.) service.</label>
+      <label><input type="radio" name="q_md_48" value="C"> By writing directly to a log file.</label>
+      <label><input type="radio" name="q_md_48" value="D"> By dispatching a custom event.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">179. Where can site administrators typically view Watchdog log messages?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_49" value="A"> A) In the settings.php file.</label>
+      <label><input type="radio" name="q_md_49" value="B"> B) Under "Reports" > "Recent log messages" in the Drupal admin UI.</label>
+      <label><input type="radio" name="q_md_49" value="C"> In the browser's JavaScript console.</label>
+      <label><input type="radio" name="q_md_49" value="D"> Log messages are only sent via email.</label>
+    </div>
+  </div>
+
+  <h3>Using Drush for development tasks</h3>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">180. What is Drush?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_50" value="A"> A) A Drupal theme.</label>
+      <label><input type="radio" name="q_md_50" value="B"> B) A command-line shell and scripting interface for Drupal.</label>
+      <label><input type="radio" name="q_md_50" value="C"> A JavaScript framework.</label>
+      <label><input type="radio" name="q_md_50" value="D"> A WYSIWYG editor.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">181. Which Drush command is commonly used to clear all Drupal caches?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_51" value="A"> drush run cron</label>
+      <label><input type="radio" name="q_md_51" value="B"> drush cache:rebuild (or cr or drush cr)</label>
+      <label><input type="radio" name="q_md_51" value="C"> drush pml</label>
+      <label><input type="radio" name="q_md_51" value="D"> drush sql-dump</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="A">
+    <p class="question-text">182. How can you enable a module using Drush?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_52" value="A"> drush module:install module_name (or drush en module_name)</label>
+      <label><input type="radio" name="q_md_52" value="B"> drush module:enable module_name</label>
+      <label><input type="radio" name="q_md_52" value="C"> drush config:set module_name status 1</label>
+      <label><input type="radio" name="q_md_52" value="D"> drush up module_name</label>
+    </div>
+  </div>
+
+  <h3>Unit and functional testing basics</h3>
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">183. What is the primary goal of Unit Testing in Drupal module development?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_53" value="A"> To test the complete user interface and user workflows.</label>
+      <label><input type="radio" name="q_md_53" value="B"> To test individual, isolated units of code (like specific methods within a class) in separation from the rest of the Drupal environment.</label>
+      <label><input type="radio" name="q_md_53" value="C"> To test JavaScript interactions.</label>
+      <label><input type="radio" name="q_md_53" value="D"> To test database queries directly.</label>
+    </div>
+  </div>
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">184. Which testing framework is commonly used for writing unit and kernel tests in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q_md_54" value="A"> Jasmine</label>
+      <label><input type="radio" name="q_md_54" value="B"> Selenium</label>
+      <label><input type="radio" name="q_md_54" value="C"> PHPUnit</label>
+      <label><input type="radio" name="q_md_54" value="D"> Behat</label>
+    </div>
+  </div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">185. What is a key characteristic of a Functional Test (e.g., using BrowserTestBase) in Drupal?</p>
+    <div class="options">
+        <label><input type="radio" name="q_md_55" value="A"> A) It does not require a database.</label>
+        <label><input type="radio" name="q_md_55" value="B"> B) It tests Drupal functionality by simulating a browser, making HTTP requests to a fully installed Drupal site, and asserting responses.</label>
+        <label><input type="radio" name="q_md_55" value="C"> C) It only tests PHP classes in isolation.</label>
+        <label><input type="radio" name="q_md_55" value="D"> D) It is primarily used for JavaScript testing.</label>
+    </div>
+</div>
+</div> <!-- Closing the "Module Development" topic-page -->
+
+<div class="topic-page"> <!-- New Topic Page: Theme Development -->
+<h2>Theme Development</h2>
+
+<h3>Creating custom themes (.info.yml, libraries)</h3>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">186. What is the essential file required to define a new custom theme in Drupal?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_1" value="A"> A) theme_name.theme</label>
+        <label><input type="radio" name="q_td_1" value="B"> B) theme_name.info.yml</label>
+        <label><input type="radio" name="q_td_1" value="C"> C) style.css</label>
+        <label><input type="radio" name="q_td_1" value="D"> D) composer.json</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">187. How do you define CSS and JavaScript assets for your theme in Drupal 11?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_2" value="A"> A) By directly linking them in html.html.twig.</label>
+        <label><input type="radio" name="q_td_2" value="B"> B) In a theme_name.libraries.yml file, and then attaching them via the .info.yml file or in preprocess functions/Twig templates.</label>
+        <label><input type="radio" name="q_td_2" value="C"> C) In the theme_name.theme file using drupal_add_css() and drupal_add_js(). (These functions are deprecated).</label>
+        <label><input type="radio" name="q_td_2" value="D"> D) By listing them in composer.json.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">188. In a theme's .info.yml file, what does the base theme key specify?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_3" value="A"> A) The default color scheme.</label>
+        <label><input type="radio" name="q_td_3" value="B"> B) A parent theme from which the current theme inherits templates, libraries, and other properties.</label>
+        <label><input type="radio" name="q_td_3" value="C"> C) The Drupal core version compatibility.</label>
+        <label><input type="radio" name="q_td_3" value="D"> D) The regions available in the theme.</label>
+    </div>
+</div>
+
+<h3>Twig templating basics</h3>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">189. What is Twig in the context of Drupal theming?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_4" value="A"> A) A JavaScript library for DOM manipulation.</label>
+        <label><input type="radio" name="q_td_4" value="B"> B) The default template engine used in Drupal for rendering HTML.</label>
+        <label><input type="radio" name="q_td_4" value="C"> C) A CSS preprocessor.</label>
+        <label><input type="radio" name="q_td_4" value="D"> D) A command-line tool for theme generation.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="C">
+    <p class="question-text">190. Which Twig syntax is used to print a variable's value?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_5" value="A"> A) {% variable %}</label>
+        <label><input type="radio" name="q_td_5" value="B"> B) {# variable #}</label>
+        <label><input type="radio" name="q_td_5" value="C"> C) {{ variable }}</label>
+        <label><input type="radio" name="q_td_5" value="D"> D) &lt;?php echo $variable; ?&gt;</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">191. What is the purpose of {% raw %}{% block block_name %} and {% endblock %}{% endraw %} in Twig templates, especially in the context of template inheritance?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_6" value="A"> A) To define reusable JavaScript functions.</label>
+        <label><input type="radio" name="q_td_6" value="B"> B) To define sections in a parent template that can be overridden by child templates.</label>
+        <label><input type="radio" name="q_td_6" value="C"> C) To include other Twig files.</label>
+        <label><input type="radio" name="q_td_6" value="D"> D) To create custom Twig filters.</label>
+    </div>
+</div>
+
+<h3>Twig debug and template suggestions</h3>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">192. How can you enable Twig debugging in Drupal to see template suggestions and variable dumps in HTML comments?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_7" value="A"> A) By installing the Devel module and enabling its Twig debug setting.</label>
+        <label><input type="radio" name="q_td_7" value="B"> B) By setting $config['system.theme']['debug'] = TRUE; in development.services.yml (or services.yml) and rebuilding caches. (The exact path might be slightly different, but it's in a services YAML file).</label>
+        <label><input type="radio" name="q_td_7" value="C"> C) By editing the .htaccess file.</label>
+        <label><input type="radio" name="q_td_7" value="D"> D) It is enabled by default.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">193. What are "template suggestions" in Drupal theming?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_8" value="A"> A) Recommended color palettes for your theme.</label>
+        <label><input type="radio" name="q_td_8" value="B"> B) A list of increasingly specific Twig template filenames that Drupal looks for when rendering a particular element (e.g., node--article--full.html.twig, node--article.html.twig, node.html.twig).</label>
+        <label><input type="radio" name="q_td_8" value="C"> C) Tips on how to write better Twig code.</label>
+        <label><input type="radio" name="q_td_8" value="D"> D) Alternative CSS stylesheets.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">194. If Twig debugging is enabled, where would you typically find the template suggestions output?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_9" value="A"> A) In the browser's JavaScript console.</label>
+        <label><input type="radio" name="q_td_9" value="B"> B) As HTML comments in the page source, near the element being rendered.</label>
+        <label><input type="radio" name="q_td_9" value="C"> C) In the Drupal Watchdog logs.</label>
+        <label><input type="radio" name="q_td_9" value="D"> D) In a dedicated debug panel provided by a contrib module.</label>
+    </div>
+</div>
+
+<h3>Overriding templates (node.html.twig, etc.)</h3>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">195. How do you override a core or base theme's Twig template file (e.g., node.html.twig) in your custom theme?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_10" value="A"> A) By editing the original file directly in the core/base theme directory.</label>
+        <label><input type="radio" name="q_td_10" value="B"> B) By copying the original template file into your custom theme's templates directory (or a relevant subdirectory) and then modifying your copy. Drupal will automatically use your theme's version.</label>
+        <label><input type="radio" name="q_td_10" value="C"> C) By defining a new route for that template.</label>
+        <label><input type="radio" name="q_td_10" value="D"> D) By using hook_template_alter().</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">196. If you want to create a specific template for the "Article" content type's full page view, what would be a common template suggestion name?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_11" value="A"> A) article.html.twig</label>
+        <label><input type="radio" name="q_td_11" value="B"> B) node--article.html.twig (or node--article--full.html.twig for even more specificity)</label>
+        <label><input type="radio" name="q_td_11" value="C"> C) content-type--article.html.twig</label>
+        <label><input type="radio" name="q_td_11" value="D"> D) page--article.html.twig</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="C">
+    <p class="question-text">197. After adding or modifying a Twig template file in your theme, what is usually required for the changes to take effect?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_12" value="A"> A) Reinstalling the theme.</label>
+        <label><input type="radio" name="q_td_12" value="B"> B) Restarting the web server.</label>
+        <label><input type="radio" name="q_td_12" value="C"> C) Clearing Drupal's caches (especially the Twig cache).</label>
+        <label><input type="radio" name="q_td_12" value="D"> D) Editing the .info.yml file.</label>
+    </div>
+</div>
+
+<h3>Adding CSS/JS using asset libraries</h3>
+<div class="question-container" data-correct-answer="C">
+    <p class="question-text">198. In a theme_name.libraries.yml file, how do you define a CSS asset?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_13" value="A"> A) my-library: css: theme: path/to/style.css: {}</label>
+        <label><input type="radio" name="q_td_13" value="B"> B) my-library: js: path/to/script.js: {}</label>
+        <label><input type="radio" name="q_td_13" value="C"> C) my-library: css: theme: css/style.css: {} (The path is relative to the theme root)</label>
+        <label><input type="radio" name="q_td_13" value="D"> D) my-library: assets: css: style.css</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">199. How can you attach a defined asset library globally to all pages via your theme's .info.yml file?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_14" value="A"> A) Under the assets: key.</label>
+        <label><input type="radio" name="q_td_14" value="B"> B) Under the libraries: key (e.g., libraries: - my_theme/my_library).</label>
+        <label><input type="radio" name="q_td_14" value="C"> C) Under the stylesheets: key.</label>
+        <label><input type="radio" name="q_td_14" value="D"> D) It's not possible; libraries must be attached in preprocess functions.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="C">
+    <p class="question-text">200. If a JavaScript file in your library depends on jQuery, how do you declare this dependency in theme_name.libraries.yml?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_15" value="A"> A) js: path/to/script.js: { dependencies: [ 'core/jquery' ] }</label>
+        <label><input type="radio" name="q_td_15" value="B"> B) dependencies: - jquery (within the library definition)</label>
+        <label><input type="radio" name="q_td_15" value="C"> C) js: path/to/script.js: {} dependencies: - core/jquery (The dependency is part of the JS asset definition or library definition)</label>
+        <label><input type="radio" name="q_td_15" value="D"> D) jQuery is always available, no need to declare.</label>
+    </div>
+</div>
+
+<h3>Drupal attributes ({% raw %}{{ attributes }}{% endraw %}, {% raw %}{{ content }}{% endraw %})</h3>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">201. In a Twig template like node.html.twig, what is the purpose of {% raw %}{{ attributes }}{% endraw %}?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_16" value="A"> A) To print all available variables in the template.</label>
+        <label><input type="radio" name="q_td_16" value="B"> B) To print a set of HTML attributes (like class, id) that Drupal has programmatically added to the element, allowing for dynamic classes and other attributes.</label>
+        <label><input type="radio" name="q_td_16" value="C"> C) To include another Twig template.</label>
+        <label><input type="radio" name="q_td_16" value="D"> D) To define the content of the node.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">202. What does the {% raw %}{{ content }}{% endraw %} variable typically represent in a template like node.html.twig or block.html.twig?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_17" value="A"> A) The raw, unformatted data of the entity.</label>
+        <label><input type="radio" name="q_td_17" value="B"> B) The rendered output of the entity's fields or the block's content, structured as a render array that Twig will render.</label>
+        <label><input type="radio" name="q_td_17" value="C"> C) The title of the entity.</label>
+        <label><input type="radio" name="q_td_17" value="D"> D) User-generated comments.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">203. If you want to add a custom CSS class to the main wrapper of a node via its attributes, where would you typically do this programmatically?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_18" value="A"> A) Directly in the node.html.twig template by modifying {% raw %}{{ attributes }}{% endraw %}.</label>
+        <label><input type="radio" name="q_td_18" value="B"> B) In a preprocess function for the node (e.g., mytheme_preprocess_node()) by adding to $variables['attributes']['class'][].</label>
+        <label><input type="radio" name="q_td_18" value="C"> C) In the theme's CSS file.</label>
+        <label><input type="radio" name="q_td_18" value="D"> D) In the .info.yml file.</label>
+    </div>
+</div>
+
+<h3>Preprocess functions (hook_preprocess_HOOK)</h3>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">204. What is the primary purpose of a preprocess function in Drupal theming (e.g., mytheme_preprocess_node)?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_19" value="A"> A) To define new Twig filters and functions.</label>
+        <label><input type="radio" name="q_td_19" value="B"> B) To modify, add, or remove variables before they are passed to a Twig template.</label>
+        <label><input type="radio" name="q_td_19" value="C"> C) To handle form submissions.</label>
+        <label><input type="radio" name="q_td_19" value="D"> D) To define asset libraries.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">205. Where are theme preprocess functions typically located?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_20" value="A"> A) In the theme_name.info.yml file.</label>
+        <label><input type="radio" name="q_td_20" value="B"> B) In the theme_name.theme file.</label>
+        <label><input type="radio" name="q_td_20" value="C"> C) In a preprocess.php file within the theme.</label>
+        <label><input type="radio" name="q_td_20" value="D"> D) In Twig template files.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">206. If you want to add a new variable my_custom_variable to be available in page.html.twig, which preprocess function would you implement?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_21" value="A"> A) mytheme_preprocess_html(&amp;$variables)</label>
+        <label><input type="radio" name="q_td_21" value="B"> B) mytheme_preprocess_page(&amp;$variables)</label>
+        <label><input type="radio" name="q_td_21" value="C"> C) mytheme_preprocess_node(&amp;$variables)</label>
+        <label><input type="radio" name="q_td_21" value="D"> D) mytheme_preprocess_block(&amp;$variables)</label>
+    </div>
+</div>
+
+<h3>Using and extending base themes (e.g., Classy, Stable)</h3>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">207. What is the main advantage of using a base theme like Classy (in older Drupal versions) or Stable/Stable 9 (for backwards compatibility)?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_22" value="A"> A) They provide very opinionated and modern styling out-of-the-box.</label>
+        <label><input type="radio" name="q_td_22" value="B"> B) They provide a stable set of default templates and CSS classes that your sub-theme can extend or override, ensuring a consistent starting point.</label>
+        <label><input type="radio" name="q_td_22"  value="C"> C) They automatically make your theme responsive.</label>
+        <label><input type="radio" name="q_td_22" value="D"> D) They include advanced JavaScript functionality. (Note: For Drupal 10/11, Starterkit theme generator and core's minimal templates are more current concepts than relying heavily on Classy/Stable as direct base themes for new projects, though understanding their role is good.)</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">208. If your custom theme declares a base theme, does it inherit the base theme's regions?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_23" value="A"> A) No, regions must always be redefined.</label>
+        <label><input type="radio" name="q_td_23" value="B"> B) Yes, by default, it inherits regions, libraries, and templates unless overridden.</label>
+        <label><input type="radio" name="q_td_23" value="C"> C) Only if explicitly stated in composer.json.</label>
+        <label><input type="radio" name="q_td_23" value="D"> D) Only CSS classes are inherited.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">209. What is the recommended approach for starting a new theme in Drupal 10/11, moving away from Classy/Stable as direct base themes for new development?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_24" value="A"> A) Always use Classy as a base theme.</label>
+        <label><input type="radio" name="q_td_24" value="B"> B) Use the core "Starterkit" theme generator (php core/scripts/drupal generate-theme mytheme) to create a clean, minimal starting point.</label>
+        <label><input type="radio" name="q_td_24" value="C"> C) Copy the Bartik theme and modify it.</label>
+        <label><input type="radio" name="q_td_24" value="D"> D) Write all templates from scratch without any base.</label>
+    </div>
+</div>
+
+<h3>Responsive and accessible theming best practices</h3>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">210. What CSS technique is fundamental for creating responsive designs that adapt to different screen sizes?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_25" value="A"> A) Using fixed-width layouts.</label>
+        <label><input type="radio" name="q_td_25" value="B"> B) CSS Media Queries.</label>
+        <label><input type="radio" name="q_td_25" value="C"> C) Inline styling.</label>
+        <label><input type="radio" name="q_td_25" value="D"> D) JavaScript for all layout adjustments.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">211. For web accessibility (a11y), what is the importance of providing "alt" text for images?</p>
+    <div class="options">
+        <label><input type="radio" name="q_td_26" value="A"> A) It improves image loading speed.</label>
+        <label><input type="radio" name="q_td_26" value="B"> B) It provides a textual description of the image for screen reader users and when images fail to load.</label>
+        <label><input type="radio" name="q_td_26" value="C"> C) It's used for image styling.</label>
+        <label><input type="radio" name="q_td_26" value="D"> D) It helps in image categorization.</label>
+    </div>
+</div>
+<div class="topic-page"></div> <!-- New Topic Page: Headless Drupal + Next.js (JSON:API) -->
+<h2>Headless Drupal + Next.js (JSON:API)</h2>
+
+<h3>Enabling and configuring JSON:API module</h3>
+<div class="question-container" data-correct-answer="B"></div>
+    <p class="question-text">213. Which core module needs to be enabled to expose Drupal entities via a JSON:API compliant interface?</p>
+    <div class="options"></div>
+        <label><input type="radio" name="q_hd_1" value="A"> A) RESTful Web Services (rest)</label>
+        <label><input type="radio" name="q_hd_1" value="B"> B) JSON:API</label>
+        <label><input type="radio" name="q_hd_1" value="C"> C) Serialization</
+        <label><input type="radio" name="q_hd_1" value="D"> D) HAL</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="C">
+    <p class="question-text">214. Once the JSON:API module is enabled, where can you typically find the entry point for the API?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_2" value="A"> A) /api/json</label>
+        <label><input type="radio" name="q_hd_2" value="B"> B) /rest/api</label>
+        <label><input type="radio" name="q_hd_2" value="C"> C) /jsonapi</label>
+        <label><input type="radio" name="q_hd_2" value="D"> D) /data</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">215. Does the JSON:API module require extensive configuration to start exposing basic entity types after enabling it?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_3" value="A"> A) Yes, every entity type and field must be manually configured.</label>
+        <label><input type="radio" name="q_hd_3" value="B"> B) No, by default, it exposes most content entity types and their fields with sensible defaults once enabled.</label>
+        <label><input type="radio" name="q_hd_3" value="C"> C) It only exposes nodes by default.</label>
+        <label><input type="radio" name="q_hd_3" value="D"> D) Configuration is done via a jsonapi.settings.yml file only.</label>
+    </div>
+</div>
+
+<h3>JSON:API filtering, sorting, and includes</h3>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">216. How do you filter results from a JSON:API endpoint based on a field value (e.g., nodes where title is "My Title")?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_4" value="A"> A) /node/article?title=My%20Title</label>
+        <label><input type="radio" name="q_hd_4" value="B"> B) /node/article?filter[field_title][value]=My%20Title</label>
+        <label><input type="radio" name="q_hd_4" value="C"> C) /node/article?query[title]=My%20Title</label>
+        <label><input type="radio" name="q_hd_4" value="D"> D) /node/article&title=My%20Title</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">217. To include related entity data (e.g., an author's details when fetching an article) in a single JSON:API request, what query parameter is used?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_5" value="A"> A) &join=field_author</label>
+        <label><input type="radio" name="q_hd_5" value="B"> B) &include=field_author</label>
+        <label><input type="radio" name="q_hd_5" value="C"> C) &related=field_author</label>
+        <label><input type="radio" name="q_hd_5" value="D"> D) &expand=field_author</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">218. How can you sort a collection of resources from a JSON:API endpoint (e.g., articles by creation date descending)?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_6" value="A"> A) ?orderby=-created</label>
+        <label><input type="radio" name="q_hd_6" value="B"> B) ?sort=-created</label>
+        <label><input type="radio" name="q_hd_6" value="C"> C) ?arrange=created,desc</label>
+        <label><input type="radio" name="q_hd_6" value="D"> D) ?order=created&direction=desc</label>
+    </div>
+</div>
+
+<h3>JSON:API Extras module (field aliasing, disabling resources)</h3>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">219. What is a primary benefit of using the JSON:API Extras contributed module?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_7" value="A"> A) It provides an alternative authentication mechanism.</label>
+        <label><input type="radio" name="q_hd_7" value="B"> B) It allows for more granular control over the JSON:API output, such as aliasing field names, disabling resources or fields, and enhancing links.</label>
+        <label><input type="radio" name="q_hd_7" value="C"> C) It automatically converts JSON:API output to GraphQL.</label>
+        <label><input type="radio" name="q_hd_7" value="D"> D) It improves the performance of JSON:API by 10x.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">220. If you want to change the name of a field in the JSON:API output from field_long_complex_name to shortName, which feature of JSON:API Extras would you use?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_8" value="A"> A) Resource overriding</label>
+        <label><input type="radio" name="q_hd_8" value="B"> B) Field Aliasing</label>
+        <label><input type="radio" name="q_hd_8" value="C"> C) Path prefixing</label>
+        <label><input type="radio" name="q_hd_8" value="D"> D) Disabling the field</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">221. Can JSON:API Extras be used to completely disable certain entity types or specific fields from being exposed via the JSON:API?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_9" value="A"> A) No, it only allows aliasing.</label>
+        <label><input type="radio" name="q_hd_9" value="B"> B) Yes, it provides UI controls to disable entire resources (entity types) or individual fields within a resource.</label>
+        <label><input type="radio" name="q_hd_9" value="C"> C) Only by writing custom code.</label>
+        <label><input type="radio" name="q_hd_9" value="D"> D) This is a core JSON:API feature.</label>
+    </div>
+</div>
+
+<h3>Cross-origin resource sharing (CORS config)</h3>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">222. What is CORS (Cross-Origin Resource Sharing) primarily concerned with in the context of a headless Drupal setup?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_10" value="A"> A) Encrypting API responses.</label>
+        <label><input type="radio" name="q_hd_10" value="B"> B) Allowing or denying web browsers on different domains (origins) from making requests to your Drupal JSON:API.</label>
+        <label><input type="radio" name="q_hd_10" value="C"> C) Caching API responses.</label>
+        <label><input type="radio" name="q_hd_10" value="D"> D) Authenticating API requests.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="C">
+    <p class="question-text">223. How is CORS typically configured in Drupal for services like JSON:API?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_11" value="A"> A) By editing the .htaccess file directly.</label>
+        <label><input type="radio" name="q_hd_11" value="B"> B) Drupal core does not handle CORS; it must be configured at the web server level (e.g., Apache, Nginx).</label>
+        <label><input type="radio" name="q_hd_11" value="C"> C) By configuring the cors.config settings in a services.yml file or via a contributed module that provides a UI for CORS.</label>
+        <label><input type="radio" name="q_hd_11" value="D"> D) In the settings.php file.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">224. If your Next.js frontend (e.g., http://localhost:3000) is trying to fetch data from your Drupal backend (e.g., http://drupal.site), and you get a CORS error, what is a likely cause?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_12" value="A"> A) The JSON:API module is not enabled.</label>
+        <label><input type="radio" name="q_hd_12" value="B"> B) The Drupal backend is not sending the appropriate Access-Control-Allow-Origin header for http://localhost:3000.</label>
+        <label><input type="radio" name="q_hd_12" value="C"> C) Your Next.js fetch request is malformed.</label>
+        <label><input type="radio" name="q_hd_12" value="D"> D) The internet connection is down.</label>
+    </div>
+</div>
+
+<h3>Authentication for API access (cookie, token, OAuth)</h3>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">225. For a public headless frontend consuming only published content, what type of authentication is typically needed for read operations via JSON:API?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_13" value="A"> A) OAuth 2.0 is always required.</label>
+        <label><input type="radio" name="q_hd_13" value="B"> B) No authentication is usually needed if the content is accessible to anonymous users.</label>
+        <label><input type="radio" name="q_hd_13" value="C"> C) Basic Authentication.</label>
+        <label><input type="radio" name="q_hd_13" value="D"> D) API Key.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="C">
+    <p class="question-text">226. If your headless application needs to perform authenticated actions (e.g., creating content, accessing unpublished drafts) on behalf of a user, which is a common and secure authentication method?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_14" value="A"> A) Sending username and password with every request.</label>
+        <label><input type="radio" name="q_hd_14" value="B"> B) Using Drupal's session cookie (suitable if frontend and backend are on the same parent domain and for server-side requests from Next.js).</label>
+        <label><input type="radio" name="q_hd_14" value="C"> C) OAuth 2.0 (e.g., using Simple OAuth module) for token-based authentication, especially for third-party clients or decoupled frontends on different domains.</label>
+        <label><input type="radio" name="q_hd_14" value="D"> D) Hardcoding admin credentials in the frontend.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="A">
+    <p class="question-text">227. What is a common approach for a Next.js application to handle authentication with a Drupal backend using OAuth 2.0?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_15" value="A"> A) The Next.js app requests an access token from Drupal's OAuth server, stores it securely (e.g., HttpOnly cookie or backend session), and includes it in subsequent API requests as a Bearer token.</label>
+        <label><input type="radio" name="q_hd_15" value="B"> B) The Next.js app directly modifies the Drupal users table.</label>
+        <label><input type="radio" name="q_hd_15" value="C"> C) Drupal automatically trusts any request from the Next.js domain.</label>
+        <label><input type="radio" name="q_hd_15" value="D"> D) By using Drupal's built-in session cookies without any special handling.</label>
+    </div>
+</div>
+
+<h3>Using JSON:API with Next.js (data fetching, SSR, SSG)</h3>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">228. In Next.js, which data fetching function would you typically use within a page component to fetch data from Drupal's JSON:API at request time for Server-Side Rendering (SSR)?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_16" value="A"> A) useEffect()</label>
+        <label><input type="radio" name="q_hd_16" value="B"> B) getServerSideProps()</label>
+        <label><input type="radio" name="q_hd_16" value="C"> C) getStaticProps()</label>
+        <label><input type="radio" name="q_hd_16" value="D"> D) componentDidMount()</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">229. If you want to pre-render pages at build time using data from Drupal (Static Site Generation - SSG) in Next.js, which function is primarily used?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_17" value="A"> A) getServerSideProps()</label>
+        <label><input type="radio" name="q_hd_17" value="B"> B) getStaticPaths() (for dynamic routes) and getStaticProps() (for fetching data for each path)</label>
+        <label><input type="radio" name="q_hd_17" value="C"> C) fetch() directly in the component body.</label>
+        <label><input type="radio" name="q_hd_17" value="D"> D) useEffect() with an empty dependency array.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="C">
+    <p class="question-text">230. When fetching data from Drupal's JSON:API in a Next.js application, what JavaScript function is commonly used to make the HTTP request?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_18" value="A"> A) XMLHttpRequest</label>
+        <label><input type="radio" name="q_hd_18" value="B"> B) jQuery.ajax()</label>
+        <label><input type="radio" name="q_hd_18" value="C"> C) The native fetch() API or libraries like axios.</label>
+        <label><input type="radio" name="q_hd_18" value="D"> D) drupal_http_request()</label>
+    </div>
+</div>
+
+<h3>Building menus and navigation in headless apps</h3>
+<div class="question-container" data-correct-answer="D">
+    <p class="question-text">231. How can menu data from Drupal be exposed to a headless Next.js application via JSON:API?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_19" value="A"> A) Menus are not exposable via JSON:API by default.</label>
+        <label><input type="radio" name="q_hd_19" value="B"> B) The JSON:API module automatically exposes menu items if they are treated as entities or if a module like "JSON:API Menu Items" is used.</label>
+        <label><input type="radio" name="q_hd_19" value="C"> C) By manually creating a custom REST endpoint for menus.</label>
+        <label><input type="radio" name="q_hd_19" value="D"> D) Both B and C are common approaches.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">232. Once menu data (e.g., a list of links with titles and URLs) is fetched in Next.js, how is it typically rendered?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_20" value="A"> A) It's automatically rendered by Next.js.</label>
+        <label><input type="radio" name="q_hd_20" value="B"> B) By mapping over the array of menu items and rendering Next.js &lt;Link&gt; components or standard &lt;a&gt; tags.</label>
+        <label><input type="radio" name="q_hd_20" value="C"> C) Using a special Drupal JavaScript library.</label>
+        <label><input type="radio" name="q_hd_20" value="D"> D) By embedding an iframe of the Drupal menu.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">233. For nested menus (hierarchical), what kind of data structure would you expect from Drupal's JSON:API (perhaps with help from JSON:API Menu Items or similar)?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_21" value="A"> A) A flat list of all menu items, requiring client-side reconstruction of the hierarchy.</label>
+        <label><input type="radio" name="q_hd_21" value="B"> B) A nested structure where child items are included within their parent items, or relationships that allow reconstruction.</label>
+        <label><input type="radio" name="q_hd_21" value="C"> C) An HTML string representing the menu.</label>
+        <label><input type="radio" name="q_hd_21" value="D"> D) A single string with all menu links concatenated.</label>
+    </div>
+</div>
+
+<h3>Image/media handling via JSON:API</h3>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">234. When you fetch a Media entity (e.g., an Image) via JSON:API, how do you typically get the actual URL to the image file?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_22" value="A"> A) The URL is always the main self link of the media entity.</label>
+        <label><input type="radio" name="q_hd_22" value="B"> B) The JSON:API response for the media entity will include a field (often within attributes or a relationship to the file entity) that contains the URL to the image file, potentially with image style derivatives.</label>
+        <label><input type="radio" name="q_hd_22" value="C"> C) You need to guess the URL based on the media entity's ID.</label>
+        <label><input type="radio" name="q_hd_22" value="D"> D) The image is embedded as a base64 string in the JSON.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">235. How can you request a specific image style derivative (e.g., "thumbnail," "large") for an image via JSON:API?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_23" value="A"> A) This is not possible; only the original image is available.</label>
+        <label><input type="radio" name="q_hd_23" value="B"> B) The JSON:API response for an image media entity (or its referenced file entity) often includes URLs for available image styles, or you might need a module like Consumer Image Styles to easily access them.</label>
+        <label><input type="radio" name="q_hd_23" value="C"> C) By appending ?style=thumbnail to the main API endpoint.</label>
+        <label><input type="radio" name="q_hd_23" value="D"> D) By using a different API endpoint for each image style.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">236. If your Next.js app needs to display responsive images using different image style derivatives from Drupal, what's a common approach?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_24" value="A"> A) Fetch all image styles and use JavaScript to switch them.</label>
+        <label><input type="radio" name="q_hd_24" value="B"> B) Fetch data that includes URLs for multiple image styles, then use the HTML &lt;picture&gt; element or srcset attribute in an &lt;img&gt; tag in your Next.js components.</label>
+        <label><input type="radio" name="q_hd_24" value="C"> C) Drupal automatically handles responsive images for headless frontends.</label>
+        <label><input type="radio" name="q_hd_24" value="D"> D) Only use the original image and let CSS resize it.</label>
+    </div>
+</div>
+
+<h3>Creating custom API endpoints (custom routes and controllers)</h3>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">237. If JSON:API doesn't provide data in the exact format or aggregation you need for your Next.js app, what is a common Drupal solution?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_25" value="A"> A) Modify the JSON:API module's core code.</label>
+        <label><input type="radio" name="q_hd_25" value="B"> B) Create a custom module in Drupal with custom routes and controllers that return JSON responses tailored to your needs (often using the RESTful Web Services module or just returning JsonResponse).</label>
+        <label><input type="radio" name="q_hd_25" value="C"> C) Try to manipulate the data extensively on the Next.js client-side.</label>
+        <label><input type="radio" name="q_hd_25" value="D"> D) Switch to a different CMS.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">238. When creating a custom API endpoint in a Drupal controller to return JSON, what type of Response object should your controller method typically return?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_26" value="A"> A) \\Symfony\\Component\\HttpFoundation\\Response with HTML content.</label>
+        <label><input type="radio" name="q_hd_26" value="B"> B) \\Symfony\\Component\\HttpFoundation\\JsonResponse.</label>
+        <label><input type="radio" name="q_hd_26" value="C"> C) \\Drupal\\Core\\Render\\HtmlResponse.</label>
+        <label><input type="radio" name="q_hd_26" value="D"> D) A plain PHP array.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">239. How do you define the path for your custom API endpoint?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_27" value="A"> A) In the module_name.info.yml file.</label>
+        <label><input type="radio" name="q_hd_27" value="B"> B) In a module_name.routing.yml file, similar to defining routes for regular pages.</label>
+        <label><input type="radio" name="q_hd_27" value="C"> C) It's automatically generated based on the controller name.</label>
+        <label><input type="radio" name="q_hd_27" value="D"> D) In the composer.json file.</label>
+    </div>
+</div>
+
+<h3>Decoupled blocks and views</h3>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">240. Can Drupal Blocks be easily consumed by a headless application via the standard JSON:API module?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_28" value="A"> A) Yes, blocks are exposed as top-level resources by default.</label>
+        <label><input type="radio" name="q_hd_28" value="B"> B) Not directly as "rendered blocks." You would typically fetch the content that populates a block (e.g., a custom block entity, or the results of a View that a block might display) and reconstruct its presentation in the frontend.</label>
+        <label><input type="radio" name="q_hd_28" value="C"> C) Only if the "JSON:API Blocks" module is installed.</label>
+        <label><input type="radio" name="q_hd_28" value="D"> D) Blocks can only be rendered through Twig.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">241. How can the data from a Drupal View be exposed for a headless application?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_29" value="A"> A) Views cannot be used in a headless setup.</label>
+        <label><input type="radio" name="q_hd_29" value="B"> B) By creating a "REST export" display in the View, which can output data in formats like JSON (this uses the RESTful Web Services module, not directly JSON:API for the View itself, though JSON:API can fetch entities listed by a View).</label>
+        <label><input type="radio" name="q_hd_29" value="C"> C) The JSON:API module automatically creates endpoints for all Views.</label>
+        <label><input type="radio" name="q_hd_29" value="D"> D) By taking a screenshot of the View and displaying it as an image.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">242. If a View is configured with a REST export display, what does the Next.js application typically fetch?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_30" value="A"> A) The rendered HTML of the View.</label>
+        <label><input type="radio" name="q_hd_30" value="B"> B) A JSON (or other configured format) representation of the View's results (rows of data).</label>
+        <label><input type="radio" name="q_hd_30" value="C"> C) The View's configuration YAML.</label>
+        <label><input type="radio" name="q_hd_30" value="D"> D) A Twig template for the View.</label>
+    </div>
+</div>
+
+<h3>Entity access and permissions in APIs</h3>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">243. When JSON:API serves entity data, does it respect Drupal's entity access permissions?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_31" value="A"> A) No, JSON:API bypasses all access checks for performance.</label>
+        <label><input type="radio" name="q_hd_31" value="B"> B) Yes, JSON:API (and Drupal's REST system in general) integrates with the entity access system, so users (including anonymous or authenticated API clients) will only see data they are permitted to access.</label>
+        <label><input type="radio" name="q_hd_31" value="C"> C) Only if explicitly configured per entity type.</label>
+        <label><input type="radio" name="q_hd_31" value="D"> D) Access permissions are only relevant for the Drupal admin UI.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="B">
+    <p class="question-text">244. If an anonymous user tries to fetch an unpublished node via JSON:API, what is the expected outcome?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_32" value="A"> A) The unpublished node data is returned.</label>
+        <label><input type="radio" name="q_hd_32" value="B"> B) A 403 Forbidden or 404 Not Found error, as anonymous users typically don't have permission to view unpublished content.</label>
+        <label><input type="radio" name="q_hd_32" value="C"> C) A 500 server error.</label>
+        <label><input type="radio" name="q_hd_32" value="D"> D) The API returns a placeholder for the unpublished content.</label>
+    </div>
+</div>
+<div class="question-container" data-correct-answer="A">
+    <p class="question-text">245. For operations like creating or updating entities via JSON:API (e.g., POST, PATCH requests), what is crucial?</p>
+    <div class="options">
+        <label><input type="radio" name="q_hd_33" value="A"> A) The API client must be authenticated with a user account that has the necessary permissions (e.g., "Article: Create new content", "Article: Edit own content").</label>
+        <label><input type="radio" name="q_hd_33" value="B"> B) No special permissions are needed for write operations via API.</label>
+        <label><input type="radio" name="q_hd_33" value="C"> C) The X-Admin-Override header must be sent.</label>
+        <label><input type="radio" name="q_hd_33" value="D"> D) These operations are disabled by default in JSON:API.</label>
+    </div>
+</div>
+
+</div> <!-- Closing the "Headless Drupal + Next.js (JSON:API)" topic-page -->label>
+<div class="topic-page"> <!-- New Topic Page: Important Contributed Modules -->
+    <h2>Important Contributed Modules</h2>
+
+    <h3>Admin Toolbar – Enhanced admin experience</h3>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">212. What is the primary improvement the Admin Toolbar module provides over Drupal's core toolbar?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_1" value="A"> A) It adds a new theme for the admin section.</label>
+            <label><input type="radio" name="q_cm_1" value="B"> B) It provides a dropdown-style menu system for faster access to administrative pages, replacing the default vertical toolbar.</label>
+            <label><input type="radio" name="q_cm_1" value="C"> C) It integrates a WYSIWYG editor into the toolbar.</label>
+            <label><input type="radio" name="q_cm_1" value="D"> D) It enables single sign-on for administrators.</label>
+        </div>
+    </div>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">213. Does the Admin Toolbar module require extensive configuration after installation?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_2" value="A"> A) Yes, all menu items need to be manually configured.</label>
+            <label><input type="radio" name="q_cm_2" value="B"> B) No, it generally works out-of-the-box by enhancing the existing administration menu.</label>
+            <label><input type="radio" name="q_cm_2" value="C"> C) It requires a separate license key.</label>
+            <label><input type="radio" name="q_cm_2" value="D"> D) It only works with specific admin themes.</label>
+        </div>
+    </div>
+
+    <h3>Pathauto – Automatic URL aliases</h3>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">214. What is the main function of the Pathauto module?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_3" value="A"> A) To manually create URL aliases one by one.</label>
+            <label><input type="radio" name="q_cm_3" value="B"> B) To automatically generate URL aliases for content (like nodes, taxonomy terms) based on configurable patterns.</label>
+            <label><input type="radio" name="q_cm_3" value="C"> C) To redirect old URLs to new ones.</label>
+            <label><input type="radio" name="q_cm_3" value="D"> D) To validate the syntax of URL aliases.</label>
+        </div>
+    </div>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">215. Pathauto relies on which other module to provide the placeholders (e.g., [node:title]) used in its patterns?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_4" value="A"> A) Views</label>
+            <label><input type="radio" name="q_cm_4" value="B"> B) Token</label>
+            <label><input type="radio" name="q_cm_4" value="C"> C) Redirect</label>
+            <label><input type="radio" name="q_cm_4" value="D"> D) Link</label>
+        </div>
+    </div>
+
+    <h3>Token – Used with Pathauto, metatags, etc.</h3>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">216. What is the core functionality of the Token module?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_5" value="A"> A) To provide a secure authentication mechanism.</label>
+            <label><input type="radio" name="q_cm_5" value="B"> B) To provide a centralized API for modules to offer and use small, replaceable placeholders (tokens) for dynamic data.</label>
+            <label><input type="radio" name="q_cm_5" value="C"> C) To manage user sessions.</label>
+            <label><input type="radio" name="q_cm_5" value="D"> D) To create custom field types.</label>
+        </div>
+    </div>
+    <div class="question-container" data-correct-answer="D">
+        <p class="question-text">217. Which of these is an example of a token that might be provided for a node?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_6" value="A"> A) [current-user:name]</label>
+            <label><input type="radio" name="q_cm_6" value="B"> B) [node:title]</label>
+            <label><input type="radio" name="q_cm_6" value="C"> C) [site:name]</label>
+            <label><input type="radio" name="q_cm_6" value="D"> D) All of the above (Token module provides a UI to browse available tokens from various sources).</label>
+        </div>
+    </div>
+
+    <h3>Metatag – SEO-friendly meta tags</h3>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">218. What is the primary purpose of the Metatag module?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_7" value="A"> A) To add custom CSS classes to HTML elements.</label>
+            <label><input type="radio" name="q_cm_7" value="B"> B) To allow site administrators to control and automatically generate various meta tags (e.g., description, keywords, Open Graph) for SEO and social sharing.</label>
+            <label><input type="radio" name="q_cm_7" value="C"> C) To create sitemaps for search engines.</label>
+            <label><input type="radio" name="q_cm_7" value="D"> D) To manage URL redirects.</label>
+        </div>
+    </div>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">219. Can the Metatag module use Tokens to dynamically populate meta tag values?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_8" value="A"> A) No, meta tags must be static.</label>
+            <label><input type="radio" name="q_cm_8" value="B"> B) Yes, it heavily integrates with the Token module to allow dynamic generation of meta tags based on content data.</label>
+            <label><input type="radio" name="q_cm_8" value="C"> C) Only for the page title.</label>
+            <label><input type="radio" name="q_cm_8" value="D"> D) Only if Pathauto is also installed.</label>
+        </div>
+    </div>
+
+    <h3>Redirect – Manage 301 redirects</h3>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">220. What problem does the Redirect module primarily solve?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_9" value="A"> A) It helps create user-friendly URL aliases.</label>
+            <label><input type="radio" name="q_cm_9" value="B"> B) It manages and creates HTTP redirects (e.g., 301 permanent redirects) when URLs change, helping to preserve SEO value and avoid broken links.</label>
+            <label><input type="radio" name="q_cm_9" value="C"> C) It translates URLs into different languages.</label>
+            <label><input type="radio" name="q_cm_9" value="D"> D) It shortens long URLs.</label>
+        </div>
+    </div>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">221. If you change the URL alias of a node, can the Redirect module automatically create a redirect from the old alias to the new one?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_10" value="A"> A) No, all redirects must be created manually.</label>
+            <label><input type="radio" name="q_cm_10" value="B"> B) Yes, it has an option to automatically create redirects when aliases are changed.</label>
+            <label><input type="radio" name="q_cm_10" value="C"> C) Only if Pathauto is not installed.</label>
+            <label><input type="radio" name="q_cm_10" value="D"> D) Only for taxonomy term aliases.</label>
+        </div>
+    </div>
+
+    <h3>Webform – Advanced forms creation</h3>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">222. What is the Webform module best known for?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_11" value="A"> A) Enhancing Drupal's core contact form.</label>
+            <label><input type="radio" name="q_cm_11" value="B"> B) Providing a powerful and flexible way to create custom forms (surveys, applications, contact forms, etc.) with a wide range of field types, conditional logic, and submission handling.</label>
+            <label><input type="radio" name="q_cm_11" value="C"> C) Managing user registration forms.</label>
+            <label><input type="radio" name="q_cm_11" value="D"> D) Creating AJAX-enabled forms only.</label>
+        </div>
+    </div>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">223. Can Webform submissions be exported or sent via email?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_12" value="A"> A) No, submissions are only viewable within Drupal.</label>
+            <label><input type="radio" name="q_cm_12" value="B"> B) Yes, Webform offers extensive options for handling submissions, including viewing them in Drupal, exporting to various formats (CSV, Excel), and sending email notifications.</label>
+            <label><input type="radio" name="q_cm_12" value="C"> C) Only if a custom module is written.</label>
+            <label><input type="radio" name="q_cm_12" value="D"> D) Only to the site administrator.</label>
+        </div>
+    </div>
+
+    <h3>Paragraphs – Flexible content components</h3>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">224. What core benefit does the Paragraphs module offer for content creation?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_13" value="A"> A) It provides a better WYSIWYG editor.</label>
+            <label><input type="radio" name="q_cm_13" value="B"> B) It allows content editors to build pages by adding and arranging various pre-defined "Paragraph Types" (structured content components) in a flexible way.</label>
+            <label><input type="radio" name="q_cm_13" value="C"> C) It automatically translates content.</label>
+            <label><input type="radio" name="q_cm_13" value="D"> D) It manages user comments.</label>
+        </div>
+    </div>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">225. Are Paragraphs themselves fieldable entities?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_14" value="A"> A) No, they are just simple text areas.</label>
+            <label><input type="radio" name="q_cm_14" value="B"> B) Yes, each Paragraph Type can have its own set of fields, allowing for complex and structured components.</label>
+            <label><input type="radio" name="q_cm_14" value="C"> C) Only image fields are allowed.</label>
+            <label><input type="radio" name="q_cm_14" value="D"> D) Only if the Field Group module is also installed.</label>
+        </div>
+    </div>
+
+    <h3>Views – Advanced query building and display</h3>
+    <div class="question-container" data-correct-answer="A">
+        <p class="question-text">226. While Views is in Drupal core, why is it often listed as an "important contributed module" historically or in terms of its extensive capabilities?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_15" value="A"> A) Because it used to be a contributed module and its power is so significant it's worth highlighting.</label>
+            <label><input type="radio" name="q_cm_15" value="B"> B) It's not in core; it's always been contrib.</label>
+            <label><input type="radio" name="q_cm_15" value="C"> C) It's only for developers.</label>
+            <label><input type="radio" name="q_cm_15" value="D"> D) It's primarily for theming.</label>
+        </div>
+    </div>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">227. What can you create with Views?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_16" value="A"> A) Only lists of content.</label>
+            <label><input type="radio" name="q_cm_16" value="B"> B) Complex listings, grids, tables, RSS feeds, and REST API outputs from any entity type in Drupal, with powerful filtering, sorting, and relationship handling.</label>
+            <label><input type="radio" name="q_cm_16" value="C"> C) Only user profiles.</label>
+            <label><input type="radio" name="q_cm_16" value="D"> D) Only navigation menus.</label>
+        </div>
+    </div>
+
+    <h3>Devel – Developer utilities</h3>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">228. What is the primary audience and purpose of the Devel module?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_17" value="A"> A) Content editors, for easier content creation.</label>
+            <label><input type="radio" name="q_cm_17" value="B"> B) Developers, providing tools for debugging, inspecting variables, generating dummy content, and other development tasks.</label>
+            <label><input type="radio" name="q_cm_17" value="C"> C) Site administrators, for managing users.</label>
+            <label><input type="radio" name="q_cm_17" value="D"> D) SEO specialists, for optimizing meta tags.</label>
+        </div>
+    </div>
+    <div class="question-container" data-correct-answer="A">
+        <p class="question-text">229. Which Devel submodule is often used to quickly generate dummy nodes, users, or terms for testing?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_18" value="A"> A) Devel Generate (e.g., devel_generate)</label>
+            <label><input type="radio" name="q_cm_18" value="B"> B) Devel Kint</label>
+            <label><input type="radio" name="q_cm_18" value="C"> C) Devel Webprofiler</label>
+            <label><input type="radio" name="q_cm_18" value="D"> D) Devel Mailhog</label>
+        </div>
+    </div>
+
+    <h3>JSON:API Extras – Customizing JSON:API output</h3>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">230. What capability does JSON:API Extras offer for fields exposed via JSON:API?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_19" value="A"> A) It encrypts all field values.</label>
+            <label><input type="radio" name="q_cm_19" value="B"> B) It allows aliasing field names (e.g., field_long_name to shortName) and disabling specific fields or entire resources from the API output.</label>
+            <label><input type="radio" name="q_cm_19" value="C"> C) It automatically translates field labels.</label>
+            <label><input type="radio" name="q_cm_19" value="D"> D) It converts all field values to uppercase.</label>
+        </div>
+    </div>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">231. Is JSON:API Extras a core Drupal module?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_20" value="A"> A) Yes, it's part of the JSON:API module.</label>
+            <label><input type="radio" name="q_cm_20" value="B"> B) No, it's a contributed module that enhances the core JSON:API module.</label>
+            <label><input type="radio" name="q_cm_20" value="C"> C) It's a theme, not a module.</label>
+            <label><input type="radio" name="q_cm_20" value="D"> D) It's a JavaScript library.</label>
+        </div>
+    </div>
+
+    <h3>Simple OAuth / JWT – API authentication</h3>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">232. What is the general purpose of modules like Simple OAuth or OAuth2 JWT in a headless Drupal setup?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_21" value="A"> A) To manage URL redirects.</label>
+            <label><input type="radio" name="q_cm_21" value="B"> B) To provide secure, token-based authentication (OAuth 2.0) for API clients (like a Next.js app) to access Drupal resources.</label>
+            <label><input type="radio" name="q_cm_21" value="C"> C) To optimize images for API delivery.</label>
+            <label><input type="radio" name="q_cm_21" value="D"> D) To translate API responses.</label>
+        </div>
+    </div>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">233. What does a client application typically receive from an OAuth 2.0 server after successful authentication, which it then uses for subsequent API requests?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_22" value="A"> A) A permanent password.</label>
+            <label><input type="radio" name="q_cm_22" value="B"> B) An access token (and often a refresh token).</label>
+            <label><input type="radio" name="q_cm_22" value="C"> C) A session cookie.</label>
+            <label><input type="radio" name="q_cm_22" value="D"> D) A user ID.</label>
+        </div>
+    </div>
+
+    <h3>CKEditor Media Embed / Libraries – Enhanced media handling</h3>
+    <div class="question-container" data-correct-answer="A">
+        <p class="question-text">234. What functionality do modules related to CKEditor Media Embed (or similar core/contrib integrations) provide?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_23" value="A"> A) They allow embedding of media entities (like images or videos from the Media Library) directly into CKEditor 5.</label>
+            <label><input type="radio" name="q_cm_23" value="B"> B) They compress all media files automatically.</label>
+            <label><input type="radio" name="q_cm_23" value="C"> C) They convert all media to a single format.</label>
+            <label><input type="radio" name="q_cm_23" value="D"> D) They provide a new theme for the Media Library.</label>
+        </div>
+    </div>
+     <div class="question-container" data-correct-answer="B">
+        <p class="question-text">235. What is the Drupal Media Library?</p>
+        <div class="options">
+                <label><input type="radio" name="q_cm_24" value="A"> A) A JavaScript library for image galleries.</label>
+                <label><input type="radio" name="q_cm_24" value="B"> B) A core Drupal feature providing a user interface for browsing, managing, and reusing media items (images, videos, documents, etc.).</label>
+                <label><input type="radio" name="q_cm_24" value="C"> C) A physical folder on the server.</label>
+                <label><input type="radio" name="q_cm_24" value="D"> D) A type of content entity.</label>
+        </div>
+    </div>
+
+    <h3>Entity Browser / Media Library – Media selection UX</h3>
+     <div class="question-container" data-correct-answer="B">
+        <p class="question-text">236. What is the primary purpose of the Entity Browser module?</p>
+        <div class="options">
+                <label><input type="radio" name="q_cm_25" value="A"> A) To view all entities in the database.</label>
+                <label><input type="radio" name="q_cm_25" value="B"> B) To provide a generic and configurable way to browse and select entities (including media, nodes, users, etc.) for use in entity reference fields or other contexts.</label>
+                <label><input type="radio" name="q_cm_25" value="C"> C) To automatically create new entity types.</label>
+                <label><input type="radio" name="q_cm_25" value="D"> D) To manage entity revisions.</label>
+        </div>
+    </div>
+     <div class="question-container" data-correct-answer="B">
+        <p class="question-text">237. How does the Media Library improve the user experience for selecting media compared to a simple file upload field?</p>
+        <div class="options">
+                <label><input type="radio" name="q_cm_26" value="A"> A) It forces users to upload new media every time.</label>
+                <label><input type="radio" name="q_cm_26" value="B"> B) It provides a visual interface to browse, search, and select existing media items, or upload new ones, promoting reuse.</label>
+                <label><input type="radio" name="q_cm_26" value="C"> C) It only allows selecting media from external URLs.</label>
+                <label><input type="radio" name="q_cm_26" value="D"> D) It bypasses all permission checks.</label>
+        </div>
+    </div>
+
+    <h3>Layout Builder – Custom layouts for content</h3>
+     <div class="question-container" data-correct-answer="B">
+        <p class="question-text">238. While Layout Builder is a core module, why is it often highlighted as an important module?</p>
+        <div class="options">
+                <label><input type="radio" name="q_cm_27" value="A"> A) It's a very new and experimental module.</label>
+                <label><input type="radio" name="q_cm_27" value="B"> B) It provides a powerful and flexible UI for site builders and content editors to create custom layouts for content on a per-entity or per-bundle basis, significantly changing how pages can be structured.</label>
+                <label><input type="radio" name="q_cm_27" value="C"> C) It's only useful for developers.</label>
+                <label><input type="radio" name="q_cm_27" value="D"> D) It replaces the Twig templating system.</label>
+        </div>
+    </div>
+     <div class="question-container" data-correct-answer="B">
+        <p class="question-text">239. Can Layout Builder be used to customize the display of a single node, overriding the default layout for its content type?</p>
+        <div class="options">
+                <label><input type="radio" name="q_cm_28" value="A"> A) No, it only defines default layouts for content types.</label>
+                <label><input type="radio" name="q_cm_28" value="B"> B) Yes, Layout Builder can be enabled for individual entity overrides, allowing content-specific layouts.</label>
+                <label><input type="radio" name="q_cm_28" value="C"> C) Only if the Paragraphs module is also installed.</label>
+                <label><input type="radio" name="q_cm_28" value="D"> D) Only by writing custom code.</label>
+        </div>
+    </div>
+
+    <h3>Schema.org Metatag / JSON-LD – Structured data for headless</h3>
+     <div class="question-container" data-correct-answer="B">
+        <p class="question-text">240. What is the primary benefit of using modules like Schema.org Metatag or outputting JSON-LD for structured data?</p>
+        <div class="options">
+                <label><input type="radio" name="q_cm_29" value="A"> A) It improves the visual appearance of the website.</label>
+                <label><input type="radio" name="q_cm_29" value="B"> B) It provides search engines (like Google) with explicit, structured information about the content on a page, which can improve SEO and enable rich snippets in search results.</label>
+                <label><input type="radio" name="q_cm_29" value="C"> C) It encrypts website content.</label>
+                <label><input type="radio" name="q_cm_29" value="D"> D) It speeds up website loading times.</label>
+        </div>
+    </div>
+     <div class="question-container" data-correct-answer="B">
+        <p class="question-text">241. What is JSON-LD?</p>
+        <div class="options">
+                <label><input type="radio" name="q_cm_30" value="A"> A) A JavaScript library for data manipulation.</label>
+                <label><input type="radio" name="q_cm_30" value="B"> B) A method of embedding Linked Data using JSON, often used to represent structured data (like Schema.org types) within a &lt;script&gt; tag in HTML.</label>
+                <label><input type="radio" name="q_cm_30" value="C"> C) A Drupal module for API documentation.</label>
+                <label><input type="radio" name="q_cm_30" value="D"> D) A query language for JSON documents.</label>
+        </div>
+    </div>
+
+    <h3>Search API / Solr / Elasticsearch – Site and headless search</h3>
+     <div class="question-container" data-correct-answer="B">
+        <p class="question-text">242. What is the core purpose of the Search API module?</p>
+        <div class="options">
+                <label><input type="radio" name="q_cm_31" value="A"> A) To provide a basic keyword search for Drupal core.</label>
+                <label><input type="radio" name="q_cm_31" value="B"> B) To provide a flexible framework for creating advanced search interfaces, allowing integration with different search backends (like Solr, Elasticsearch, or the database) and indexing various types of content.</label>
+                <label><input type="radio" name="q_cm_31" value="C"> C) To manage meta tags for search engines.</label>
+                <label><input type="radio" name="q_cm_31" value="D"> D) To analyze website traffic from search engines.</label>
+        </div>
+    </div>
+    <h3>CKEditor Media Embed / Libraries – Enhanced media handling</h3>
+    <div class="question-container" data-correct-answer="A">
+        <p class="question-text">244. What functionality do modules related to CKEditor Media Embed (or similar core/contrib integrations) provide? <em>(Note: CKEditor 5 has built-in media embedding capabilities that integrate with Drupal's Media Library. Specific contrib modules might enhance this further or provide bridges for older CKEditor versions/specific embed strategies.)</em></p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_33" value="A"> A) They allow embedding of media entities (like images or videos from the Media Library) directly into CKEditor 5.</label>
+            <label><input type="radio" name="q_cm_33" value="B"> B) They compress all media files automatically.</label>
+            <label><input type="radio" name="q_cm_33" value="C"> C) They convert all media to a single format.</label>
+            <label><input type="radio" name="q_cm_33" value="D"> D) They provide a new theme for the Media Library.</label>
+        </div>
+    </div>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">245. What is the Drupal Media Library?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_34" value="A"> A) A JavaScript library for image galleries.</label>
+            <label><input type="radio" name="q_cm_34" value="B"> B) A core Drupal feature providing a user interface for browsing, managing, and reusing media items (images, videos, documents, etc.).</label>
+            <label><input type="radio" name="q_cm_34" value="C"> C) A physical folder on the server.</label>
+            <label><input type="radio" name="q_cm_34" value="D"> D) A type of content entity.</label>
+        </div>
+    </div>
+
+    <h3>Entity Browser / Media Library – Media selection UX</h3>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">246. What is the primary purpose of the Entity Browser module? <em>(Note: Media Library is now a strong core solution for media selection, but Entity Browser offers more general entity browsing capabilities.)</em></p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_35" value="A"> A) To view all entities in the database.</label>
+            <label><input type="radio" name="q_cm_35" value="B"> B) To provide a generic and configurable way to browse and select entities (including media, nodes, users, etc.) for use in entity reference fields or other contexts.</label>
+            <label><input type="radio" name="q_cm_35" value="C"> C) To automatically create new entity types.</label>
+            <label><input type="radio" name="q_cm_35" value="D"> D) To manage entity revisions.</label>
+        </div>
+    </div>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">247. How does the Media Library improve the user experience for selecting media compared to a simple file upload field?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_36" value="A"> A) It forces users to upload new media every time.</label>
+            <label><input type="radio" name="q_cm_36" value="B"> B) It provides a visual interface to browse, search, and select existing media items, or upload new ones, promoting reuse.</label>
+            <label><input type="radio" name="q_cm_36" value="C"> C) It only allows selecting media from external URLs.</label>
+            <label><input type="radio" name="q_cm_36" value="D"> D) It bypasses all permission checks.</label>
+        </div>
+    </div>
+
+    <h3>Layout Builder – Custom layouts for content</h3>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">248. While Layout Builder is a core module, why is it often highlighted as an important module?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_37" value="A"> A) It's a very new and experimental module.</label>
+            <label><input type="radio" name="q_cm_37" value="B"> B) It provides a powerful and flexible UI for site builders and content editors to create custom layouts for content on a per-entity or per-bundle basis, significantly changing how pages can be structured.</label>
+            <label><input type="radio" name="q_cm_37" value="C"> C) It's only useful for developers.</label>
+            <label><input type="radio" name="q_cm_37" value="D"> D) It replaces the Twig templating system.</label>
+        </div>
+    </div>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">249. Can Layout Builder be used to customize the display of a single node, overriding the default layout for its content type?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_38" value="A"> A) No, it only defines default layouts for content types.</label>
+            <label><input type="radio" name="q_cm_38" value="B"> B) Yes, Layout Builder can be enabled for individual entity overrides, allowing content-specific layouts.</label>
+            <label><input type="radio" name="q_cm_38" value="C"> C) Only if the Paragraphs module is also installed.</label>
+            <label><input type="radio" name="q_cm_38" value="D"> D) Only by writing custom code.</label>
+        </div>
+    </div>
+
+    <h3>Schema.org Metatag / JSON-LD – Structured data for headless</h3>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">250. What is the primary benefit of using modules like Schema.org Metatag or outputting JSON-LD for structured data?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_39" value="A"> A) It improves the visual appearance of the website.</label>
+            <label><input type="radio" name="q_cm_39" value="B"> B) It provides search engines (like Google) with explicit, structured information about the content on a page, which can improve SEO and enable rich snippets in search results.</label>
+            <label><input type="radio" name="q_cm_39" value="C"> C) It encrypts website content.</label>
+            <label><input type="radio" name="q_cm_39" value="D"> D) It speeds up website loading times.</label>
+        </div>
+    </div>
+    <div class="question-container" data-correct-answer="B">
+        <p class="question-text">251. What is JSON-LD?</p>
+        <div class="options">
+            <label><input type="radio" name="q_cm_40" value="A"> A) A JavaScript library for data manipulation.</label>
+            <label><input type="radio" name="q_cm_40" value="B"> B) A method of embedding Linked Data using JSON, often used to represent structured data (like Schema.org types) within a &lt;script&gt; tag in HTML.</label>
+            <label><input type="radio" name="q_cm_40" value="C"> C) A Drupal module for API documentation.</label>
+            <label><input type="radio" name="q_cm_40" value="D"> D) A query language for JSON documents.</label>
+        </div>
+    </div>
+</div>
 
 <div class="pagination-controls" id="pagination-controls-bottom">
   <button id="prev-topic-bottom" disabled>Previous Topic</button>
@@ -1462,14 +2962,17 @@
     "Paragraphs module basics", // Original index 11
     "Paragraphs - Advanced",    // Original index 14
     "Configuration management", // Original index 15
-    "Roles and permissions"     // Original index 16
+    "Roles and permissions",     // Original index 16
+    "Module Development",
+    "Theme Development",
+    "Headless Drupal + Next.js (JSON:API)",
+    "Important Contributed Modules"
   ];
   let currentTopicIndex = 0;
   const prevButton = document.getElementById('prev-topic');
   const nextButton = document.getElementById('next-topic');
   const topicIndicator = document.getElementById('topic-indicator');
-  const submitButton = document.getElementById('submit-quiz');
-  const scoreDisplay = document.getElementById('score-display');
+
 
   // Bottom controls
   const prevButtonBottom = document.getElementById('prev-topic-bottom');
@@ -1499,8 +3002,6 @@
       updateTopicDisplay();
       if(controls) controls.style.display = 'block';
       if(controlsBottom) controlsBottom.style.display = 'block';
-      // Show submit button only on the last page initially
-      if(submitButton) submitButton.style.display = 'none';
     } else {
       if(controls) controls.style.display = 'none';
       if(controlsBottom) controlsBottom.style.display = 'none';
@@ -1534,15 +3035,6 @@
 
     if(prevButtonBottom) prevButtonBottom.disabled = currentTopicIndex === 0;
     if(nextButtonBottom) nextButtonBottom.disabled = currentTopicIndex === topicPages.length - 1;
-
-    // Show submit button only on the last page
-    if (submitButton) {
-      if (currentTopicIndex === topicPages.length - 1) {
-        submitButton.style.display = 'block';
-      } else {
-        submitButton.style.display = 'none';
-      }
-    }
   }
 
   if(prevButton && nextButton) {
@@ -1574,25 +3066,6 @@
         currentTopicIndex++;
         updateTopicDisplay();
       }
-    });
-  }
-
-  if (submitButton) {
-    submitButton.addEventListener('click', () => {
-      scoreDisplay.textContent = 'Your score: 65%';
-      scoreDisplay.style.display = 'block';
-      if(submitButton) submitButton.style.display = 'none';
-
-      if(nextButton) nextButton.style.display = 'none';
-      if(prevButton) prevButton.disabled = true;
-
-      if(nextButtonBottom) nextButtonBottom.style.display = 'none';
-      if(prevButtonBottom) prevButtonBottom.disabled = true;
-
-      // Optionally, disable all radio buttons on all pages
-      document.querySelectorAll('.question-container input[type="radio"]').forEach(radio => {
-        radio.disabled = true;
-      });
     });
   }
 
