@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drupal Quiz</title>
+<style>
+  body {
+    font-family: sans-serif;
+  }
+  .question-container {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+  }
+  .question-text {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .options label {
+    display: block;
+    margin-bottom: 8px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  .options label:hover {
+    background-color: #f0f0f0;
+  }
+  .options input[type="radio"] {
+    margin-right: 10px;
+  }
+  .options label.correct {
+    background-color: #d4edda; /* light green */
+    border-color: #c3e6cb;
+  }
+  .options label.incorrect {
+    background-color: #f8d7da; /* light red */
+    border-color: #f5c6cb;
+  }
+  /* Optional: Style to explicitly show the correct answer if user was wrong */
+  .options label.show-actual-correct {
+    background-color: #cce5ff; /* light blue or another distinct color */
+    border-color: #b8daff;
+    font-weight: bold; /* Make it stand out */
+  }
+  /* Pagination Styles */
+  .topic-page {
+    display: none !important; /* Hidden by default */
+  }
+  .topic-page.active {
+    display: block !important; /* Show active topic */
+  }
+  .pagination-controls {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .pagination-controls button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+  }
+  .pagination-controls button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  .pagination-controls span {
+    margin: 0 10px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<h1>Drupal Quiz</h1>
+
+<div class="pagination-controls">
+  <button id="prev-topic" disabled>Previous Topic</button>
+  <span id="topic-indicator"></span>
+  <button id="next-topic">Next Topic</button>
+</div>
+
+<div class="topic-page">
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">1. What is the primary purpose of a Content Type in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q1" value="A"> A) To define the visual theme of content.</label>
+      <label><input type="radio" name="q1" value="B"> B) To group users with similar permissions.</label>
+      <label><input type="radio" name="q1" value="C"> C) To define the structure (fields) for a specific kind of content (e.g., Article, Product).</label>
+      <label><input type="radio" name="q1" value="D"> D) To manage URL aliases.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">2. When creating a new field for a content type, what does "Field Type" determine?</p>
+    <div class="options">
+      <label><input type="radio" name="q2" value="A"> A) The display format of the field.</label>
+      <label><input type="radio" name="q2" value="B"> B) The kind of data the field can store (e.g., text, number, boolean).</label>
+      <label><input type="radio" name="q2" value="C"> C) The widget used for editing the field on the content creation form.</label>
+      <label><input type="radio" name="q2" value="D"> D) The CSS classes applied to the field.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="D">
+    <p class="question-text">3. Which of the following is NOT a core field type in Drupal 11?</p>
+    <div class="options">
+      <label><input type="radio" name="q3" value="A"> A) Email</label>
+      <label><input type="radio" name="q3" value="B"> B) Link</label>
+      <label><input type="radio" name="q3" value="C"> C) Geolocation (requires a contrib module for full functionality, but basic support might exist or be confused with Address)</label>
+      <label><input type="radio" name="q3" value="D"> D) File Upload Widget (This is a widget, not a field type itself; the field type would be 'File' or 'Image')</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="A">
+    <p class="question-text">4. What setting controls how many values a field can store for a single content item?</p>
+    <div class="options">
+      <label><input type="radio" name="q4" value="A"> A) Field Cardinality</label>
+      <label><input type="radio" name="q4" value="B"> B) Field Instance Setting</label>
+      <label><input type="radio" name="q4" value="C"> C) Field Storage Configuration</label>
+      <label><input type="radio" name="q4" value="D"> D) Field Widget Type</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">5. If you want to add a pre-configured set of fields to multiple content types, what Drupal concept would be most appropriate to reuse field definitions?</p>
+    <div class="options">
+      <label><input type="radio" name="q5" value="A"> A) Creating a new field for each content type.</label>
+      <label><input type="radio" name="q5" value="B"> B) Using "Existing field" when adding a field to a content type.</label>
+      <label><input type="radio" name="q5" value="C"> C) Defining a custom module for each field.</label>
+      <label><input type="radio" name="q5" value="D"> D) Using global variables.</label>
+    </div>
+  </div>
+</div>
+
+<div class="topic-page">
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">6. Which of these is a common field type used for storing long, formatted text with a WYSIWYG editor?</p>
+    <div class="options">
+      <label><input type="radio" name="q6" value="A"> A) Text (plain)</label>
+      <label><input type="radio" name="q6" value="B"> B) Text (formatted)</label>
+      <label><input type="radio" name="q6" value="C"> C) Text (formatted, long)</label>
+      <label><input type="radio" name="q6" value="D"> D) String (long)</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">7. When managing fields for a content type, where would you typically configure the help text that appears below the field on the content editing form?</p>
+    <div class="options">
+      <label><input type="radio" name="q7" value="A"> A) In the content type's main settings.</label>
+      <label><input type="radio" name="q7" value="B"> B) In the field's "Edit" settings (field instance settings).</label>
+      <label><input type="radio" name="q7" value="C"> C) In the "Manage display" settings.</label>
+      <label><input type="radio" name="q7" value="D"> D) In the theme's template file.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">8. What is the machine name of a field primarily used for?</p>
+    <div class="options">
+      <label><input type="radio" name="q8" value="A"> A) Displaying a human-readable label to content editors.</label>
+      <label><input type="radio" name="q8" value="B"> B) Programmatic access in code and theming.</label>
+      <label><input type="radio" name="q8" value="C"> C) SEO optimization.</label>
+      <label><input type="radio" name="q8" value="D"> D) Sorting content in Views.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">9. If you delete a field from a content type, what happens to the data already entered into that field for existing content items?</p>
+    <div class="options">
+      <label><input type="radio" name="q9" value="A"> A) The data is automatically backed up.</label>
+      <label><input type="radio" name="q9" value="B"> B) The data is hidden but remains in the database.</label>
+      <label><input type="radio" name="q9" value="C"> C) The data is permanently deleted after a confirmation.</label>
+      <label><input type="radio" name="q9" value="D"> D) The data is converted to a generic text field.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">10. Which core module provides the basic field types like Text, Number, and Boolean?</p>
+    <div class="options">
+      <label><input type="radio" name="q10" value="A"> A) Field UI</label>
+      <label><input type="radio" name="q10" value="B"> B) Node</label>
+      <label><input type="radio" name="q10" value="C"> C) Field</label>
+      <label><input type="radio" name="q10" value="D"> D) System</label>
+    </div>
+  </div>
+</div>
+
+<div class="topic-page">
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">11. In Drupal's taxonomy system, what is a 'Vocabulary'?</p>
+    <div class="options">
+      <label><input type="radio" name="q11" value="A"> A) A single classification keyword.</label>
+      <label><input type="radio" name="q11" value="B"> B) A container or group for a set of related terms.</label>
+      <label><input type="radio" name="q11" value="C"> C) A specific type of content.</label>
+      <label><input type="radio" name="q11" value="D"> D) A user permission level.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">12. What is a 'Term' in the context of Drupal taxonomy?</p>
+    <div class="options">
+      <label><input type="radio" name="q12" value="A"> A) A collection of vocabularies.</label>
+      <label><input type="radio" name="q12" value="B"> B) A specific item within a vocabulary used for classification.</label>
+      <label><input type="radio" name="q12" value="C"> C) A field type for categorizing content.</label>
+      <label><input type="radio" name="q12" value="D"> D) The machine name of a vocabulary.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">13. How are taxonomy terms typically associated with content in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q13" value="A"> A) By hardcoding them into templates.</label>
+      <label><input type="radio" name="q13" value="B"> B) By adding an Entity Reference field (referencing Taxonomy terms) to the content type.</label>
+      <label><input type="radio" name="q13" value="C"> C) Through a custom module only.</label>
+      <label><input type="radio" name="q13" value="D"> D) By defining them in the settings.php file.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">14. Which of the following is a common use case for Taxonomy?</p>
+    <div class="options">
+      <label><input type="radio" name="q14" value="A"> A) Managing user accounts.</label>
+      <label><input type="radio" name="q14" value="B"> B) Creating different color schemes for a website.</label>
+      <label><input type="radio" name="q14" value="C"> C) Categorizing content like blog posts with tags or categories.</label>
+      <label><input type="radio" name="q14" value="D"> D) Storing site configuration.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">15. What feature allows you to create a hierarchical structure (parent-child relationships) within a vocabulary?</p>
+    <div class="options">
+      <label><input type="radio" name="q15" value="A"> A) Term weights.</label>
+      <label><input type="radio" name="q15" value="B"> B) Term relationships (parent term setting).</label>
+      <label><input type="radio" name="q15" value="C"> C) Vocabulary types.</label>
+      <label><input type="radio" name="q15" value="D"> D) Field groups.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="A">
+    <p class="question-text">16. If you want to allow users to add new terms to a vocabulary "on-the-fly" while creating content, what field widget setting would you typically enable for the taxonomy reference field?</p>
+    <div class="options">
+      <label><input type="radio" name="q16" value="A"> A) Autocomplete (Tags style)</label>
+      <label><input type="radio" name="q16" value="B"> B) Check boxes/radio buttons</label>
+      <label><input type="radio" name="q16" value="C"> C) Select list</label>
+      <label><input type="radio" name="q16" value="D"> D) Term creation lock</label>
+    </div>
+  </div>
+</div>
+
+<div class="topic-page">
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">17. How can you display all content items tagged with a specific taxonomy term?</p>
+    <div class="options">
+      <label><input type="radio" name="q17" value="A"> A) By manually creating a page for each term.</label>
+      <label><input type="radio" name="q17" value="B"> B) Drupal automatically creates a page for each term, typically at taxonomy/term/{tid}.</label>
+      <label><input type="radio" name="q17" value="C"> C) This requires a custom module.</label>
+      <label><input type="radio" name="q17" value="D"> D) By editing the robots.txt file.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">18. What is the primary benefit of using vocabularies to organize terms?</p>
+    <div class="options">
+      <label><input type="radio" name="q18" value="A"> A) It improves website loading speed.</label>
+      <label><input type="radio" name="q18" value="B"> B) It allows for different sets of terms to be used for different classification purposes.</label>
+      <label><input type="radio" name="q18" value="C"> C) It automatically translates terms into multiple languages.</label>
+      <label><input type="radio" name="q18" value="D"> D) It restricts access to terms based on user roles.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">19. When might you use a "flat" vocabulary (no hierarchy)?</p>
+    <div class="options">
+      <label><input type="radio" name="q19" value="A"> A) For a complex sitemap.</label>
+      <label><input type="radio" name="q19" value="B"> B) For simple tagging, like keywords for articles.</label>
+      <label><input type="radio" name="q19" value="C"> C) When terms have many sub-categories.</label>
+      <label><input type="radio" name="q19" value="D"> D) Only when using numerical terms.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="A">
+    <p class="question-text">20. To manage vocabularies and terms, which administrative menu item would you typically navigate to?</p>
+    <div class="options">
+      <label><input type="radio" name="q20" value="A"> A) Structure</label>
+      <label><input type="radio" name="q20" value="B"> B) Configuration</label>
+      <label><input type="radio" name="q20" value="C"> C) Content</label>
+      <label><input type="radio" name="q20" value="D"> D) Appearance</label>
+    </div>
+  </div>
+</div>
+
+<div class="topic-page">
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">21. What is the primary function of the Menu system in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q21" value="A"> A) To define content types.</label>
+      <label><input type="radio" name="q21" value="B"> B) To manage website navigation by organizing links.</label>
+      <label><input type="radio" name="q21" value="C"> C) To store user profile information.</label>
+      <label><input type="radio" name="q21" value="D"> D) To handle file uploads.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">22. Which of these is a core menu typically found in a standard Drupal installation?</p>
+    <div class="options">
+      <label><input type="radio" name="q22" value="A"> A) User Profile Menu</label>
+      <label><input type="radio" name="q22" value="B"> B) Main navigation</label>
+      <label><input type="radio" name="q22" value="C"> C) Content Editor Menu</label>
+      <label><input type="radio" name="q22" value="D"> D) Developer Tools Menu</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">23. How do you add a new link to an existing menu in Drupal's UI?</p>
+    <div class="options">
+      <label><input type="radio" name="q23" value="A"> A) By editing the settings.php file.</label>
+      <label><input type="radio" name="q23" value="B"> B) Through the "Structure" > "Menus" page, then selecting the menu and clicking "Add link".</label>
+      <label><input type="radio" name="q23" value="C"> C) By creating a new content type.</label>
+      <label><input type="radio" name="q23" value="D"> D) By installing a new module.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">24. What does the "Weight" attribute of a menu link control?</p>
+    <div class="options">
+      <label><input type="radio" name="q24" value="A"> A) The font size of the link.</label>
+      <label><input type="radio" name="q24" value="B"> B) The order in which the link appears relative to other links in the same menu level.</label>
+      <label><input type="radio" name="q24" value="C"> C) The importance of the link for SEO.</label>
+      <label><input type="radio" name="q24" value="D"> D) The number of child links it can have.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="D">
+    <p class="question-text">25. If you want a menu link to be visible only to authenticated users, what setting would you configure?</p>
+    <div class="options">
+      <label><input type="radio" name="q25" value="A"> A) The link's title.</label>
+      <label><input type="radio" name="q25" value="B"> B) The link's path.</label>
+      <label><input type="radio" name="q25" value="C"> C) This requires custom code; menu links do not have built-in role-based visibility.</label>
+      <label><input type="radio" name="q25" value="D"> D) The "Enabled" checkbox (this is not sufficient for role-based visibility, usually handled by permissions on the target page or custom logic).</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="A">
+    <p class="question-text">26. What is a "disabled" menu link?</p>
+    <div class="options">
+      <label><input type="radio" name="q26" value="A"> A) A link that is hidden from all users but still exists in the menu structure.</label>
+      <label><input type="radio" name="q26" value="B"> B) A link that leads to a 404 page.</label>
+      <label><input type="radio" name="q26" value="C"> C) A link that is styled differently (e.g., greyed out).</label>
+      <label><input type="radio" name="q26" value="D"> D) A link that can only be accessed by administrators.</label>
+    </div>
+  </div>
+</div>
+
+<div class="topic-page">
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">27. How can you create hierarchical (dropdown) menus in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q27" value="A"> A) By installing a special module for dropdowns.</label>
+      <label><input type="radio" name="q27" value="B"> B) By dragging and dropping menu links to be children of other links in the menu edit UI.</label>
+      <label><input type="radio" name="q27" value="C"> C) By using custom CSS only.</label>
+      <label><input type="radio" name="q27" value="D"> D) Drupal core does not support hierarchical menus.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="A">
+    <p class="question-text">28. When adding a menu link, what does the "Path" field specify?</p>
+    <div class="options">
+      <label><input type="radio" name="q28" value="A"> A) The URL or internal Drupal path the link points to.</label>
+      <label><input type="radio" name="q28" value="B"> B) The physical file path on the server.</label>
+      <label><input type="radio" name="q28" value="C"> C) The path to the menu's configuration file.</label>
+      <label><input type="radio" name="q28" value="D"> D) The CSS class for styling the link.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">29. Which Drupal component is typically responsible for rendering a menu on the website's front-end?</p>
+    <div class="options">
+      <label><input type="radio" name="q29" value="A"> A) A Content Type</label>
+      <label><input type="radio" name="q29" value="B"> B) A Block (specifically a Menu Block)</label>
+      <label><input type="radio" name="q29" value="C"> C) A View</label>
+      <label><input type="radio" name="q29" value="D"> D) A User Role</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">30. If you want to add a link to an external website (e.g., https://example.com) in a Drupal menu, what should you enter in the "Path" field?</p>
+    <div class="options">
+      <label><input type="radio" name="q30" value="A"> A) example.com</label>
+      <label><input type="radio" name="q30" value="B"> /external/example.com</label>
+      <label><input type="radio" name="q30" value="C"> C) The full URL: https://example.com</label>
+      <label><input type="radio" name="q30" value="D"> D) node/add/link</label>
+    </div>
+  </div>
+</div>
+
+<div class="topic-page">
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">31. What is the primary purpose of the Views module in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q31" value="A"> A) To manage user permissions.</label>
+      <label><input type="radio" name="q31" value="B"> B) To create custom database queries and display their results in various formats (lists, tables, grids).</label>
+      <label><input type="radio" name="q31" value="C"> C) To edit the site's theme.</label>
+      <label><input type="radio" name="q31" value="D"> D) To manage software updates.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">32. In a View, what does a "Filter criteria" do?</p>
+    <div class="options">
+      <label><input type="radio" name="q32" value="A"> A) Determines the display style (e.g., HTML list, table).</label>
+      <label><input type="radio" name="q32" value="B"> B) Restricts the results shown by the View based on certain conditions (e.g., content type is 'Article').</label>
+      <label><input type="radio" name="q32" value="C"> C) Defines the fields to be displayed for each result.</label>
+      <label><input type="radio" name="q32" value="D"> D) Specifies the sort order of the results.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">33. What is a "Contextual Filter" in Views?</p>
+    <div class="options">
+      <label><input type="radio" name="q33" value="A"> A) A filter that is always applied with a fixed value.</label>
+      <label><input type="radio" name="q33" value="B"> B) A dynamic filter whose value is typically taken from the URL or other context.</label>
+      <label><input type="radio" name="q33" value="C"> C) A filter that only applies to authenticated users.</label>
+      <label><input type="radio" name="q33" value="D"> D) A filter that changes the View's display format.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">34. If you want a View to display content based on a taxonomy term ID present in the URL (e.g., news/category/sports), what would you use?</p>
+    <div class="options">
+      <label><input type="radio" name="q34" value="A"> A) A regular Filter Criteria.</label>
+      <label><input type="radio" name="q34" value="B"> B) A Sort Criteria.</label>
+      <label><input type="radio" name="q34" value="C"> C) A Contextual Filter configured to use the term ID from the URL.</label>
+      <label><input type="radio" name="q34" value="D"> D) A Relationship.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="D">
+    <p class="question-text">35. Which of these is NOT a typical display format provided by Views out-of-the-box?</p>
+    <div class="options">
+      <label><input type="radio" name="q35" value="A"> A) Grid</label>
+      <label><input type="radio" name="q35" value="B"> B) HTML List</label>
+      <label><input type="radio" name="q35" value="C"> C) Table</label>
+      <label><input type="radio" name="q35" value="D"> D) PDF Document</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">36. In a View, what is a "Relationship" used for?</p>
+    <div class="options">
+      <label><input type="radio" name="q36" value="A"> A) To define the CSS for the View.</label>
+      <label><input type="radio" name="q36" value="B"> B) To link the View to a menu.</label>
+      <label><input type="radio" name="q36" value="C"> C) To bring in data from related entities (e.g., author information for a piece of content).</label>
+      <label><input type="radio" name="q36" value="D"> D) To set the caching options for the View.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="A">
+    <p class="question-text">37. If you want to create a page displaying a list of the 5 most recent articles, what View settings would be most relevant?</p>
+    <div class="options">
+      <label><input type="radio" name="q37" value="A"> A) Filter by content type 'Article', Sort by creation date (descending), Limit to 5 items, Create a Page display.</label>
+      <label><input type="radio" name="q37" value="B"> B) Filter by user role 'Editor', Sort by title (ascending), No limit, Create a Block display.</label>
+      <label><input type="radio" name="q37" value="C"> C) No filters, Sort by random, Limit to 10 items, Create a Feed display.</label>
+      <label><input type="radio" name="q37" value="D"> D) Filter by 'Published', Sort by comment count, Limit to 3 items, Create an Attachment display.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">38. What does the "Use aggregation" option in Views allow you to do?</p>
+    <div class="options">
+      <label><input type="radio" name="q38" value="A"> A) Combine multiple Views into one display.</label>
+      <label><input type="radio" name="q38" value="B"> B) Group results and perform calculations like COUNT, SUM, AVG on fields.</label>
+      <label><input type="radio" name="q38" value="C"> C) Translate the View's output into different languages.</label>
+      <label><input type="radio" name="q38" value="D"> D) Add AJAX functionality to the View.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">39. How can you expose a View as a block that can be placed in a region?</p>
+    <div class="options">
+      <label><input type="radio" name="q39" value="A"> A) By creating a "Page" display in the View.</label>
+      <label><input type="radio" name="q39" value="B"> B) By creating a "Block" display in the View.</label>
+      <label><input type="radio" name="q39" value="C"> C) By enabling a specific permission for the View.</label>
+      <label><input type="radio" name="q39" value="D"> D) By writing custom code in template.php.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">40. When configuring a contextual filter, what does the "When the filter value is NOT available" option control?</p>
+    <div class="options">
+      <label><input type="radio" name="q40" value="A"> A) The error message shown to the user.</label>
+      <label><input type="radio" name="q40" value="B"> B) The default behavior if the contextual filter value is missing from the URL (e.g., show all results, hide View, display summary).</label>
+      <label><input type="radio" name="q40" value="C"> C) The data type of the filter value.</label>
+      <label><input type="radio" name="q40" value="D"> D) The access permissions for the View.</label>
+    </div>
+  </div>
+</div>
+
+<div class="topic-page">
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">41. In Drupal, what is a "Block"?</p>
+    <div class="options">
+      <label><input type="radio" name="q41" value="A"> A) A type of content like an article or basic page.</label>
+      <label><input type="radio" name="q41" value="B"> B) A chunk of content or functionality that can be placed in regions on your site.</label>
+      <label><input type="radio" name="q41" value="C"> C) A user role with specific permissions.</label>
+      <label><input type="radio" name="q41" value="D"> D) A way to define URL aliases.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">42. What is a "Region" in the context of Drupal theming?</p>
+    <div class="options">
+      <label><input type="radio" name="q42" value="A"> A) A geographical area for targeted content.</label>
+      <label><input type="radio" name="q42" value="B"> B) A defined area in a theme's layout where blocks can be placed (e.g., Header, Sidebar, Footer).</label>
+      <label><input type="radio" name="q42" value="C"> C) A section of the Drupal administrative interface.</label>
+      <label><input type="radio" name="q42" value="D"> D) A type of field that can be added to content types.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">43. How are blocks typically assigned to regions in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q43" value="A"> A) By editing the theme's CSS files.</label>
+      <label><input type="radio" name="q43" value="B"> B) Through the "Block layout" page (Structure > Block layout).</label>
+      <label><input type="radio" name="q43" value="C"> C) By writing custom PHP code in template.php.</label>
+      <label><input type="radio" name="q43" value="D"> D) By creating a new View for each block.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="D">
+    <p class="question-text">44. Which of the following is an example of a core block type?</p>
+    <div class="options">
+      <label><input type="radio" name="q44" value="A"> A) Custom content block</label>
+      <label><input type="radio" name="q44" value="B"> B) User login form block</label>
+      <label><input type="radio" name="q44" value="C"> C) Site branding block</label>
+      <label><input type="radio" name="q44" value="D"> D) All of the above</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">45. What setting allows you to control on which pages a block should appear?</p>
+    <div class="options">
+      <label><input type="radio" name="q45" value="A"> A) Block weight</label>
+      <label><input type="radio" name="q45" value="B"> B) Block title visibility</label>
+      <label><input type="radio" name="q45" value="C"> C) Visibility settings (e.g., by content type, path, user role)</label>
+      <label><input type="radio" name="q45" value="D"> D) Block plugin type</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">46. If you want to create a reusable piece of content that can be placed as a block in multiple regions, what should you create?</p>
+    <div class="options">
+      <label><input type="radio" name="q46" value="A"> A) A new node of a specific content type.</label>
+      <label><input type="radio" name="q46" value="B"> B) A Custom Block via the Custom Block Library.</label>
+      <label><input type="radio" name="q46" value="C"> C) A new menu.</label>
+      <label><input type="radio" name="q46" value="D"> D) A new user role.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="A">
+    <p class="question-text">47. How are regions defined for a Drupal theme?</p>
+    <div class="options">
+      <label><input type="radio" name="q47" value="A"> A) In the theme's .info.yml file.</label>
+      <label><input type="radio" name="q47" value="B"> B) In the Drupal database via an admin interface.</label>
+      <label><input type="radio" name="q47" value="C"> C) In the settings.php file.</label>
+      <label><input type="radio" name="q47" value="D"> D) Automatically by Drupal based on the HTML structure.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">48. What is the purpose of the "Demonstrate block regions" link on the Block Layout page?</p>
+    <div class="options">
+      <label><input type="radio" name="q48" value="A"> A) To show a live preview of the site with blocks.</label>
+      <label><input type="radio" name="q48" value="B"> B) To highlight the available regions in the current theme for easier block placement.</label>
+      <label><input type="radio" name="q48" value="C"> C) To test the responsiveness of blocks.</label>
+      <label><input type="radio" name="q48" value="D"> D) To export the block configuration.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">49. Can a single block be placed in multiple regions simultaneously using the standard Block Layout UI?</p>
+    <div class="options">
+      <label><input type="radio" name="q49" value="A"> A) Yes, by duplicating the block configuration.</label>
+      <label><input type="radio" name="q49" value="B"> B) No, each block instance is unique to one region (though you can place the same type of block multiple times).</label>
+      <label><input type="radio" name="q49" value="C"> C) Yes, by default, a block appears in all regions.</label>
+      <label><input type="radio" name="q49" value="D"> D) Only if the theme supports it.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">50. Which core module is primarily responsible for the block system?</p>
+    <div class="options">
+      <label><input type="radio" name="q50" value="A"> A) Node module</label>
+      <label><input type="radio" name="q50" value="B"> B) System module</label>
+      <label><input type="radio" name="q50" value="C"> C) Block module</label>
+      <label><input type="radio" name="q50" value="D"> D) Views module</label>
+    </div>
+  </div>
+</div>
+
+<div class="topic-page">
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">51. What is a URL alias in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q51" value="A"> A) A redirect to an external website.</label>
+      <label><input type="radio" name="q51" value="B"> B) A user-friendly, custom path (e.g., /about-us) for a system path (e.g., /node/123).</label>
+      <label><input type="radio" name="q51" value="C"> C) A way to block access to certain URLs.</label>
+      <label><input type="radio" name="q51" value="D"> D) A type of menu link.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">52. What is the primary benefit of using URL aliases?</p>
+    <div class="options">
+      <label><input type="radio" name="q52" value="A"> A) They improve database performance.</label>
+      <label><input type="radio" name="q52" value="B"> B) They enhance SEO and user experience by creating clean, readable URLs.</label>
+      <label><input type="radio" name="q52" value="C"> C) They automatically translate content.</label>
+      <label><input type="radio" name="q52" value="D"> D) They increase website security.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">53. Which core module provides the basic functionality for URL aliases?</p>
+    <div class="options">
+      <label><input type="radio" name="q53" value="A"> A) Aliaser</label>
+      <label><input type="radio" name="q53" value="B"> B) Path</label>
+      <label><input type="radio" name="q53" value="C"> C) Redirect</label>
+      <label><input type="radio" name="q53" value="D"> D) Node</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="D">
+    <p class="question-text">54. How can you manually create a URL alias for a piece of content?</p>
+    <div class="options">
+      <label><input type="radio" name="q54" value="A"> A) By editing the site's .htaccess file.</label>
+      <label><input type="radio" name="q54" value="B"> B) In the content editing form, usually under a "URL alias" field.</label>
+      <label><input type="radio" name="q54" value="C"> C) Through the "Configuration" > "Search and metadata" > "URL aliases" page.</label>
+      <label><input type="radio" name="q54" value="D"> D) Both B and C.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">55. What is the typical system path for a node (content item) in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q55" value="A"> A) /content/{node_id}</label>
+      <label><input type="radio" name="q55" value="B"> B) /node/{node_id}</label>
+      <label><input type="radio" name="q55" value="C"> C) /page/{node_title}</label>
+      <label><input type="radio" name="q55" value="D"> D) /{content_type}/{node_id}</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="D">
+    <p class="question-text">56. If you change a URL alias for a piece of content, what happens to the old alias by default with core functionality?</p>
+    <div class="options">
+      <label><input type="radio" name="q56" value="A"> A) The old alias automatically redirects to the new one.</label>
+      <label><input type="radio" name="q56" value="B"> B) The old alias becomes a 404 error.</label>
+      <label><input type="radio" name="q56" value="C"> C) The old alias is deleted.</label>
+      <label><input type="radio" name="q56" value="D"> D) The old alias still works, leading to duplicate content issues if not managed. (Note: The Redirect module is often used to manage this, but core behavior is simpler).</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="A">
+    <p class="question-text">57. Which contributed module is commonly used to automatically generate URL aliases based on patterns (e.g., using content title)?</p>
+    <div class="options">
+      <label><input type="radio" name="q57" value="A"> A) Pathauto</label>
+      <label><input type="radio" name="q57" value="B"> B) Redirect</label>
+      <label><input type="radio" name="q57" value="C"> C) Token</label>
+      <label><input type="radio" name="q57" value="D"> D) Sub-pathauto</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">58. When using Pathauto, what are "patterns" used for?</p>
+    <div class="options">
+      <label><input type="radio" name="q58" value="A"> A) To define the visual style of URLs.</label>
+      <label><input type="radio" name="q58" value="B"> B) To define templates (using tokens) for how URL aliases should be automatically generated for different content types.</label>
+      <label><input type="radio" name="q58" value="C"> C) To restrict access to aliased paths.</label>
+      <label><input type="radio" name="q58" value="D"> D) To validate the format of manually entered aliases.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">59. What is a "token" in the context of modules like Pathauto?</p>
+    <div class="options">
+      <label><input type="radio" name="q59" value="A"> A) A security key for API access.</label>
+      <label><input type="radio" name="q59" value="B"> B) A placeholder (e.g., [node:title]) that gets replaced with actual data.</label>
+      <label><input type="radio" name="q59" value="C"> C) A type of user role.</label>
+      <label><input type="radio" name="q59" value="D"> D) A session identifier.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">60. If you have multiple aliases pointing to the same system path, which one does Drupal typically consider canonical by default?</p>
+    <div class="options">
+      <label><input type="radio" name="q60" value="A"> A) The oldest alias created.</label>
+      <label><input type="radio" name="q60" value="B"> B) The most recently created alias.</label>
+      <label><input type="radio" name="q60" value="C"> C) The shortest alias.</label>
+      <label><input type="radio" name="q60" value="D"> D) Drupal core doesn't strongly enforce one over others without contrib help; it serves the content if any valid alias is hit. SEO best practices would involve setting a canonical URL tag.</label>
+    </div>
+  </div>
+</div>
+
+<div class="topic-page">
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">61. What is a "View Mode" in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q61" value="A"> A) A mode for viewing Drupal's administrative interface.</label>
+      <label><input type="radio" name="q61" value="B"> B) A specific configuration for how a content entity (e.g., a node, user) should be displayed in a particular context (e.g., "Teaser", "Full content").</label>
+      <label><input type="radio" name="q61" value="C"> C) A way to switch between different themes.</label>
+      <label><input type="radio" name="q61" value="D"> D) A setting in the Views module for query optimization.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">62. Which of these is a common default View Mode for content?</p>
+    <div class="options">
+      <label><input type="radio" name="q62" value="A"> A) Edit mode</label>
+      <label><input type="radio" name="q62" value="B"> B) Teaser</label>
+      <label><input type="radio" name="q62" value="C"> C) Admin mode</label>
+      <label><input type="radio" name="q62" value="D"> D) Block mode</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">63. How do you customize which fields are visible and how they are formatted for a specific View Mode of a content type?</p>
+    <div class="options">
+      <label><input type="radio" name="q63" value="A"> A) By editing the content type's main settings.</label>
+      <label><input type="radio" name="q63" value="B"> B) On the "Manage display" tab for the content type, then selecting the specific View Mode.</label>
+      <label><input type="radio" name="q63" value="C"> C) By writing custom CSS.</label>
+      <label><input type="radio" name="q63" value="D"> D) Through the Views module UI.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">64. What is a "Form Mode" in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q64" value="A"> A) A mode for displaying forms in a read-only state.</label>
+      <label><input type="radio" name="q64" value="B"> B) A specific configuration for how an entity's edit/creation form should be presented, potentially showing different fields or widgets.</label>
+      <label><input type="radio" name="q64" value="C"> C) A way to switch between different form validation libraries.</label>
+      <label><input type="radio" name="q64" value="D"> D) A setting for AJAX form submissions.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">65. Where would you typically manage and create new View Modes and Form Modes?</p>
+    <div class="options">
+      <label><input type="radio" name="q65" value="A"> A) Configuration > System > Basic site settings</label>
+      <label><input type="radio" name="q65" value="B"> B) Structure > Display modes > View modes / Form modes</label>
+      <label><input type="radio" name="q65" value="C"> C) Appearance > Themes</label>
+      <label><input type="radio" name="q65" value="D"> D) Modules > Install new module</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">66. If you want to display a simplified version of a user's profile on a sidebar block, which Drupal concept would be most appropriate?</p>
+    <div class="options">
+      <label><input type="radio" name="q66" value="A"> A) Creating a new content type for profiles.</label>
+      <label><input type="radio" name="q66" value="B"> B) Using a custom View Mode for Users, configured to show only specific fields.</label>
+      <label><input type="radio" name="q66" value="C"> C) Modifying the user registration form.</label>
+      <label><input type="radio" name="q66" value="D"> D) Hiding fields with CSS.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">67. How can a specific View Mode be utilized by the Views module?</p>
+    <div class="options">
+      <label><input type="radio" name="q67" value="A"> A) Views cannot use View Modes; they always render fields individually.</label>
+      <label><input type="radio" name="q67" value="B"> B) In a View, when adding a field that renders an entity, you can select a specific View Mode for its display.</label>
+      <label><input type="radio" name="q67" value="C"> C) View Modes are only for node.html.twig templates.</label>
+      <label><input type="radio" name="q67" value="D"> D) By setting a global View Mode in settings.php.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">68. What is the benefit of using Form Modes?</p>
+    <div class="options">
+      <label><input type="radio" name="q68" value="A"> A) To improve website performance.</label>
+      <label><input type="radio" name="q68" value="B"> B) To provide different editing experiences for the same content type, perhaps for different user roles or workflows.</label>
+      <label><input type="radio" name="q68" value="C"> C) To automatically translate form labels.</label>
+      <label><input type="radio" name="q68" value="D"> D) To bypass form validation.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">69. Can you create custom View Modes and Form Modes in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q69" value="A"> A) No, you can only use the ones provided by core.</label>
+      <label><input type="radio" name="q69" value="B"> B) Yes, you can define new View Modes and Form Modes through the UI.</label>
+      <label><input type="radio" name="q69" value="C"> C) Only by writing custom code in a module.</label>
+      <label><input type="radio" name="q69" value="D"> D) Only by installing a contributed module.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">70. When a content item is displayed as "Full content", which View Mode is typically being used by default?</p>
+    <div class="options">
+      <label><input type="radio" name="q70" value="A"> A) Teaser</label>
+      <label><input type="radio" name="q70" value="B"> B) RSS</label>
+      <label><input type="radio" name="q70" value="C"> C) Default (often labeled as "Full content" in UI, or just "Default")</label>
+      <label><input type="radio" name="q70" value="D"> D) Summary</label>
+    </div>
+  </div>
+</div>
+
+<div class="topic-page">
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">71. Which core module in Drupal 11 is primarily responsible for handling media entities?</p>
+    <div class="options">
+      <label><input type="radio" name="q71" value="A"> A) File</label>
+      <label><input type="radio" name="q71" value="B"> B) Image</label>
+      <label><input type="radio" name="q71" value="C"> C) Media</label>
+      <label><input type="radio" name="q71" value="D"> D) Media Library</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="A">
+    <p class="question-text">72. What is a "Media Type" in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q72" value="A"> A) A classification for different kinds of media (e.g., Image, Video, Audio, Document).</label>
+      <label><input type="radio" name="q72" value="B"> B) The file extension of a media item (e.g., .jpg, .mp4).</label>
+      <label><input type="radio" name="q72" value="C"> C) A display format for media.</label>
+      <label><input type="radio" name="q72" value="D"> D) A user role for managing media.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">73. How are media items typically added to content in Drupal 11?</p>
+    <div class="options">
+      <label><input type="radio" name="q73" value="A"> A) By directly uploading files to a "File" field.</label>
+      <label><input type="radio" name="q73" value="B"> B) By using a "Media" field which references Media entities, often utilizing the Media Library widget.</label>
+      <label><input type="radio" name="q73" value="C"> C) By embedding HTML code from external services only.</label>
+      <label><input type="radio" name="q73" value="D"> D) By FTPing files to the server and linking them manually.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">74. What is the "Media Library" in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q74" value="A"> A) A physical folder on the server where all media files are stored.</label>
+      <label><input type="radio" name="q74" value="B"> B) A user interface (often a widget) for browsing, selecting, and uploading existing Media entities.</label>
+      <label><input type="radio" name="q74" value="C"> C) A contributed module for image optimization.</label>
+      <label><input type="radio" name="q74" value="D"> D) A type of View Mode for media.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">75. Which field type is commonly used on a Media Type to store the actual file or remote URL (e.g., for a YouTube video)?</p>
+    <div class="options">
+      <label><input type="radio" name="q75" value="A"> A) Text (plain)</label>
+      <label><input type="radio" name="q75" value="B"> B) Link</label>
+      <label><input type="radio" name="q75" value="C"> C) File, Image, or oEmbed Video (depending on the media source plugin)</label>
+      <label><input type="radio" name="q75" value="D"> D) Entity Reference</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">76. What is an "Image Style" in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q76" value="A"> A) A CSS class applied to images.</label>
+      <label><input type="radio" name="q76" value="B"> B) A preset configuration for image manipulations (e.g., scale, crop, rotate) that can be applied to images.</label>
+      <label><input type="radio" name="q76" value="C"> C) A type of Media entity.</label>
+      <label><input type="radio" name="q76" value="D"> D) A JavaScript library for image galleries.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">77. How can you embed a YouTube video as a Media entity in Drupal 11 (assuming oEmbed is configured)?</p>
+    <div class="options">
+      <label><input type="radio" name="q77" value="A"> A) By uploading the video file directly.</label>
+      <label><input type="radio" name="q77" value="B"> B) By creating a Media entity of type "Remote video" and pasting the YouTube URL.</label>
+      <label><input type="radio" name="q77" value="C"> C) By using a special HTML tag in a text editor.</label>
+      <label><input type="radio" name="q77" value="D"> D) This requires a custom module for YouTube integration.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">78. What is the purpose of "alt" text for images in media entities?</p>
+    <div class="options">
+      <label><input type="radio" name="q78" value="A"> A) To provide a caption displayed below the image.</label>
+      <label><input type="radio" name="q78" value="B"> B) For accessibility (screen readers) and SEO, describing the image content.</label>
+      <label><input type="radio" name="q78" value="C"> C) To define the image's alignment on the page.</label>
+      <label><input type="radio" name="q78" value="D"> D) To link the image to another page.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">79. If you want to restrict uploaded images to a maximum file size and specific dimensions for a particular Media Type, where would you configure this?</p>
+    <div class="options">
+      <label><input type="radio" name="q79" value="A"> A) In the theme's settings.</label>
+      <label><input type="radio" name="q79" value="B"> B) In the global site settings.</label>
+      <label><input type="radio" name="q79" value="C"> C) In the field settings for the source field on the Media Type (e.g., the Image field).</label>
+      <label><input type="radio" name="q79" value="D"> D) Using a .htaccess rule.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">80. Which module provides the widget that allows users to browse and select existing media items or upload new ones when editing content?</p>
+    <div class="options">
+      <label><input type="radio" name="q80" value="A"> A) File Browser</label>
+      <label><input type="radio" name="q80" value="B"> B) Media Library</label>
+      <label><input type="radio" name="q80" value="C"> C) Asset Manager</label>
+      <label><input type="radio" name="q80" value="D"> D) CKEditor</label>
+    </div>
+  </div>
+</div>
+
+<div class="topic-page">
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">81. What is the primary concept behind the Paragraphs module?</p>
+    <div class="options">
+      <label><input type="radio" name="q81" value="A"> A) To provide enhanced text formatting options within CKEditor.</label>
+      <label><input type="radio" name="q81" value="B"> B) To allow content creators to build flexible layouts using pre-defined components (Paragraph Types) within a single content field.</label>
+      <label><input type="radio" name="q81" value="C"> C) To manage comments and discussions on content.</label>
+      <label><input type="radio" name="q81" value="D"> D) To create multilingual websites.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">82. In the context of the Paragraphs module, what is a "Paragraph Type"?</p>
+    <div class="options">
+      <label><input type="radio" name="q82" value="A"> A) A specific font style for text.</label>
+      <label><input type="radio" name="q82" value="B"> B) A pre-defined bundle of fields that acts as a component (e.g., "Image + Text", "Quote", "Video Embed").</label>
+      <label><input type="radio" name="q82" value="C"> C) A user role for editing paragraphs.</label>
+      <label><input type="radio" name="q82" value="D"> D) A type of View Mode.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">83. How are Paragraphs typically added to a content item?</p>
+    <div class="options">
+      <label><input type="radio" name="q83" value="A"> A) As separate content nodes linked together.</label>
+      <label><input type="radio" name="q83" value="B"> B) By using an "Entity Reference Revisions" field that references Paragraph entities.</label>
+      <label><input type="radio" name="q83" value="C"> C) Through a special WYSIWYG editor plugin.</label>
+      <label><input type="radio" name="q83" value="D"> D) By defining them in a YAML file.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">84. What is a key advantage of using Paragraphs over a single WYSIWYG field for complex content structures?</p>
+    <div class="options">
+      <label><input type="radio" name="q84" value="A"> A) Paragraphs are always faster to load.</label>
+      <label><input type="radio" name="q84" value="B"> B) Paragraphs provide more structured data and allow for more consistent theming of components.</label>
+      <label><input type="radio" name="q84" value="C"> C) Paragraphs automatically handle SEO.</label>
+      <label><input type="radio" name="q84" value="D"> D) Paragraphs do not require any configuration.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">85. Can Paragraph Types themselves contain fields?</p>
+    <div class="options">
+      <label><input type="radio" name="q85" value="A"> A) No, Paragraph Types are just labels.</label>
+      <label><input type="radio" name="q85" value="B"> B) Yes, Paragraph Types are fieldable entities, allowing you to define various fields for each component type.</label>
+      <label><input type="radio" name="q85" value="C"> C) Only text fields are allowed in Paragraph Types.</label>
+      <label><input type="radio" name="q85" value="D"> D) Only image fields are allowed in Paragraph Types.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">86. When using Paragraphs, content editors can typically:</p>
+    <div class="options">
+      <label><input type="radio" name="q86" value="A"> A) Only use one type of Paragraph per content item.</label>
+      <label><input type="radio" name="q86" value="B"> B) Add multiple Paragraph items of different types and reorder them.</label>
+      <label><input type="radio" name="q86" value="C"> C) Only edit the text content, not the structure.</label>
+      <label><input type="radio" name="q86" value="D"> D) Not delete Paragraphs once added.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">87. How are Paragraphs usually themed?</p>
+    <div class="options">
+      <label><input type="radio" name="q87" value="A"> A) Using a single paragraph.html.twig template for all types.</label>
+      <label><input type="radio" name="q87" value="B"> B) By creating specific Twig templates for each Paragraph Type (e.g., paragraph--text-image.html.twig).</label>
+      <label><input type="radio" name="q87" value="C"> C) Only through CSS.</label>
+      <label><input type="radio" name="q87" value="D"> D) Theming is handled automatically by the module.</label>
+    </div>
+  </div>
+</div>
+
+<div class="topic-page">
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">88. What is the primary purpose of Drupal's Layout Builder?</p>
+    <div class="options">
+      <label><input type="radio" name="q88" value="A"> A) To define the overall site theme and color scheme.</label>
+      <label><input type="radio" name="q88" value="B"> B) To allow content editors and site builders to create flexible, structured layouts for individual content items or content type templates.</label>
+      <label><input type="radio" name="q88" value="C"> C) To manage user roles and permissions.</label>
+      <label><input type="radio" name="q88" value="D"> D) To create and manage menus.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">89. Layout Builder allows you to arrange content using:</p>
+    <div class="options">
+      <label><input type="radio" name="q89" value="A"> A) Only predefined fixed templates.</label>
+      <label><input type="radio" name="q89" value="B"> B) Sections, columns, and blocks.</label>
+      <label><input type="radio" name="q89" value="C"> C) Custom CSS and JavaScript primarily.</label>
+      <label><input type="radio" name="q89" value="D"> D) XML configuration files.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">90. When can Layout Builder be used?</p>
+    <div class="options">
+      <label><input type="radio" name="q90" value="A"> A) Only for individual nodes, overriding the default display.</label>
+      <label><input type="radio" name="q90" value="B"> B) Only for defining default layouts for all content of a specific type (e.g., all Articles).</label>
+      <label><input type="radio" name="q90" value="C"> C) Both for customizing individual content item layouts and for creating default layouts for entity view modes.</label>
+      <label><input type="radio" name="q90" value="D"> D) Only for landing pages.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B"></div>
+    <p class="question-text">91. What kind of components can be placed within a Layout Builder layout?</p>
+    <div class="options">
+      <label><input type="radio" name="q91" value="A"> A) Only fields from the content item being laid out.</label>
+      <label><input type="radio" name="q91" value="B"> B) Drupal blocks, fields from the current entity, and other custom components.</label>
+      <label><input type="radio" name="q91" value="C"> C) Only custom HTML snippets.</label>
+      <label><input type="radio" name="q91" value="D"> D) Only Views.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">92. How do you enable Layout Builder for a specific content type's display mode?</p>
+    <div class="options">
+      <label><input type="radio" name="q92" value="A"> A) In the theme settings.</label>
+      <label><input type="radio" name="q92" value="B"> B) On the "Manage display" tab for the content type, select the view mode, and enable "Use Layout Builder".</label>
+      <label><input type="radio" name="q92" value="C"> C) By installing a separate Layout Builder theme.</label>
+      <label><input type="radio" name="q92" value="D"> D) In the settings.php file.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">93. What is a "Section" in Layout Builder?</p>
+    <div class="options">
+      <label><input type="radio" name="q93" value="A"> A) A specific block type.</label>
+      <label><input type="radio" name="q93" value="B"> B) A row in the layout that can be divided into one or more columns or regions.</label>
+      <label><input type="radio" name="q93" value="C"> C) A user permission related to layouts.</label>
+      <label><input type="radio" name="q93" value="D"> D) A type of content field.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">94. Can content editors, who are not site administrators, typically use Layout Builder to customize individual pages (if configured)?</p>
+    <div class="options">
+      <label><input type="radio" name="q94" value="A"> A) No, Layout Builder is only for administrators.</label>
+      <label><input type="radio" name="q94" value="B"> B) Yes, if permissions are granted and Layout Builder is enabled for individual item overrides.</label>
+      <label><input type="radio" name="q94" value="C"> C) Only if they know how to code.</label>
+      <label><input type="radio" name="q94" value="D"> D) Only for specific content types.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B"></div>
+    <p class="question-text">95. When using Layout Builder to define the default layout for a content type, are those changes stored in configuration?</p>
+    <div class="options">
+      <label><input type="radio" name="q95" value="A"> A) No, they are stored as content.</label>
+      <label><input type="radio" name="q95" value="B"> B) Yes, default layouts managed via "Manage Display" are part of the site's configuration and can be exported/imported.</label>
+      <label><input type="radio" name="q95" value="C"> C) They are stored in the theme layer.</label>
+      <label><input type="radio" name="q95" value="D"> D) They are stored in browser local storage.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">96. What is an advantage of using Layout Builder over traditional field-based layouts or theme overrides for certain use cases?</p>
+    <div class="options">
+      <label><input type="radio" name="q96" value="A"> A) It always results in faster page loads.</label>
+      <label><input type="radio" name="q96" value="B"> B) It provides a visual, drag-and-drop interface for building layouts, empowering non-developers.</label>
+      <label><input type="radio" name="q96" value="C"> C) It requires less server resources.</label>
+      <label><input type="radio" name="q96" value="D"> D) It automatically makes the site responsive.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">97. If you disable Layout Builder for a content type display that was previously using it, what happens to the layouts of existing content items that had per-item customizations?</p>
+    <div class="options">
+      <label><input type="radio" name="q97" value="A"> A) The per-item customizations are preserved and still render.</label>
+      <label><input type="radio" name="q97" value="B"> B) The content items revert to the standard field-based display for that view mode.</label>
+      <label><input type="radio" name="q97" value="C"> C) An error is displayed on the content items.</label>
+      <label><input type="radio" name="q97" value="D"> D) The content items become inaccessible.</label>
+    </div>
+  </div>
+</div>
+
+<div class="topic-page">
+  <div class="question-container" data-correct-answer="A">
+    <p class="question-text">98. Which core module is fundamental for enabling multilingual capabilities in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q98" value="A"> A) Language</label>
+      <label><input type="radio" name="q98" value="B"> B) Translate</label>
+      <label><input type="radio" name="q98" value="C"> C) Internationalization</label>
+      <label><input type="radio" name="q98" value="D"> D) Multilingual</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">99. What is "Interface Translation" in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q99" value="A"> A) Translating content like articles and pages.</label>
+      <label><input type="radio" name="q99" value="B"> B) Translating built-in user interface elements like button labels, site name, field labels, etc.</label>
+      <label><input type="radio" name="q99" value="C"> C) Translating user comments.</label>
+      <label><input type="radio" name="q99" value="D"> D) Translating URL aliases.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">100. What is "Content Translation" in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q100" value="A"> A) Translating the Drupal administrative interface.</label>
+      <label><input type="radio" name="q100" value="B"> B) Enabling the creation and management of different language versions of content entities (e.g., nodes, taxonomy terms).</label>
+      <label><input type="radio" name="q100" value="C"> C) Translating configuration settings.</label>
+      <label><input type="radio" name="q100" value="D"> D) Translating JavaScript files.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B"></div>
+    <p class="question-text">101. How do you typically add a new language to a Drupal site?</p>
+    <div class="options">
+      <label><input type="radio" name="q101" value="A"> A) By editing settings.php.</label>
+      <label><input type="radio" name="q101" value="B"> B) Through Configuration > Regional and language > Languages > Add language.</label>
+      <label><input type="radio" name="q101" value="C"> C) By installing a language-specific Drupal distribution.</label>
+      <label><input type="radio" name="q101" value="D"> D) By creating a custom module.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">102. When Content Translation is enabled for a content type, how do users typically create a translation of an existing node?</p>
+    <div class="options">
+      <label><input type="radio" name="q102" value="A"> A) By creating a new node and manually linking it.</label>
+      <label><input type="radio" name="q102" value="B"> B) A "Translate" tab or link appears on the node, allowing users to add a translation for a specific language.</label>
+      <label><input type="radio" name="q102" value="C"> C) By exporting the content and importing it with a language code.</label>
+      <label><input type="radio" name="q102" value="D"> D) By editing the node's source code.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">103. Which method is commonly used for translating the user interface strings provided by Drupal core and modules?</p>
+    <div class="options">
+      <label><input type="radio" name="q103" value="A"> A) Manually editing module files.</label>
+      <label><input type="radio" name="q103" value="B"> B) Using the "User interface translation" tool (Translate interface tab) which often involves importing/exporting .po files.</label>
+      <label><input type="radio" name="q103" value="C"> C) Translating strings directly in Twig templates.</label>
+      <label><input type="radio" name="q103" value="D"> D) Interface strings are automatically translated by the browser.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">104. What is a .po file in the context of Drupal translations?</p>
+    <div class="options">
+      <label><input type="radio" name="q104" value="A"> A) A Post Office protocol configuration file.</label>
+      <label><input type="radio" name="q104" value="B"> B) A Portable Object file, a standard file format for storing translations (source strings and their translations).</label>
+      <label><input type="radio" name="q104" value="C"> C) A PHP Object file for caching.</label>
+      <label><input type="radio" name="q104" value="D"> D) A policy document for translations.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B"></div>
+    <p class="question-text">105. How can Drupal determine which language to display to a user?</p>
+    <div class="options">
+      <label><input type="radio" name="q105" value="A"> A) Only based on the user's browser settings.</label>
+      <label><input type="radio" name="q105" value="B"> B) Through language detection methods like URL prefix, domain, session, or user preference.</label>
+      <label><input type="radio" name="q105" value="C"> C) It always defaults to English.</label>
+      <label><input type="radio" name="q105" value="D"> D) The language is set globally for the entire site and cannot vary per user.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="A">
+    <p class="question-text">106. If you want to translate fields on a content type, what must you typically do on the content type's configuration page?</p>
+    <div class="options">
+      <label><input type="radio" name="q106" value="A"> A) Enable "Multilingual support" in the content type settings and then specify which fields are translatable.</label>
+      <label><input type="radio" name="q106" value="B"> B) Install a separate translation module for each field.</label>
+      <label><input type="radio" name="q106" value="C"> C) Write custom code to handle field translation.</label>
+      <label><input type="radio" name="q106" value="D"> D) This is handled automatically when a language is added.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="A">
+    <p class="question-text">107. Which module helps translate configuration like Views names, block titles, or site name?</p>
+    <div class="options">
+      <label><input type="radio" name="q107" value="A"> A) Configuration Translation (part of the multilingual system)</label>
+      <label><input type="radio" name="q107" value="B"> B) Content Translation</label>
+      <label><input type="radio" name="q107" value="C"> C) Interface Translation</label>
+      <label><input type="radio" name="q107" value="D"> D) Language Switcher</label>
+    </div>
+  </div>
+</div>
+
+<div class="topic-page">
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">108. What is CKEditor 5 in the context of Drupal 11?</p>
+    <div class="options">
+      <label><input type="radio" name="q108" value="A"> A) A server-side templating engine.</label>
+      <label><input type="radio" name="q108" value="B"> B) The default rich text (WYSIWYG) editor.</label>
+      <label><input type="radio" name="q108" value="C"> C) A JavaScript library for animations.</label>
+      <label><input type="radio" name="q108" value="D"> D) A Drupal theme.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">109. What is a "Text Format" in Drupal?</p>
+    <div class="options">
+      <label><input type="radio" name="q109" value="A"> A) A font style like Arial or Times New Roman.</label>
+      <label><input type="radio" name="q109" value="B"> B) A configurable set of input filters and a WYSIWYG editor (if enabled) that defines how text input is processed and displayed.</label>
+      <label><input type="radio" name="q109" value="C"> C) The file format for storing text content (e.g., .txt, .md).</label>
+      <label><input type="radio" name="q109" value="D"> D) A type of user role.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">110. How do you configure which buttons (e.g., Bold, Italic, Link) are available in the CKEditor 5 toolbar for a specific text format?</p>
+    <div class="options">
+      <label><input type="radio" name="q110" value="A"> A) By editing CKEditor's source files.</label>
+      <label><input type="radio" name="q110" value="B"> B) In the configuration page for that specific Text Format (Structure > Text formats and editors).</label>
+      <label><input type="radio" name="q110" value="C"> C) Through the theme settings.</label>
+      <label><input type="radio" name="q110" value="D"> D) Using a custom module for each button.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">111. Which of these is a common filter typically enabled for a "Full HTML" text format?</p>
+    <div class="options">
+      <label><input type="radio" name="q111" value="A"> A) Restrict images to Drupal-managed files.</label>
+      <label><input type="radio" name="q111" value="B"> B) Convert URLs into links.</label>
+      <label><input type="radio" name="q111" value="C"> C) Limit allowed HTML tags (this is usually for restricted HTML, Full HTML implies fewer restrictions).</label>
+      <label><input type="radio" name="q111" value="D"> D) No filters are needed for Full HTML. Correction: Even "Full HTML" usually has some filters for security or consistency, like "Normalize HTML" or ensuring tags are properly closed. The key is it allows most HTML.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">112. If you want to allow users to embed images directly into CKEditor 5 using the Drupal media library, what do you need to ensure?</p>
+    <div class="options">
+      <label><input type="radio" name="q112" value="A"> A) The "Image" button is enabled in the CKEditor 5 toolbar.</label>
+      <label><input type="radio" name="q112" value="B"> B) The "Embed Media" (or similar, depending on exact plugin name for CKEditor 5 integration) button/functionality is enabled in the CKEditor 5 toolbar for that text format, and the text format's filters allow the relevant tags.</label>
+      <label><input type="radio" name="q112" value="C"> C) Users have FTP access to upload images.</label>
+      <label><input type="radio" name="q112" value="D"> D) The theme includes a special JavaScript library for image embedding.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">113. What is the purpose of the "Limit allowed HTML tags and correct faulty HTML" filter?</p>
+    <div class="options">
+      <label><input type="radio" name="q113" value="A"> A) To convert all text to plain text.</label>
+      <label><input type="radio" name="q113" value="B"> B) To enhance security and consistency by specifying exactly which HTML tags can be used and by cleaning up poorly formed HTML.</label>
+      <label><input type="radio" name="q113" value="C"> C) To add extra HTML tags automatically.</label>
+      <label><input type="radio" name="q113" value="D"> D) To translate HTML tags into different languages.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">114. Can different user roles be assigned different default text formats?</p>
+    <div class="options">
+      <label><input type="radio" name="q114" value="A"> A) No, all users must use the same text format.</label>
+      <label><input type="radio" name="q114" value="B"> B) Yes, permissions can be set for each text format, effectively allowing different roles access to different formats.</label>
+      <label><input type="radio" name="q114" value="C"> C) Only through custom code.</label>
+      <label><input type="radio" name="q114" value="D"> D) Only if multiple themes are installed.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="A">
+    <p class="question-text">115. What happens if a user inputs HTML tags that are not allowed by the active text format's filters?</p>
+    <div class="options">
+      <label><input type="radio" name="q115" value="A"> A) The tags are displayed as plain text or stripped out.</label>
+      <label><input type="radio" name="q115" value="B"> B) The user receives an error and cannot save the content.</label>
+      <label><input type="radio" name="q115" value="C"> C) The tags are automatically converted to allowed equivalents.</label>
+      <label><input type="radio" name="q115" value="D"> D) The text format is automatically upgraded to allow those tags.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">116. How can you add custom styling options (e.g., "Button," "Highlight") to the CKEditor 5 "Styles" dropdown?</p>
+    <div class="options">
+      <label><input type="radio" name="q116" value="A"> A) By editing the theme's CSS directly; CKEditor will pick it up.</label>
+      <label><input type="radio" name="q116" value="B"> B) By configuring the "Styles" plugin within the Text Format settings, often by defining CSS classes.</label>
+      <label><input type="radio" name="q116" value="C"> C) This requires a custom JavaScript plugin for CKEditor 5.</label>
+      <label><input type="radio" name="q116" value="D"> D) It's not possible to add custom styles.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">117. If CKEditor 5 is not loading or behaving unexpectedly, a common first step in troubleshooting is to:</p>
+    <div class="options">
+      <label><input type="radio" name="q117" value="A"> A) Reinstall Drupal core.</label>
+      <label><input type="radio" name="q117" value="B"> B) Check the browser's JavaScript console for errors.</label>
+      <label><input type="radio" name="q117" value="C"> C) Edit the settings.php file.</label>
+      <label><input type="radio" name="q117" value="D"> D) Disable all other modules.</label>
+    </div>
+  </div>
+</div>
+
+<div class="topic-page">
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">88. What is the minimum required file for a Drupal 11 custom module to be recognized by the system?</p>
+    <div class="options">
+      <label><input type="radio" name="q88" value="A"> A) module_name.module</label>
+      <label><input type="radio" name="q88" value="B"> B) module_name.info.yml</label>
+      <label><input type="radio" name="q88" value="C"> C) composer.json</label>
+      <label><input type="radio" name="q88" value="D"> D) README.md</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">89. In a module's .info.yml file, what does the type key specify?</p>
+    <div class="options">
+      <label><input type="radio" name="q89" value="A"> A) The version of the module.</label>
+      <label><input type="radio" name="q89" value="B"> B) Whether it's a module, theme, or profile.</label>
+      <label><input type="radio" name="q89" value="C"> C) The Drupal core compatibility.</label>
+      <label><input type="radio" name="q89" value="D"> D) The module's dependencies.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="C">
+    <p class="question-text">90. Where should custom modules typically be placed within a Drupal project structure (composer-based)?</p>
+    <div class="options">
+      <label><input type="radio" name="q90" value="A"> A) core/modules/custom</label>
+      <label><input type="radio" name="q90" value="B"> B) sites/all/modules/custom</label>
+      <label><input type="radio" name="q90" value="C"> C) modules/custom (at the project root)</label>
+      <label><input type="radio" name="q90" value="D"> D) themes/custom</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">91. What is the purpose of the name key in a module's .info.yml file?</p>
+    <div class="options">
+      <label><input type="radio" name="q91" value="A"> A) The machine name of the module.</label>
+      <label><input type="radio" name="q91" value="B"> B) The human-readable name displayed in the Drupal UI.</label>
+      <label><input type="radio" name="q91" value="C"> C) The namespace for the module's classes.</label>
+      <label><input type="radio" name="q91" value="D"> D) The primary service defined by the module.</label>
+    </div>
+  </div>
+
+  <div class="question-container" data-correct-answer="B">
+    <p class="question-text">92. If your custom module depends on another module (e.g., Views), how do you declare this dependency?</p>
+    <div class="options">
+      <label><input type="radio" name="q92" value="A"> A) By writing a PHP require statement in the .module file.</label>
+      <label><input type="radio" name="q92" value="B"> B) In the dependencies section of the .info.yml file.</label>
+      <label><input type="radio" name="q92" value="C"> C) In the composer.json file of the module.</label>
+      <label><input type="radio" name="q92" value="D"> D) Drupal automatically detects dependencies.</label>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.question-container').forEach(container => {
+    const correctAnswerValue = container.dataset.correctAnswer;
+    const radioButtons = container.querySelectorAll('input[type="radio"]');
+    const optionLabels = Array.from(container.querySelectorAll('.options label'));
+
+    radioButtons.forEach(radio => {
+      radio.addEventListener('change', function() {
+        // Reset all labels first
+        optionLabels.forEach(label => label.classList.remove('correct', 'incorrect', 'show-actual-correct'));
+
+        // Get the label that contains this radio button
+        const selectedLabel = this.parentElement;
+
+        if (this.value === correctAnswerValue) {
+          selectedLabel.classList.add('correct');
+        } else {
+          selectedLabel.classList.add('incorrect');
+          // Find and highlight the correct answer's label
+          const correctLabelElement = optionLabels.find(lbl => lbl.querySelector('input[type="radio"]').value === correctAnswerValue);
+          if (correctLabelElement) {
+            correctLabelElement.classList.add('show-actual-correct');
+          }
+        }
+
+        // Disable further changes for this question group after an answer
+        radioButtons.forEach(rb => rb.disabled = true);
+      });
+    });
+  });
+
+  // Pagination JavaScript
+  const topicPages = [];
+  const topicNames = [
+    "Content types and fields", "Content types - continued", "Taxonomy",
+    "Taxonomy - continued", "Menus and menu links", "Menus - continued",
+    "Views and contextual filters", "Blocks and regions", "Path aliases and URL management",
+    "Display modes (View modes, Form modes)", "Media management",
+    "Paragraphs module basics", "Layout Builder", "Module Development", "Theme Development",
+    "Headless Drupal + Next.js", "Important Contributed Modules"
+  ];
+  let currentTopicIndex = 0;
+  const prevButton = document.getElementById('prev-topic');
+  const nextButton = document.getElementById('next-topic');
+  const topicIndicator = document.getElementById('topic-indicator');
+
+  function initializeTopicsAndPagination() {
+    topicPages.length = 0; // Clear array before repopulating
+    const topicElements = document.querySelectorAll('.topic-page');
+    console.log("Found " + topicElements.length + " topic pages");
+
+    topicElements.forEach((el, index) => {
+      topicPages.push(el);
+      // Make sure only the first page is active initially
+      if (index === 0) {
+        el.classList.add('active');
+      } else {
+        el.classList.remove('active');
+      }
+    });
+
+    const controls = document.querySelector('.pagination-controls');
+    if (topicPages.length > 0) {
+      currentTopicIndex = 0;
+      updateTopicDisplay();
+      if(controls) controls.style.display = 'block'; // Or 'flex' or 'inline-block' depending on layout
+    } else {
+      if(controls) controls.style.display = 'none';
+      console.warn("Pagination controls hidden as no topic pages were found.");
+    }
+  }
+
+  function updateTopicDisplay() {
+    if (topicPages.length === 0 || !topicIndicator) return;
+
+    console.log("Updating display to show topic " + currentTopicIndex);
+
+    topicPages.forEach((page, index) => {
+      if (index === currentTopicIndex) {
+        page.classList.add('active');
+        console.log("Setting page " + index + " as active");
+      } else {
+        page.classList.remove('active');
+      }
+    });
+
+    if (topicNames[currentTopicIndex]) {
+      topicIndicator.textContent = `Topic ${currentTopicIndex + 1} of ${topicPages.length}: ${topicNames[currentTopicIndex]}`;
+    } else {
+      topicIndicator.textContent = `Topic ${currentTopicIndex + 1} of ${topicPages.length}`;
+    }
+    if(prevButton) prevButton.disabled = currentTopicIndex === 0;
+    if(nextButton) nextButton.disabled = currentTopicIndex === topicPages.length - 1;
+  }
+
+  if(prevButton && nextButton) {
+    prevButton.addEventListener('click', () => {
+      if (currentTopicIndex > 0) {
+        currentTopicIndex--;
+        updateTopicDisplay();
+      }
+    });
+
+    nextButton.addEventListener('click', () => {
+      if (currentTopicIndex < topicPages.length - 1) {
+        currentTopicIndex++;
+        updateTopicDisplay();
+      }
+    });
+  }
+
+  // Call the initialization function when the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM fully loaded, initializing pagination");
+    initializeTopicsAndPagination();
+  });
+
+  // Also call it now in case the DOM is already loaded
+  initializeTopicsAndPagination();
+</script>
+</body>
+</html>
