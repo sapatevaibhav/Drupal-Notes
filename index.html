@@ -1404,10 +1404,10 @@
 </div>
 
 
-<div class="pagination-controls">
-  <button id="prev-topic" disabled>Previous Topic</button>
-  <span id="topic-indicator"></span>
-  <button id="next-topic">Next Topic</button>
+<div class="pagination-controls" id="pagination-controls-bottom">
+  <button id="prev-topic-bottom" disabled>Previous Topic</button>
+  <span id="topic-indicator-bottom"></span>
+  <button id="next-topic-bottom">Next Topic</button>
 </div>
 
 
@@ -1471,6 +1471,13 @@
   const submitButton = document.getElementById('submit-quiz');
   const scoreDisplay = document.getElementById('score-display');
 
+  // Bottom controls
+  const prevButtonBottom = document.getElementById('prev-topic-bottom');
+  const nextButtonBottom = document.getElementById('next-topic-bottom');
+  const topicIndicatorBottom = document.getElementById('topic-indicator-bottom');
+  const controlsBottom = document.getElementById('pagination-controls-bottom');
+
+
   function initializeTopicsAndPagination() {
     topicPages.length = 0; // Clear array before repopulating
     const topicElements = document.querySelectorAll('.topic-page');
@@ -1486,15 +1493,17 @@
       }
     });
 
-    const controls = document.querySelector('.pagination-controls');
+    const controls = document.querySelector('.pagination-controls'); // This will get the first one
     if (topicPages.length > 0) {
       currentTopicIndex = 0;
       updateTopicDisplay();
-      if(controls) controls.style.display = 'block'; // Or 'flex' or 'inline-block' depending on layout
+      if(controls) controls.style.display = 'block';
+      if(controlsBottom) controlsBottom.style.display = 'block';
       // Show submit button only on the last page initially
       if(submitButton) submitButton.style.display = 'none';
     } else {
       if(controls) controls.style.display = 'none';
+      if(controlsBottom) controlsBottom.style.display = 'none';
       console.warn("Pagination controls hidden as no topic pages were found.");
     }
   }
@@ -1515,11 +1524,16 @@
 
     if (topicNames[currentTopicIndex]) {
       topicIndicator.textContent = `Topic ${currentTopicIndex + 1}: ${topicNames[currentTopicIndex]}`;
+      if (topicIndicatorBottom) topicIndicatorBottom.textContent = `Topic ${currentTopicIndex + 1}: ${topicNames[currentTopicIndex]}`;
     } else {
       topicIndicator.textContent = `Topic ${currentTopicIndex + 1} of ${topicPages.length}`;
+      if (topicIndicatorBottom) topicIndicatorBottom.textContent = `Topic ${currentTopicIndex + 1} of ${topicPages.length}`;
     }
     if(prevButton) prevButton.disabled = currentTopicIndex === 0;
     if(nextButton) nextButton.disabled = currentTopicIndex === topicPages.length - 1;
+
+    if(prevButtonBottom) prevButtonBottom.disabled = currentTopicIndex === 0;
+    if(nextButtonBottom) nextButtonBottom.disabled = currentTopicIndex === topicPages.length - 1;
 
     // Show submit button only on the last page
     if (submitButton) {
@@ -1547,13 +1561,34 @@
     });
   }
 
+  if(prevButtonBottom && nextButtonBottom) {
+    prevButtonBottom.addEventListener('click', () => {
+      if (currentTopicIndex > 0) {
+        currentTopicIndex--;
+        updateTopicDisplay();
+      }
+    });
+
+    nextButtonBottom.addEventListener('click', () => {
+      if (currentTopicIndex < topicPages.length - 1) {
+        currentTopicIndex++;
+        updateTopicDisplay();
+      }
+    });
+  }
+
   if (submitButton) {
     submitButton.addEventListener('click', () => {
       scoreDisplay.textContent = 'Your score: 65%';
       scoreDisplay.style.display = 'block';
       if(submitButton) submitButton.style.display = 'none';
-      if(nextButton) nextButton.style.display = 'none'; // Hide next button
-      if(prevButton) prevButton.disabled = true; // Disable previous button
+
+      if(nextButton) nextButton.style.display = 'none';
+      if(prevButton) prevButton.disabled = true;
+
+      if(nextButtonBottom) nextButtonBottom.style.display = 'none';
+      if(prevButtonBottom) prevButtonBottom.disabled = true;
+
       // Optionally, disable all radio buttons on all pages
       document.querySelectorAll('.question-container input[type="radio"]').forEach(radio => {
         radio.disabled = true;
