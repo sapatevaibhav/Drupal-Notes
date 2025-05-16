@@ -3024,8 +3024,8 @@
     });
 
     if (topicNames[currentTopicIndex]) {
-      topicIndicator.textContent = `Topic ${currentTopicIndex + 1}: ${topicNames[currentTopicIndex]}`;
-      if (topicIndicatorBottom) topicIndicatorBottom.textContent = `Topic ${currentTopicIndex + 1}: ${topicNames[currentTopicIndex]}`;
+      topicIndicator.textContent = `Topic ${currentTopicIndex + 1} of ${topicPages.length}: ${topicNames[currentTopicIndex]}`;
+      if (topicIndicatorBottom) topicIndicatorBottom.textContent = `Topic ${currentTopicIndex + 1} of ${topicPages.length} : ${topicNames[currentTopicIndex]}`;
     } else {
       topicIndicator.textContent = `Topic ${currentTopicIndex + 1} of ${topicPages.length}`;
       if (topicIndicatorBottom) topicIndicatorBottom.textContent = `Topic ${currentTopicIndex + 1} of ${topicPages.length}`;
