@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drupal Quiz - Home</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; background-color: #f4f4f4; color: #333; }
+        h1, h2 { color: #007bff; }
+        .section { margin-bottom: 30px; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .question-container { margin-bottom: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .question-text { font-weight: bold; margin-bottom: 10px; }
+        .options label { display: block; margin-bottom: 8px; padding: 10px; border-radius: 4px; cursor: pointer; background-color: #e9ecef; }
+        .options label:hover { background-color: #dde2e6; }
+        .options input[type="radio"] { margin-right: 10px; }
+        .correct { background-color: #d4edda !important; color: #155724 !important; border-color: #c3e6cb !important; }
+        .incorrect { background-color: #f8d7da !important; color: #721c24 !important; border-color: #f5c6cb !important; }
+        .show-actual-correct { border: 2px solid #28a745 !important; }
+        .answer-key { margin-top: 30px; padding: 20px; background-color: #e9ecef; border-radius: 8px; }
+        .answer-key h2 { margin-top: 0; }
+        .answer-key ol { padding-left: 20px; }
+        .answer-key li { margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+
+    <h1>Drupal Quiz</h1>
+
+    <div class="section" id="site-building">
+        <h2>Section 1: Drupal Site Building</h2>
+        <div class="question-container" data-correct-answer="B">
+            <p class="question-text">Q1. What is the primary purpose of Drupal's Views module?</p>
+            <div class="options">
+                <label><input type="radio" name="q1" value="A"> A) Manage users</label>
+                <label><input type="radio" name="q1" value="B"> B) Create custom lists and queries without coding</label>
+                <label><input type="radio" name="q1" value="C"> C) Build themes</label>
+                <label><input type="radio" name="q1" value="D"> D) Set up multilingual content</label>
+            </div>
+        </div>
+        <div class="question-container" data-correct-answer="B">
+            <p class="question-text">Q2. Which of the following is a common use-case for the Paragraphs module?</p>
+            <div class="options">
+                <label><input type="radio" name="q2" value="A"> A) User authentication</label>
+                <label><input type="radio" name="q2" value="B"> B) Creating flexible and reusable content components</label>
+                <label><input type="radio" name="q2" value="C"> C) Custom routing</label>
+                <label><input type="radio" name="q2" value="D"> D) Database backup</label>
+            </div>
+        </div>
+        <div class="question-container" data-correct-answer="C">
+            <p class="question-text">Q3. In Drupal's content type configuration, which setting controls URL patterns?</p>
+            <div class="options">
+                <label><input type="radio" name="q3" value="A"> A) Permissions</label>
+                <label><input type="radio" name="q3" value="B"> B) Field UI</label>
+                <label><input type="radio" name="q3" value="C"> C) Pathauto</label>
+                <label><input type="radio" name="q3" value="D"> D) CKEditor</label>
+            </div>
+        </div>
+        <div class="question-container" data-correct-answer="C">
+            <p class="question-text">Q4. What is the main function of a Display Suite in site building?</p>
+            <div class="options">
+                <label><input type="radio" name="q4" value="A"> A) SEO optimization</label>
+                <label><input type="radio" name="q4" value="B"> B) Theme switching</label>
+                <label><input type="radio" name="q4" value="C"> C) Layout control for content display</label>
+                <label><input type="radio" name="q4" value="D"> D) Role assignment</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="module-development">
+        <h2>Section 2: Drupal Module Development</h2>
+        <div class="question-container" data-correct-answer="C">
+            <p class="question-text">Q5. Which Drupal hook is used to define permissions in a custom module?</p>
+            <div class="options">
+                <label><input type="radio" name="q5" value="A"> A) hook_menu()</label>
+                <label><input type="radio" name="q5" value="B"> B) hook_node_view()</label>
+                <label><input type="radio" name="q5" value="C"> C) hook_permission()</label>
+                <label><input type="radio" name="q5" value="D"> D) hook_form_alter()</label>
+            </div>
+        </div>
+        <div class="question-container" data-correct-answer="B">
+            <p class="question-text">Q6. Which file is mandatory in every custom Drupal module?</p>
+            <div class="options">
+                <label><input type="radio" name="q6" value="A"> A) .module</label>
+                <label><input type="radio" name="q6" value="B"> B) .info.yml</label>
+                <label><input type="radio" name="q6" value="C"> C) README.md</label>
+                <label><input type="radio" name="q6" value="D"> D) composer.json</label>
+            </div>
+        </div>
+        <div class="question-container" data-correct-answer="A">
+            <p class="question-text">Q7. To create a custom route in Drupal 10, which file do you define routes in?</p>
+            <div class="options">
+                <label><input type="radio" name="q7" value="A"> A) routing.yml</label>
+                <label><input type="radio" name="q7" value="B"> B) routes.php</label>
+                <label><input type="radio" name="q7" value="C"> C) path.php</label>
+                <label><input type="radio" name="q7" value="D"> D) config.yml</label>
+            </div>
+        </div>
+        <div class="question-container" data-correct-answer="C">
+            <p class="question-text">Q8. What service is used to log messages in Drupal 9/10?</p>
+            <div class="options">
+                <label><input type="radio" name="q8" value="A"> A) watchdog()</label>
+                <label><input type="radio" name="q8" value="B"> B) drupal_set_message()</label>
+                <label><input type="radio" name="q8" value="C"> C) logger.channel.default</label>
+                <label><input type="radio" name="q8" value="D"> D) console.log()</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="web-services">
+        <h2>Section 3: Web Services and Decoupled Drupal</h2>
+        <div class="question-container" data-correct-answer="B">
+            <p class="question-text">Q9. What is the default REST format supported in core for exposing entities?</p>
+            <div class="options">
+                <label><input type="radio" name="q9" value="A"> A) GraphQL</label>
+                <label><input type="radio" name="q9" value="B"> B) JSON:API</label>
+                <label><input type="radio" name="q9" value="C"> C) XML-RPC</label>
+                <label><input type="radio" name="q9" value="D"> D) SOAP</label>
+            </div>
+        </div>
+        <div class="question-container" data-correct-answer="C">
+            <p class="question-text">Q10. Which contributed module provides a powerful queryable interface for decoupled architectures?</p>
+            <div class="options">
+                <label><input type="radio" name="q10" value="A"> A) REST UI</label>
+                <label><input type="radio" name="q10" value="B"> B) JSON:API Extras</label>
+                <label><input type="radio" name="q10" value="C"> C) GraphQL</label>
+                <label><input type="radio" name="q10" value="D"> D) Services</label>
+            </div>
+        </div>
+        <div class="question-container" data-correct-answer="C">
+            <p class="question-text">Q11. In a decoupled setup, what component does Next.js usually replace from the traditional Drupal stack?</p>
+            <div class="options">
+                <label><input type="radio" name="q11" value="A"> A) Web server</label>
+                <label><input type="radio" name="q11" value="B"> B) Backend logic</label>
+                <label><input type="radio" name="q11" value="C"> C) Templating layer</label>
+                <label><input type="radio" name="q11" value="D"> D) Database</label>
+            </div>
+        </div>
+        <div class="question-container" data-correct-answer="B">
+            <p class="question-text">Q12. Which HTTP header is often required for authenticated JSON:API requests in Drupal?</p>
+            <div class="options">
+                <label><input type="radio" name="q12" value="A"> A) Accept-Encoding</label>
+                <label><input type="radio" name="q12" value="B"> B) Authorization</label>
+                <label><input type="radio" name="q12" value="C"> C) Content-Language</label>
+                <label><input type="radio" name="q12" value="D"> D) X-CSRF-Token</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="nextjs">
+        <h2>Section 4: Next.js</h2>
+        <div class="question-container" data-correct-answer="B">
+            <p class="question-text">Q13. What function is used to fetch data at build time in Next.js?</p>
+            <div class="options">
+                <label><input type="radio" name="q13" value="A"> A) getServerSideProps</label>
+                <label><input type="radio" name="q13" value="B"> B) getStaticProps</label>
+                <label><input type="radio" name="q13" value="C"> C) useEffect</label>
+                <label><input type="radio" name="q13" value="D"> D) fetchData</label>
+            </div>
+        </div>
+        <div class="question-container" data-correct-answer="C">
+            <p class="question-text">Q14. Which routing feature does the App Router in Next.js 13+ replace?</p>
+            <div class="options">
+                <label><input type="radio" name="q14" value="A"> A) Custom Express routes</label>
+                <label><input type="radio" name="q14" value="B"> B) File-system based routing</label>
+                <label><input type="radio" name="q14" value="C"> C) Pages Router</label>
+                <label><input type="radio" name="q14" value="D"> D) Client-side routing</label>
+            </div>
+        </div>
+        <div class="question-container" data-correct-answer="D"> <!-- Assuming 'app' is the correct answer -->
+            <p class="question-text">Q15. What is the recommended folder to define layout and pages in App Router architecture?</p>
+            <div class="options">
+                <label><input type="radio" name="q15" value="A"> A) /pages</label>
+                <label><input type="radio" name="q15" value="B"> B) /src/routes</label>
+                <label><input type="radio" name="q15" value="C"> C) /components/views</label>
+                <label><input type="radio" name="q15" value="D"> D) /app</label>
+            </div>
+        </div>
+        <div class="question-container" data-correct-answer="B">
+            <p class="question-text">Q16. What hook allows client-side routing in a Next.js App Router setup?</p>
+            <div class="options">
+                <label><input type="radio" name="q16" value="A"> A) useRoute</label>
+                <label><input type="radio" name="q16" value="B"> B) useRouter</label>
+                <label><input type="radio" name="q16" value="C"> C) usePath</label>
+                <label><input type="radio" name="q16" value="D"> D) useNavigate</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="js-drupal">
+        <h2>Section 5: JavaScript in Drupal</h2>
+        <div class="question-container" data-correct-answer="A">
+            <p class="question-text">Q17. What is the standard way to attach custom JavaScript to a specific Drupal page or content type?</p>
+            <div class="options">
+                <label><input type="radio" name="q17" value="A"> A) Using hook_page_attachments()</label>
+                <label><input type="radio" name="q17" value="B"> B) Including inline &lt;script&gt; in templates</label>
+                <label><input type="radio" name="q17" value="C"> C) Editing .htaccess</label>
+                <label><input type="radio" name="q17" value="D"> D) Using addEventListener in template</label>
+            </div>
+        </div>
+        <div class="question-container" data-correct-answer="C">
+            <p class="question-text">Q18. How does Drupal attach behavior to dynamic DOM elements using JavaScript?</p>
+            <div class="options">
+                <label><input type="radio" name="q18" value="A"> A) With document.ready</label>
+                <label><input type="radio" name="q18" value="B"> B) Using jQuery live()</label>
+                <label><input type="radio" name="q18" value="C"> C) Through the Drupal.behaviors system</label>
+                <label><input type="radio" name="q18" value="D"> D) Vanilla JS event delegation</label>
+            </div>
+        </div>
+        <div class="question-container" data-correct-answer="C">
+            <p class="question-text">Q19. Which function is used in a .libraries.yml file to include JS in Drupal?</p>
+            <div class="options">
+                <label><input type="radio" name="q19" value="A"> A) script:</label>
+                <label><input type="radio" name="q19" value="B"> B) attach:</label>
+                <label><input type="radio" name="q19" value="C"> C) js:</label>
+                <label><input type="radio" name="q19" value="D"> D) javascript:</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="css-drupal">
+        <h2>Section 6: CSS in Drupal</h2>
+        <div class="question-container" data-correct-answer="C">
+            <p class="question-text">Q20. What is the purpose of the .libraries.yml file in a Drupal theme?</p>
+            <div class="options">
+                <label><input type="radio" name="q20" value="A"> A) Define database tables</label>
+                <label><input type="radio" name="q20" value="B"> B) Register theme hooks</label>
+                <label><input type="radio" name="q20" value="C"> C) Attach CSS and JS files</label>
+                <label><input type="radio" name="q20" value="D"> D) Create admin views</label>
+            </div>
+        </div>
+        <div class="question-container" data-correct-answer="B">
+            <p class="question-text">Q21. What media query is most appropriate for targeting mobile devices in Drupal theming?</p>
+            <div class="options">
+                <label><input type="radio" name="q21" value="A"> A) min-width: 1024px</label>
+                <label><input type="radio" name="q21" value="B"> B) max-width: 480px</label>
+                <label><input type="radio" name="q21" value="C"> C) min-height: 600px</label>
+                <label><input type="radio" name="q21" value="D"> D) aspect-ratio: 1/1</label>
+            </div>
+        </div>
+        <div class="question-container" data-correct-answer="B">
+            <p class="question-text">Q22. Where would you typically define custom variables like colors and font sizes in a Drupal theme using SCSS?</p>
+            <div class="options">
+                <label><input type="radio" name="q22" value="A"> A) style.css</label>
+                <label><input type="radio" name="q22" value="B"> B) variables.scss</label>
+                <label><input type="radio" name="q22" value="C"> C) theme-settings.php</label>
+                <label><input type="radio" name="q22" value="D"> D) .info.yml</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="theme-appearance">
+        <h2>Section 7: Drupal Theme Appearance</h2>
+        <div class="question-container" data-correct-answer="C">
+            <p class="question-text">Q23. What file controls the base theme and regions for a Drupal theme?</p>
+            <div class="options">
+                <label><input type="radio" name="q23" value="A"> A) style.css</label>
+                <label><input type="radio" name="q23" value="B"> B) theme-settings.php</label>
+                <label><input type="radio" name="q23" value="C"> C) THEMENAME.info.yml</label>
+                <label><input type="radio" name="q23" value="D"> D) page.html.twig</label>
+            </div>
+        </div>
+        <div class="question-container" data-correct-answer="C">
+            <p class="question-text">Q24. How can you allow a user to switch between light and dark modes in a Drupal theme?</p>
+            <div class="options">
+                <label><input type="radio" name="q24" value="A"> A) Create separate themes</label>
+                <label><input type="radio" name="q24" value="B"> B) Use theme color module</label>
+                <label><input type="radio" name="q24" value="C"> C) Toggle class with JS and use CSS variables</label>
+                <label><input type="radio" name="q24" value="D"> D) It’s not possible in Drupal</label>
+            </div>
+        </div>
+        <div class="question-container" data-correct-answer="B">
+            <p class="question-text">Q25. Which Twig variable holds the content of a block in Drupal templates?</p>
+            <div class="options">
+                <label><input type="radio" name="q25" value="A"> A) {{ attributes }}</label>
+                <label><input type="radio" name="q25" value="B"> B) {{ content }}</label>
+                <label><input type="radio" name="q25" value="C"> C) {{ fields }}</label>
+                <label><input type="radio" name="q25" value="D"> D) {{ data }}</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <h2>Answer Key</h2>
+        <ol>
+            <li>B</li>
+            <li>B</li>
+            <li>C</li>
+            <li>C</li>
+            <li>C</li>
+            <li>B</li>
+            <li>A</li>
+            <li>C</li>
+            <li>B</li>
+            <li>C</li>
+            <li>C</li>
+            <li>B</li>
+            <li>B</li>
+            <li>C</li>
+            <li>D</li> <!-- Corrected based on common Next.js App router structure -->
+            <li>B</li>
+            <li>A</li>
+            <li>C</li>
+            <li>C</li>
+            <li>C</li>
+            <li>B</li>
+            <li>B</li>
+            <li>C</li>
+            <li>C</li>
+            <li>B</li>
+        </ol>
+    </div>
+
+    <script>
+        document.querySelectorAll('.question-container').forEach(container => {
+            const correctAnswerValue = container.dataset.correctAnswer;
+            const radioButtons = container.querySelectorAll('input[type="radio"]');
+            const optionLabels = Array.from(container.querySelectorAll('.options label'));
+
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    optionLabels.forEach(lbl => {
+                        lbl.classList.remove('correct', 'incorrect', 'show-actual-correct');
+                    });
+
+                    const selectedLabel = this.parentElement;
+
+                    if (this.value === correctAnswerValue) {
+                        selectedLabel.classList.add('correct');
+                    } else {
+                        selectedLabel.classList.add('incorrect');
+                        // Highlight the correct answer
+                        const correctLabel = optionLabels.find(lbl => lbl.querySelector('input').value === correctAnswerValue);
+                        if (correctLabel) {
+                            correctLabel.classList.add('show-actual-correct');
+                        }
+                    }
+                    radioButtons.forEach(rb => rb.disabled = true);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

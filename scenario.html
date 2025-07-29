@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drupal Scenario Questions</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1, h2, h3 {
+            color: #0078d7;
+        }
+
+        .topic-page {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        .question-container {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .options {
+            margin-left: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        .correct {
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+        }
+
+        .incorrect {
+            background-color: #f2dede;
+            border-color: #ebccd1;
+        }
+
+        .score-display {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #e8f4f8;
+            border-radius: 5px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #0078d7;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005fa3;
+        }
+
+        .submit-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Drupal Scenario-Based Questions</h1>
+    <p>This quiz contains practical scenarios and questions you might encounter in Drupal development.</p>
+
+    <div class="score-display" id="score-display">
+        Your Score: <span id="score">0</span> / <span id="total-questions">0</span>
+    </div>
+
+    <button id="check-answers" class="submit-btn">Check Answers</button>
+    <button id="reset-quiz" class="submit-btn" style="display: none;">Reset Quiz</button>
+
+    <div id="quiz-container">
+        <div class="topic-page">
+            <h2>Drupal & Next.js Scenarios</h2>
+
+            <div class="question-container" data-correct-answer="C">
+                <p class="question-text">1. Where are Drupal behaviors typically automatically called?</p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="A"> A) During initial page load and after every AJAX request.</label>
+                    <label><input type="radio" name="q1" value="B"> B) Only manually when triggered.</label>
+                    <label><input type="radio" name="q1" value="C"> C) Only during initial page load.</label>
+                    <label><input type="radio" name="q1" value="D"> D) Only after an AJAX request.</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="B">
+                <p class="question-text">2. Youâre organizing a large Next.js app using the App Router and want to group routes together for better maintainability without changing the actual URL structure. You need to identify the correct folder structure for route grouping. Which folder enables route grouping without affecting the URL path?</p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="A"> A) /shared</label>
+                    <label><input type="radio" name="q2" value="B"> B) (group-name)</label>
+                    <label><input type="radio" name="q2" value="C"> C) /_group</label>
+                    <label><input type="radio" name="q2" value="D"> D) /_folder</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="B">
+                <p class="question-text">3. You have created a custom theme. You want to attach a JavaScript library only when viewing a specific content type called "event." Where should you do this in your theme to optimize performance?</p>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="A"> A) Add the library globally in theme.info.yml under libraries:.</label>
+                    <label><input type="radio" name="q3" value="B"> B) Attach the library conditionally inside hook_preprocess_node() by checking the bundle.</label>
+                    <label><input type="radio" name="q3" value="C"> C) Use attach_library directly inside node.html.twig.</label>
+                    <label><input type="radio" name="q3" value="D"> D) Attach the library using hook_page_attachments().</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="A">
+                <p class="question-text">4. Youâre working on a Next.js project using the App Router and need to add backend functionality like form submissions and data fetching. You want to set up API routes the right way within the App Router structure. How do you handle API routes in Next.js when using the App Router?</p>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="A"> A) By creating an api/ directory inside app and defining route handlers</label>
+                    <label><input type="radio" name="q4" value="B"> B) API routes are not supported with the App Router</label>
+                    <label><input type="radio" name="q4" value="C"> C) By creating an api.js file inside the pages directory</label>
+                    <label><input type="radio" name="q4" value="D"> D) By defining all API routes in next.config.js</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="B">
+                <p class="question-text">5. As a Next.js developer, you're working with dynamic routes in the App Router and need to optimize your appâs performance. You come across the generateStaticParams() function and are curious about its role in dynamic route segments. Does it help with prerendering, client-side hydration, or something else? What does the generateStaticParams() function do in a dynamic route segment in Next.js?</p>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="A"> A) Fetches client-side data during hydration</label>
+                    <label><input type="radio" name="q5" value="B"> B) Dynamically defines static paths for prerendering during build</label>
+                    <label><input type="radio" name="q5" value="C"> C) Enables API fallback on server-side failures</label>
+                    <label><input type="radio" name="q5" value="D"> D) Generates props for client components</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="B">
+                <p class="question-text">6. I want to create a FORM in Drupal which provides two options in the form of buttons - Yes & Cancel. These two buttons will be responsible for confirming the action required to be performed on the form. The "Yes" button deletes the content & cancel button cancels the operation. Which of the following classes should be extended or implemented for achieving this in Drupal?</p>
+                <div class="options">
+                    <label><input type="radio" name="q6" value="A"> A) ConfigFormBase</label>
+                    <label><input type="radio" name="q6" value="B"> B) ConfirmFormBase</label>
+                    <label><input type="radio" name="q6" value="C"> C) FormBase</label>
+                    <label><input type="radio" name="q6" value="D"> D) FormStatelnterface</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="A">
+                <p class="question-text">7. Sana just joined the web development team as an intern. Her first task is to help structure content types for a new website using Drupal 10. While exploring options, she notices the team is using the Paragraphs module instead of relying solely on standard fields. Curious, Sana asks her mentor: "Why are we using Paragraphs instead of just adding more fields to the content type?" What key benefit does her mentor most likely mention?</p>
+                <div class="options">
+                    <label><input type="radio" name="q7" value="A"> A) Nested, reusable content components</label>
+                    <label><input type="radio" name="q7" value="B"> B) Simplified menu management</label>
+                    <label><input type="radio" name="q7" value="C"> C) Better media integration</label>
+                    <label><input type="radio" name="q7" value="D"> D) Improved search indexing</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="C">
+                <p class="question-text">8. You're editing a custom node--article.html.twig template in Drupal 10. You want to conditionally show an image block, but only if the field_image is populated. You're aware that Drupal preprocesses fields into the content variable for safe and consistent rendering. Which Twig syntax should you use to ensure the block is only shown when the image field has content?</p>
+                <div class="options">
+                    <label><input type="radio" name="q8" value="A"> A) {% if node.has('field_image') %} ... {% endif %}</label>
+                    <label><input type="radio" name="q8" value="B"> B) {% if node.field_image.value %} ... {% endif %}</label>
+                    <label><input type="radio" name="q8" value="C"> C) {% if content.field_image is not empty %} ... {% endif %}</label>
+                    <label><input type="radio" name="q8" value="D"> D) {% if node.field_image %} ... {% endif %}</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="C">
+                <p class="question-text">9. The Client is reporting an issue on the website that the site is displaying outdated content when visited as a site visitor. The content that is updated is of type article and the content is displayed on a listing page. The body of the article is outdated on frontend. The team lead has investigated and found that the issue is due to the caching implemented. The content is cached and hence the site is showing outdated content. How will you handle this situation? What should we do to make sure that such issues are not reported.</p>
+                <div class="options">
+                    <label><input type="radio" name="q9" value="A"> A) Train the editors to clear the cache whenever the content on the site is updated.</label>
+                    <label><input type="radio" name="q9" value="B"> B) Implement the cache clearing logic in cron.</label>
+                    <label><input type="radio" name="q9" value="C"> C) Handle the invalidation logic correctly. The cache invalidation should work properly whenever the content on the site is updated.</label>
+                    <label><input type="radio" name="q9" value="D"> D) Set cache max age to zero for article content type.</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="B">
+                <p class="question-text">10. You're customizing a node--article.html.twig file and want to manually render specific fields like the body and image fields. You remember that Drupal provides pre-rendered content variables in the template, but you're unsure which syntax is the correct and safest way to print a field. Which approach should you use to render a field properly in Twig?</p>
+                <div class="options">
+                    <label><input type="radio" name="q10" value="A"> A) {{ node.get('field_name').value }}</label>
+                    <label><input type="radio" name="q10" value="B"> B) {{ content.field_name }}</label>
+                    <label><input type="radio" name="q10" value="C"> C) {{ fields.field_name.value }}</label>
+                    <label><input type="radio" name="q10" value="D"> D) {{ node.field_name }}</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="C">
+                <p class="question-text">11. As a Next.js developer, youâre working on structuring your app using the App Router. Youâre trying to understand the role of page.js and layout.js and how they differ in handling routing and UI. What is the main difference between page.js and layout.js in the Next.js App Router structure?</p>
+                <div class="options">
+                    <label><input type="radio" name="q11" value="A"> A) page.js renders nested routes, layout.js handles data fetching</label>
+                    <label><input type="radio" name="q11" value="B"> B) layout.js is required, page.js is optional</label>
+                    <label><input type="radio" name="q11" value="C"> C) page.js renders route-specific content; layout.js wraps shared UI across routes</label>
+                    <label><input type="radio" name="q11" value="D"> D) layout.js handles route definitions, page.js handles UI</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="C">
+                <p class="question-text">12. You are tasked with creating a custom user registration system in a decoupled Drupal setup. When users submit their information via the frontend, their profile must be updated in Drupal. You plan to use JSON:API to handle this data mutation. Which HTTP method should you use to update a user's profile information through JSON:API?</p>
+                <div class="options">
+                    <label><input type="radio" name="q12" value="A"> A) DELETE</label>
+                    <label><input type="radio" name="q12" value="B"> B) PUT</label>
+                    <label><input type="radio" name="q12" value="C"> C) PATCH</label>
+                    <label><input type="radio" name="q12" value="D"> D) POST</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="A">
+                <p class="question-text">13. Your team is debating where to store different types of data in your Drupal application. One developer argues for using the State API for user preferences, while another suggests the Configuration API. Which of the following correctly describes the primary difference between the State API and the Configuration API in Drupal 10?</p>
+                <div class="options">
+                    <label><input type="radio" name="q13" value="A"> A) State API is for site-specific information that can be different between environments, while Configuration API is for exportable settings</label>
+                    <label><input type="radio" name="q13" value="B"> B) State API uses JSON format, while Configuration API uses YAML format</label>
+                    <label><input type="radio" name="q13" value="C"> C) State API is only for module settings, while Configuration API is for site-wide settings</label>
+                    <label><input type="radio" name="q13" value="D"> D) State API is for exportable configuration, while Configuration API is for runtime values</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="C">
+                <p class="question-text">14. I want to build a custom page programmatically and this page can be accessed at a custom URL (url can be anything), the content on this page should only be accessible to people who have access to "edit own contentâ". How will I build this page and make sure that it has the correct access check?</p>
+                <div class="options">
+                    <label><input type="radio" name="q14" value="A"> A) Create a custom access check class for checking edit access.</label>
+                    <label><input type="radio" name="q14" value="B"> B) In Drupal this cannot be achieved.</label>
+                    <label><input type="radio" name="q14" value="C"> C) Create a routing.yml file and add "edit own content" permission under ârequirementsâ section of the routing yml file.</label>
+                    <label><input type="radio" name="q14" value="D"> D) Create a service class that implements custom access check logic.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="topic-page">
+            <h2>More Development Scenarios</h2>
+
+            <div class="question-container" data-correct-answer="A">
+                <p class="question-text">15. As a Next.js developer, you're looking to improve the performance of your server-rendered pages. You want to ensure they are automatically cached and revalidated over time. While reviewing the features in the App Router, you're curious which one handles this automatically. Which App Router feature enables automatic caching and incremental revalidation of server-rendered pages in Next.js?</p>
+                <div class="options">
+                    <label><input type="radio" name="q15" value="A"> A) export const revalidate = 10 inside a component or layout</label>
+                    <label><input type="radio" name="q15" value="B"> B) Setting getServerSideProps with cache headers</label>
+                    <label><input type="radio" name="q15" value="C"> C) Using ISR = true in the config</label>
+                    <label><input type="radio" name="q15" value="D"> D) Enabling fallback: 'true' in generateStaticParams</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="C">
+                <p class="question-text">16. As a Next.js developer, you're building out a complex route structure and come across a scenario where both page.js and default.js are included in the same route segment. You wonder what will happenâwill one be ignored, or will they work together in some way? What happens if you include both page.js and default.js in a route segment in Next.js?</p>
+                <div class="options">
+                    <label><input type="radio" name="q16" value="A"> A) Only page.js will be used, default.js is ignored</label>
+                    <label><input type="radio" name="q16" value="B"> B) default.js renders if no matching page is found in parallel routes</label>
+                    <label><input type="radio" name="q16" value="C"> C) The app will throw an error</label>
+                    <label><input type="radio" name="q16" value="D"> D) They are merged automatically</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="C">
+                <p class="question-text">17. What is the purpose of .module file in Drupal?</p>
+                <div class="options">
+                    <label><input type="radio" name="q17" value="A"> A) It is used to write helper methods for any custom functionality, like hooks etc.</label>
+                    <label><input type="radio" name="q17" value="B"> B) None of the above.</label>
+                    <label><input type="radio" name="q17" value="C"> C) It is used to write all installation related functions</label>
+                    <label><input type="radio" name="q17" value="D"> D) No specific purpose, it's just a file</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="A">
+                <p class="question-text">18. You are working on a decoupled Drupal application for a client. They want to display a list of "Article" content types, but they require you to set up an endpoint for fetching only published articles. You've already confirmed that the JSON:API module is enabled. What would be the correct endpoint to fetch only published "Article" nodes?</p>
+                <div class="options">
+                    <label><input type="radio" name="q18" value="A"> A) /jsonapi/node/article?filter[status]=1</label>
+                    <label><input type="radio" name="q18" value="B"> B) /jsonapi/node/article?filter[status]=published</label>
+                    <label><input type="radio" name="q18" value="C"> C) /jsonapi/node/article?status=1</label>
+                    <label><input type="radio" name="q18" value="D"> D) /jsonapi/article?filter[status]=1</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="C">
+                <p class="question-text">19. As a Drupal developer, youâve been tasked with organizing and managing the various configuration elements of a site. You know that Drupal uses configuration entities for things like content types, views, and text formats to ensure that settings are stored in a consistent way across environments. Youâre currently reviewing the available entities on the site and need to identify which of the following options is NOT a configuration entity. Which of the following is NOT a configuration entity in Drupal 10?</p>
+                <div class="options">
+                    <label><input type="radio" name="q19" value="A"> A) Text format</label>
+                    <label><input type="radio" name="q19" value="B"> B) Content type</label>
+                    <label><input type="radio" name="q19" value="C"> C) Node content</label>
+                    <label><input type="radio" name="q19" value="D"> D) View</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="A">
+                <p class="question-text">20. As a Next.js developer, you're building an app and need to add a loading UI for a specific route segment in the App Router. Youâre unsure whether to use a custom spinner, a state hook, or something else entirely. How do you create a loading UI for a specific route segment in the Next.js App Router?</p>
+                <div class="options">
+                    <label><input type="radio" name="q20" value="A"> A) By using a loading.js file inside the route segment</label>
+                    <label><input type="radio" name="q20" value="B"> B) By using useEffect to track loading state</label>
+                    <label><input type="radio" name="q20" value="C"> C) By wrapping the component with a Suspense component</label>
+                    <label><input type="radio" name="q20" value="D"> D) By adding a spinner class to the component</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="B">
+                <p class="question-text">21. Youâve been tasked with fine-tuning a Drupal 10 websiteâs content. Specifically, the siteâs admins want to modify the order in which fields are displayed on a particular content type. As part of this update, you need to make sure that the fields appear in the correct order when the content is viewed by users. After navigating through the Drupal admin interface, you know thereâs a specific place where you can manage the order of fields for a content typeâs display. Where do you go to manage the field display order for content types in Drupal 10?</p>
+                <div class="options">
+                    <label><input type="radio" name="q21" value="A"> A) Appearance â Theme settings</label>
+                    <label><input type="radio" name="q21" value="B"> B) Structure â Content types â Manage display</label>
+                    <label><input type="radio" name="q21" value="C"> C) Content â Fields</label>
+                    <label><input type="radio" name="q21" value="D"> D) Configuration â Media</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="A">
+                <p class="question-text">22. Users of your client's website have been submitting forms with invalid data. Your project manager asks where in the code you should implement the fix to prevent these invalid submissions. Which method is the correct place to handle the validations on a form in Drupal's FORM API?</p>
+                <div class="options">
+                    <label><input type="radio" name="q22" value="A"> A) validateForm()</label>
+                    <label><input type="radio" name="q22" value="B"> B) getFormid()</label>
+                    <label><input type="radio" name="q22" value="C"> C) buildForm()</label>
+                    <label><input type="radio" name="q22" value="D"> D) submitForm()</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="A">
+                <p class="question-text">23. You're working on a Drupal 10 project and want to add some custom JavaScript to enhance the frontend behavior of your site. You're aware that Drupal provides multiple ways to include JS, but you're trying to figure out which methods are officially supported and commonly used. Which of the following is a valid way to add custom JavaScript in Drupal?</p>
+                <div class="options">
+                    <label><input type="radio" name="q23" value="A"> A) All of the above</label>
+                    <label><input type="radio" name="q23" value="B"> B) Using `libraries.yml`</label>
+                    <label><input type="radio" name="q23" value="C"> C) Using `hook_page_attachments()`</label>
+                    <label><input type="radio" name="q23" value="D"> D) Using twig template.</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="topic-page">
+            <h2>Additional Technical Scenarios</h2>
+
+            <div class="question-container" data-correct-answer="C">
+                <p class="question-text">24. Your client runs an e-commerce site and wants a payment processing system that can be easily switched between different providers in the future. You decide to implement a custom service that can be replaced without changing the rest of the codebase. What is the first step you should take to create this pluggable and replaceable service in Drupal?</p>
+                <div class="options">
+                    <label><input type="radio" name="q24" value="A"> A) Create a .module file</label>
+                    <label><input type="radio" name="q24" value="B"> B) Create a <module-name>.info.yml file.</label>
+                    <label><input type="radio" name="q24" value="C"> C) Create a <module-name>.services.yml file.</label>
+                    <label><input type="radio" name="q24" value="D"> D) Create a class file whose name is relevant to functionality you are building</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="A">
+                <p class="question-text">25. You've developed a new content approval workflow module that interacts with several Drupal core components. Your technical lead has asked you to write comprehensive tests for this module. Which type of test would be MOST appropriate for verifying that the entire approval workflow functions correctly from start to finish?</p>
+                <div class="options">
+                    <label><input type="radio" name="q25" value="A"> A) Browser tests with JavaScript support to test the complete user workflow</label>
+                    <label><input type="radio" name="q25" value="B"> B) Functional tests to verify the admin configuration forms work properly</label>
+                    <label><input type="radio" name="q25" value="C"> C) Kernel tests to check the interaction with Drupal's database</label>
+                    <label><input type="radio" name="q25" value="D"> D) Unit tests to verify each function works independently</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="D">
+                <p class="question-text">26. You're building an application that displays a list of articles from Drupal. You need to ensure the JSON:API response is paginated, limiting the number of articles returned per request to 10. Which query parameter should you include in the request to limit the number of results?</p>
+                <div class="options">
+                    <label><input type="radio" name="q26" value="A"> A) ?results=10</label>
+                    <label><input type="radio" name="q26" value="B"> B) ?pagination=10</label>
+                    <label><input type="radio" name="q26" value="C"> C) ?limit=10</label>
+                    <label><input type="radio" name="q26" value="D"> D) ?page[size]=10</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="B">
+                <p class="question-text">27. You added a new template file node--article.html.twig for article nodes, but Drupal is still rendering node.html.twig. What should you check?</p>
+                <div class="options">
+                    <label><input type="radio" name="q27" value="A"> A) Whether the node bundle is correct</label>
+                    <label><input type="radio" name="q27" value="B"> B) Clear Drupal cache.</label>
+                    <label><input type="radio" name="q27" value="C"> C) All of the above</label>
+                    <label><input type="radio" name="q27" value="D"> D) File permissions of the template.</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="B">
+                <p class="question-text">28. Youâre tasked with creating a custom View on a Drupal 10 site. The View needs to display content based on certain criteria, but it should change depending on the context in which itâs viewed â for example, filtering content by a specific category or user. Youâre familiar with both contextual filters and regular filters in Drupal, but you need to understand the key difference between them to decide which one to use in your View. What is the key difference between a Viewâs contextual filter and a regular filter?</p>
+                <div class="options">
+                    <label><input type="radio" name="q28" value="A"> A) There's no difference</label>
+                    <label><input type="radio" name="q28" value="B"> B) Contextual filters take values from the URL or environment</label>
+                    <label><input type="radio" name="q28" value="C"> C) Contextual filters are only for blocks</label>
+                    <label><input type="radio" name="q28" value="D"> D) Regular filters can only be used with users</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="B">
+                <p class="question-text">29. You are working on a multilingual Drupal site. You notice that hardcoded strings in your Twig templates are not translated even though translations exist. What should you do to fix this?</p>
+                <div class="options">
+                    <label><input type="radio" name="q29" value="A"> A) Wrap static text inside {{ text|escape }}.</label>
+                    <label><input type="radio" name="q29" value="B"> B) Use the trans tag {% trans %} in Twig.</label>
+                    <label><input type="radio" name="q29" value="C"> C) Wrap static text inside {{ text|t }}.</label>
+                    <label><input type="radio" name="q29" value="D"> D) Use the Drupal Translation module manually.</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="A">
+                <p class="question-text">30. An SDC component's schema was changed to add a new required field. When old components are edited, an error occurs saying the field is missing. How should you handle this?</p>
+                <div class="options">
+                    <label><input type="radio" name="q30" value="A"> A) Set a default value for the new field in the schema.</label>
+                    <label><input type="radio" name="q30" value="B"> B) Delete and recreate the old components.</label>
+                    <label><input type="radio" name="q30" value="C"> C) Roll back the schema.</label>
+                    <label><input type="radio" name="q30" value="D"> D) Mark the field optional (required: false).</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="topic-page">
+            <h2>Drupal Configuration & Theming</h2>
+
+            <div class="question-container" data-correct-answer="B">
+                <p class="question-text">31. You're troubleshooting a Drupal site that's experiencing slow page loads. After investigation, you suspect the Views module is creating inefficient queries. What's the best way to identify problematic database queries?</p>
+                <div class="options">
+                    <label><input type="radio" name="q31" value="A"> A) Enable the Statistics module</label>
+                    <label><input type="radio" name="q31" value="B"> B) Enable the Database Logging module and use the Devel module's Query Debug</label>
+                    <label><input type="radio" name="q31" value="C"> C) Check PHP error logs</label>
+                    <label><input type="radio" name="q31" value="D"> D) View the server's memory usage stats</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="C">
+                <p class="question-text">32. Your client wants to create different layouts for different types of content. Which Drupal feature would you recommend to achieve this?</p>
+                <div class="options">
+                    <label><input type="radio" name="q32" value="A"> A) Block Layout</label>
+                    <label><input type="radio" name="q32" value="B"> B) Views</label>
+                    <label><input type="radio" name="q32" value="C"> C) Display modes and Layout Builder</label>
+                    <label><input type="radio" name="q32" value="D"> D) Menu system</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="A">
+                <p class="question-text">33. You need to modify how a particular field is displayed across all content types. Where is the most efficient place to make this change?</p>
+                <div class="options">
+                    <label><input type="radio" name="q33" value="A"> A) Create a field template override (field--field-name.html.twig)</label>
+                    <label><input type="radio" name="q33" value="B"> B) Modify each content type's display settings individually</label>
+                    <label><input type="radio" name="q33" value="C"> C) Edit the CSS for the field</label>
+                    <label><input type="radio" name="q33" value="D"> D) Use JavaScript to alter the field's appearance</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="D">
+                <p class="question-text">34. Your client wants to allow users to filter content by multiple taxonomy terms simultaneously. Which Views filter configuration would you use?</p>
+                <div class="options">
+                    <label><input type="radio" name="q34" value="A"> A) Set the filter to "Is one of"</label>
+                    <label><input type="radio" name="q34" value="B"> B) Use a contextual filter</label>
+                    <label><input type="radio" name="q34" value="C"> C) Create a separate view for each taxonomy</label>
+                    <label><input type="radio" name="q34" value="D"> D) Use an exposed filter with "Allow multiple selections"</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="B">
+                <p class="question-text">35. You need to implement a custom theme suggestion for all article nodes that have a specific tag. How would you achieve this?</p>
+                <div class="options">
+                    <label><input type="radio" name="q35" value="A"> A) Edit node.html.twig to check for the tag</label>
+                    <label><input type="radio" name="q35" value="B"> B) Implement hook_theme_suggestions_node_alter() in your theme</label>
+                    <label><input type="radio" name="q35" value="C"> C) Create a node--article--tag.html.twig template</label>
+                    <label><input type="radio" name="q35" value="D"> D) Use the Template Suggestions module</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="C">
+                <p class="question-text">36. You're configuring a View that needs to display content based on the current user's role. What approach would you take?</p>
+                <div class="options">
+                    <label><input type="radio" name="q36" value="A"> A) Use a regular filter based on the user's role</label>
+                    <label><input type="radio" name="q36" value="B"> B) Create different views for each role</label>
+                    <label><input type="radio" name="q36" value="C"> C) Use a contextual filter with the Current user's roles default value</label>
+                    <label><input type="radio" name="q36" value="D"> D) Write a custom module to filter the view results</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="A">
+                <p class="question-text">37. Your Drupal site is using Composer for dependency management. Which file should you modify to add a new contributed module?</p>
+                <div class="options">
+                    <label><input type="radio" name="q37" value="A"> A) composer.json</label>
+                    <label><input type="radio" name="q37" value="B"> B) package.json</label>
+                    <label><input type="radio" name="q37" value="C"> C) settings.php</label>
+                    <label><input type="radio" name="q37" value="D"> D) modules.yml</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="B">
+                <p class="question-text">38. You want to implement a custom block that displays differently based on the page it appears on. What is the best way to make the current page context available to your block?</p>
+                <div class="options">
+                    <label><input type="radio" name="q38" value="A"> A) Use global variables</label>
+                    <label><input type="radio" name="q38" value="B"> B) Inject the current_route_match service</label>
+                    <label><input type="radio" name="q38" value="C"> C) Pass page data through the URL</label>
+                    <label><input type="radio" name="q38" value="D"> D) Use cookies to store page information</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="D">
+                <p class="question-text">39. You're working with an existing Drupal 10 site and need to add a new database table for custom functionality. What is the proper way to create this table?</p>
+                <div class="options">
+                    <label><input type="radio" name="q39" value="A"> A) Use phpMyAdmin to create the table directly</label>
+                    <label><input type="radio" name="q39" value="B"> B) Use drush sql-query to run a CREATE TABLE statement</label>
+                    <label><input type="radio" name="q39" value="C"> C) Modify the site's database schema in settings.php</label>
+                    <label><input type="radio" name="q39" value="D"> D) Implement hook_schema() in a .install file</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="C">
+                <p class="question-text">40. Your client needs specific pages to have custom meta tags for SEO purposes. What's the most efficient way to implement this?</p>
+                <div class="options">
+                    <label><input type="radio" name="q40" value="A"> A) Add meta tags directly to html.html.twig</label>
+                    <label><input type="radio" name="q40" value="B"> B) Write a custom JavaScript solution</label>
+                    <label><input type="radio" name="q40" value="C"> C) Use the Metatag module with per-node configuration</label>
+                    <label><input type="radio" name="q40" value="D"> D) Implement hook_page_attachments() in a custom module</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="topic-page">
+            <h2>Next.js and Headless Drupal</h2>
+
+            <div class="question-container" data-correct-answer="A">
+                <p class="question-text">41. In a Next.js application consuming Drupal's JSON:API, you want to implement client-side form validation. Which approach is most efficient?</p>
+                <div class="options">
+                    <label><input type="radio" name="q41" value="A"> A) Use React Hook Form with Yup or Zod validation</label>
+                    <label><input type="radio" name="q41" value="B"> B) Write custom validation functions from scratch</label>
+                    <label><input type="radio" name="q41" value="C"> C) Send all validation requests to the Drupal backend</label>
+                    <label><input type="radio" name="q41" value="D"> D) Use jQuery Validate</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="B">
+                <p class="question-text">42. You're fetching data from Drupal's JSON:API in your Next.js app and need to transform the response structure. Where is the best place to perform this transformation?</p>
+                <div class="options">
+                    <label><input type="radio" name="q42" value="A"> A) In each component that uses the data</label>
+                    <label><input type="radio" name="q42" value="B"> B) In a centralized data fetching utility function</label>
+                    <label><input type="radio" name="q42" value="C"> C) Modify Drupal's JSON:API output format</label>
+                    <label><input type="radio" name="q42" value="D"> D) Use client-side JavaScript to transform the data after rendering</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="C">
+                <p class="question-text">43. In your Next.js App Router application, you need to implement a feature that requires access to request cookies. Where should you place this code?</p>
+                <div class="options">
+                    <label><input type="radio" name="q43" value="A"> A) In a client component using the 'use client' directive</label>
+                    <label><input type="radio" name="q43" value="B"> B) In a useEffect hook within any component</label>
+                    <label><input type="radio" name="q43" value="C"> C) In a server component or Server Action</label>
+                    <label><input type="radio" name="q43" value="D"> D) In an API route within the pages directory</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="D">
+                <p class="question-text">44. You're building a headless Drupal site with Next.js and need to handle user authentication. What's the most secure approach?</p>
+                <div class="options">
+                    <label><input type="radio" name="q44" value="A"> A) Store user credentials in localStorage</label>
+                    <label><input type="radio" name="q44" value="B"> B) Use basic authentication for all API requests</label>
+                    <label><input type="radio" name="q44" value="C"> C) Store tokens in URL parameters</label>
+                    <label><input type="radio" name="q44" value="D"> D) Use JWT or OAuth with secure HTTP-only cookies</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="B">
+                <p class="question-text">45. You want to optimize image loading in your Next.js app that displays images from Drupal. What's the best approach?</p>
+                <div class="options">
+                    <label><input type="radio" name="q45" value="A"> A) Use regular img tags with src pointing to Drupal</label>
+                    <label><input type="radio" name="q45" value="B"> B) Use Next.js Image component with appropriate loading strategies</label>
+                    <label><input type="radio" name="q45" value="C"> C) Manually implement lazy loading with JavaScript</label>
+                    <label><input type="radio" name="q45" value="D"> D) Preload all images during build time</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="A">
+                <p class="question-text">46. When implementing internationalization in a Next.js app with Drupal as the backend, where should translations be managed?</p>
+                <div class="options">
+                    <label><input type="radio" name="q46" value="A"> A) Content translations in Drupal, UI translations in Next.js</label>
+                    <label><input type="radio" name="q46" value="B"> B) All translations in Drupal only</label>
+                    <label><input type="radio" name="q46" value="C"> C) All translations in Next.js only</label>
+                    <label><input type="radio" name="q46" value="D"> D) Use a third-party translation service for both</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="C">
+                <p class="question-text">47. You're implementing a search feature in your Next.js app that queries Drupal's JSON:API. What should you consider for optimal performance?</p>
+                <div class="options">
+                    <label><input type="radio" name="q47" value="A"> A) Fetch all content at build time and search client-side</label>
+                    <label><input type="radio" name="q47" value="B"> B) Implement search as a Client Component only</label>
+                    <label><input type="radio" name="q47" value="C"> C) Use debouncing and consider a specialized search module in Drupal</label>
+                    <label><input type="radio" name="q47" value="D"> D) Avoid filtering in Drupal; always send complete datasets</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="D">
+                <p class="question-text">48. In your headless Drupal setup, editors need to preview content before publishing. What's a viable approach?</p>
+                <div class="options">
+                    <label><input type="radio" name="q48" value="A"> A) Preview is not possible in headless setups</label>
+                    <label><input type="radio" name="q48" value="B"> B) Editors must use the traditional Drupal frontend</label>
+                    <label><input type="radio" name="q48" value="C"> C) Create a separate preview environment for every content piece</label>
+                    <label><input type="radio" name="q48" value="D"> D) Implement a preview route in Next.js that fetches unpublished content via authentication</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="B">
+                <p class="question-text">49. Your Next.js app needs to handle form submissions that create content in Drupal. What's the best practice for implementing this?</p>
+                <div class="options">
+                    <label><input type="radio" name="q49" value="A"> A) Send form data directly from the client browser to Drupal's JSON:API</label>
+                    <label><input type="radio" name="q49" value="B"> B) Submit to a Next.js API route that validates and forwards the request to Drupal</label>
+                    <label><input type="radio" name="q49" value="C"> C) Use iframe submission to the traditional Drupal form</label>
+                    <label><input type="radio" name="q49" value="D"> D) Store submissions in localStorage and sync periodically</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="C">
+                <p class="question-text">50. Which approach would you recommend for handling redirects in a headless Drupal + Next.js setup?</p>
+                <div class="options">
+                    <label><input type="radio" name="q50" value="A"> A) Manage all redirects in Drupal's .htaccess file</label>
+                    <label><input type="radio" name="q50" value="B"> B) Use client-side JavaScript redirects</label>
+                    <label><input type="radio" name="q50" value="C"> C) Store redirects in Drupal and expose them via JSON:API, implement them in Next.js</label>
+                    <label><input type="radio" name="q50" value="D"> D) Use iframe-based solutions to handle all redirects</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="topic-page">
+            <h2>Advanced Development Topics</h2>
+
+            <div class="question-container" data-correct-answer="B">
+                <p class="question-text">51. You need to implement a custom field formatter in Drupal. Which plugin annotation should you use?</p>
+                <div class="options">
+                    <label><input type="radio" name="q51" value="A"> A) @FieldFormatter</label>
+                    <label><input type="radio" name="q51" value="B"> B) @Plugin(id = "field_formatter")</label>
+                    <label><input type="radio" name="q51" value="C"> C) @Formatter</label>
+                    <label><input type="radio" name="q51" value="D"> D) @CustomFormatter</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="A">
+                <p class="question-text">52. Your Drupal module needs to alter the behavior of another module's form. Which hook should you implement?</p>
+                <div class="options">
+                    <label><input type="radio" name="q52" value="A"> A) hook_form_FORM_ID_alter()</label>
+                    <label><input type="radio" name="q52" value="B"> B) hook_alter_form()</label>
+                    <label><input type="radio" name="q52" value="C"> C) hook_modify_form()</label>
+                    <label><input type="radio" name="q52" value="D"> D) hook_form_change()</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="C">
+                <p class="question-text">53. You need to execute code when a specific entity type is saved. Which hook should you implement?</p>
+                <div class="options">
+                    <label><input type="radio" name="q53" value="A"> A) hook_entity_save()</label>
+                    <label><input type="radio" name="q53" value="B"> B) hook_save_entity()</label>
+                    <label><input type="radio" name="q53" value="C"> C) hook_entity_presave() or hook_entity_update()</label>
+                    <label><input type="radio" name="q53" value="D"> D) hook_entity_after_save()</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="D">
+                <p class="question-text">54. You're implementing a custom REST endpoint in Drupal. Which module provides the foundation for this?</p>
+                <div class="options">
+                    <label><input type="radio" name="q54" value="A"> A) Services</label>
+                    <label><input type="radio" name="q54" value="B"> B) Views</label>
+                    <label><input type="radio" name="q54" value="C"> C) API</label>
+                    <label><input type="radio" name="q54" value="D"> D) RESTful Web Services (rest)</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="B">
+                <p class="question-text">55. You want to create a new entity type in Drupal. Which interface must your entity class implement?</p>
+                <div class="options">
+                    <label><input type="radio" name="q55" value="A"> A) DrupalEntityInterface</label>
+                    <label><input type="radio" name="q55" value="B"> B) ContentEntityInterface or ConfigEntityInterface</label>
+                    <label><input type="radio" name="q55" value="C"> C) EntityTypeInterface</label>
+                    <label><input type="radio" name="q55" value="D"> D) CustomEntityInterface</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="C">
+                <p class="question-text">56. In Next.js with the App Router, how do you properly handle protected routes that require authentication?</p>
+                <div class="options">
+                    <label><input type="radio" name="q56" value="A"> A) Use the deprecated getServerSideProps for all authentication</label>
+                    <label><input type="radio" name="q56" value="B"> B) Authentication is not possible with the App Router</label>
+                    <label><input type="radio" name="q56" value="C"> C) Use middleware.ts and Server Components to check authentication status</label>
+                    <label><input type="radio" name="q56" value="D"> D) Only use client-side redirects based on authentication state</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="A">
+                <p class="question-text">57. You need to create a custom block plugin in Drupal. Which PHP attribute or annotation is required?</p>
+                <div class="options">
+                    <label><input type="radio" name="q57" value="A"> A) @Block or #[Block]</label>
+                    <label><input type="radio" name="q57" value="B"> B) @CustomBlock</label>
+                    <label><input type="radio" name="q57" value="C"> C) @BlockPlugin</label>
+                    <label><input type="radio" name="q57" value="D"> D) @Module</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="B">
+                <p class="question-text">58. In Drupal, which pattern is recommended for injecting services into a class?</p>
+                <div class="options">
+                    <label><input type="radio" name="q58" value="A"> A) Global service locator</label>
+                    <label><input type="radio" name="q58" value="B"> B) Constructor dependency injection</label>
+                    <label><input type="radio" name="q58" value="C"> C) Service inheritance</label>
+                    <label><input type="radio" name="q58" value="D"> D) Static method calls</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="D">
+                <p class="question-text">59. You're building a Drupal module that needs to perform actions when specific events occur in the system. Which Drupal component should you use?</p>
+                <div class="options">
+                    <label><input type="radio" name="q59" value="A"> A) Action API</label>
+                    <label><input type="radio" name="q59" value="B"> B) Trigger module</label>
+                    <label><input type="radio" name="q59" value="C"> C) Rules module</label>
+                    <label><input type="radio" name="q59" value="D"> D) Event Subscriber system</label>
+                </div>
+            </div>
+
+            <div class="question-container" data-correct-answer="C">
+                <p class="question-text">60. What is the recommended way to handle and display errors in a Next.js application consuming Drupal's JSON:API?</p>
+                <div class="options">
+                    <label><input type="radio" name="q60" value="A"> A) Let the browser handle error display</label>
+                    <label><input type="radio" name="q60" value="B"> B) Always redirect to a 404 page for any error</label>
+                    <label><input type="radio" name="q60" value="C"> C) Implement error.js files and centralized error handling utilities</label>
+                    <label><input type="radio" name="q60" value="D"> D) Display raw error messages to the user</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkAnswersBtn = document.getElementById('check-answers');
+            const resetQuizBtn = document.getElementById('reset-quiz');
+            const scoreDisplay = document.getElementById('score-display');
+            const scoreElement = document.getElementById('score');
+            const totalQuestionsElement = document.getElementById('total-questions');
+
+            const questionContainers = document.querySelectorAll('.question-container');
+            totalQuestionsElement.textContent = questionContainers.length;
+
+            // Add event listeners to all radio buttons for immediate feedback
+            questionContainers.forEach(function(container) {
+                const radios = container.querySelectorAll('input[type="radio"]');
+                const correctAnswer = container.getAttribute('data-correct-answer');
+                
+                radios.forEach(function(radio) {
+                    radio.addEventListener('change', function() {
+                        // Reset previous marking
+                        container.classList.remove('correct', 'incorrect');
+                        
+                        if (radio.checked) {
+                            if (radio.value === correctAnswer) {
+                                container.classList.add('correct');
+                            } else {
+                                container.classList.add('incorrect');
+                            }
+                        }
+                    });
+                });
+            });
+
+            checkAnswersBtn.addEventListener('click', function() {
+                let score = 0;
+
+                questionContainers.forEach(function(container) {
+                    const correctAnswer = container.getAttribute('data-correct-answer');
+                    const selectedOption = container.querySelector('input[type="radio"]:checked');
+
+                    // Reset previous marking
+                    container.classList.remove('correct', 'incorrect');
+
+                    if (selectedOption) {
+                        if (selectedOption.value === correctAnswer) {
+                            container.classList.add('correct');
+                            score++;
+                        } else {
+                            container.classList.add('incorrect');
+                        }
+                    } else {
+                        container.classList.add('incorrect');
+                    }
+                });
+
+                scoreElement.textContent = score;
+                checkAnswersBtn.style.display = 'none';
+                resetQuizBtn.style.display = 'block';
+
+                // Calculate percentage for grading
+                const percentage = (score / questionContainers.length) * 100;
+                let grade = '';
+
+                if (percentage >= 90) {
+                    grade = 'A (Excellent)';
+                } else if (percentage >= 80) {
+                    grade = 'B (Good)';
+                } else if (percentage >= 70) {
+                    grade = 'C (Satisfactory)';
+                } else if (percentage >= 60) {
+                    grade = 'D (Needs Improvement)';
+                } else {
+                    grade = 'F (Fail)';
+                }
+
+                scoreDisplay.innerHTML = `Your Score: <span id="score">${score}</span> / <span id="total-questions">${questionContainers.length}</span> (${percentage.toFixed(1)}%) - Grade: ${grade}`;
+                document.body.style.backgroundColor = '#e6ffe6'; // Change background color
+            });
+
+            resetQuizBtn.addEventListener('click', function() {
+                questionContainers.forEach(function(container) {
+                    container.classList.remove('correct', 'incorrect');
+                    const radios = container.querySelectorAll('input[type="radio"]');
+                    radios.forEach(radio => radio.checked = false);
+                });
+
+                scoreElement.textContent = '0';
+                scoreDisplay.innerHTML = `Your Score: <span id="score">0</span> / <span id="total-questions">${questionContainers.length}</span>`;
+                document.body.style.backgroundColor = '#f5f5f5'; // Reset background color
+
+                checkAnswersBtn.style.display = 'block';
+                resetQuizBtn.style.display = 'none';
+            });
+        });
+    </script>
+</div>
+
+</body>
+</html>
